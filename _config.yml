@@ -1,39 +1,12 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-markdown:            rdiscount
-permalink:           /:year/:month/:day/:title/
-
-# Setup
-title:               Bit of A Byte
-tagline:             Bit of A Byte
-#description:         My name is Natalie, and I make it a habit to take apart hardware and software that I don't have any business taking apart.
-url:                 http://zyradyl.github.io
-paginate:            5
-baseurl:             "/"
-
-# Assets
-#
-# We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
-
-# About/contact
+title:        Did
+tagline:      'A Jekyll theme, with personalities'
+description:  'Did is a <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme with multiple personalities: the content, and the chrome. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:          http://andhyde.com
+version:      1.0.0
 author:
-  name:              Natalie M. Spencer
-  url:               https://twitter.com/zyradyl
-  email:             zyradyrad@gmail.com
-
-# Custom vars
-version:             0.2.0
-github:
-  repo:              https://github.com/zyradyl/zyradyl.github.io
-
-pages_list:
-  About: /about
-  Archive: /archive
-  Tags: /tags
-  Feed: /atom.xml
-
-exclude: [vendor]
+  name:       ''
+  email:      ''
+markdown:     rdiscount
+permalink:    pretty
+pygments:     true
+paginate:     5
