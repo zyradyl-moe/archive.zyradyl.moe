@@ -133,6 +133,9 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (= 39)
+  jekyll-redirect-from
+  jekyll-sitemap
+  jemoji
   json
 
 BUNDLED WITH
