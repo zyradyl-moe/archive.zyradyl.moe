@@ -12,8 +12,8 @@ tags:
 - Tutorials
 ---
 * [Icinga2 Tutorial: Part 0][1]
-<!-- * [Icinga2 Tutorial: Part 2][2] -->
-<!-- * [Icinga2 Tutorial: Part 3][3] -->
+* Icinga2 Tutorial: Part 2
+* Icinga2 Tutorial: Part 3
 
 # Introduction #
 I wanted to get this out fairly quickly, because I just actually did this, and

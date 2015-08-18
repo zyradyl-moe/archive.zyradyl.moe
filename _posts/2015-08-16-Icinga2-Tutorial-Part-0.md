@@ -12,9 +12,8 @@ tags:
 - Tutorials
 ---
 * [Icinga2 Tutorial: Part 1][1]
-<!-- These two aren't ready yet and jekyll will fail to build. -->
-<!-- * [Icinga2 Tutorial: Part 2][2] -->
-<!-- * [Icinga2 Tutorial: Part 3][3] -->
+* Icinga2 Tutorial: Part 2
+* Icinga2 Tutorial: Part 3
 
 Introduction
 ============
