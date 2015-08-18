@@ -197,7 +197,7 @@ configuring icinga to speak to simple hosts.
 [20]: https://en.wikipedia.org/wiki/Apache_HTTP_Server "Wikipedia: Apache2"
 [21]: https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol "Wikipedia: LDAP"
 [22]: https://en.wikipedia.org/wiki/PHP "Wikipedia: PHP"
-[23]: https://en.wikipedia.org/wiki/ImageMagick "Wikipedia: ImageMagick"https://wiki.archlinux.org/index.php/Users_and_groups
+[23]: https://en.wikipedia.org/wiki/ImageMagick "Wikipedia: ImageMagick"
 [29]: https://en.wikipedia.org/wiki/Runlevel "Wikipedia: Runlevels"
 [30]: http://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html "pg_hba.conf Official Documentation"
 [31]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#configuring-db-ido-postgresql "Icinga2 IDO SQL Official Docmentation"
