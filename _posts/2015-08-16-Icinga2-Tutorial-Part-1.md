@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Icinga2 Tutorial: Part 1 - Network Monitoring for the Masses."
+title: "Icinga2 Tutorial: Part 1 - Installation and Configuration."
 date: 2015-08-16 02:00:00 -05:00
 license: cc0
 categories:
