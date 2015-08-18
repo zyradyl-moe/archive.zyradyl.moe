@@ -49,3 +49,6 @@ body {
 .author a {
     color: #ee4444;
 }
+
+#tagcloud { font-size:.9em;  }
+.tags li { display:inline; padding:0 4px; background:#EEE;}
