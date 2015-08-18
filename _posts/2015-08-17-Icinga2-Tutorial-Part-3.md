@@ -19,4 +19,4 @@ tags:
 
 [1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
 [2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
-[3]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
+[3]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
