@@ -1,14 +1,15 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           :year/:month/:day/:title
+markdown:            rdiscount
+permalink:           /:year/:month/:day/:title/
 relative_permalinks: true
 
 # Setup
 title:               Bit of A Byte
 tagline:             Testing
 url:                 http://zyradyl.github.io
-paginate:            1
+paginate:            5
 baseurl:             ""
 
 # Assets
@@ -25,6 +26,6 @@ author:
   email:             zyradyrad@gmail.com
 
 # Custom vars
-version:             2.0.0
+version:             0.2.0
 github:
   repo:              https://github.com/poole/poole
