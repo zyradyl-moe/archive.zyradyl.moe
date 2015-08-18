@@ -2,6 +2,7 @@
 layout: post
 title: "Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses."
 date: 2015-08-16 01:00:00 -05:00
+license: cc0
 categories:
 - Icinga2
 - Network Monitoring
