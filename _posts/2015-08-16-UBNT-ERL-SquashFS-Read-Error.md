@@ -2,7 +2,7 @@
 layout: post
 title: "Ubiquiti EdgeRouter Lite SquashFS Block Read Error: Part 1"
 license: cc0
-date: 2015-08-16 00:00:00
+date: 2015-08-16 00:00:00 -05:00
 categories:
 - Ubiquiti
 - EdgeRouter

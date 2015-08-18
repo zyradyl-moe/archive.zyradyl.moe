@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Blog Posts By Tag
+layout: default
 ---
 
 <h1>Tags</h1>
