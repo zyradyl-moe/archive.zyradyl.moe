@@ -39,16 +39,18 @@ extreme amount of efficiency.
 As for the style of computer user I am, I believe it can be summed up by a
 small list of view points:
 
- * My favourite processor is [SPARC][1]. This is followed by [MIPS][2], [AVR32][3], [ARM][4], and
-   last and certainly least, [x86 and x64][5]. The last x86 processor I actually
-   liked was when [Cyrix][6] [reverse engineered][7] [Intel's Pentium][8] via
-   [clean room engineering][9] and produced a faster processor, which Intel
+ * My favourite processor is [SPARC][1]. This is followed by [MIPS][2],
+   [AVR32][3], [ARM][4], and last and certainly least, [x86 and x64][5]. The
+   last x86 processor I actually liked was when [Cyrix][6]
+   [reverse engineered][7] [Intel's Pentium][8] via [clean room engineering][9]
+   and produced a faster processor, which Intel
    [then stole and made into the Pentium Pro.][10]
- * I think [microkernels][11] are the golden standard of should be implemented in an
-   operating system design.
+ * I think [microkernels][11] are the golden standard of what should be
+   implemented in an operating system design.
  * [Modular kernels][12] are the worst thing to ever happen to security. (I
    will be nice and not go into the fragmentation penalty.)
- * [Dynamic linking][13] is [one of the worst things to ever happen to programming][14].
+ * [Dynamic linking][13] is
+   [one of the worst things to ever happen to programming][14].
    ([Library Symbol Versioning Hell][15])
  * [SystemD][16] is the worst thing to ever happen to [Linux][17], and that's
    [saying something][18]. (GNU is Not Usable)
@@ -59,17 +61,17 @@ small list of view points:
  * [DragonFlyBSD][20] is the most exciting operating system of today.
  * [NetBSD][21] should be the standard of Embedded System Development.
  * [GPL][22] is just as bad, if not worse, than standard copyright.
- * [GPLv3][23] is the [single][24] [most][25] [terrifying][26] [thing][27] to ever happen to GNU, and that
-   is [REALLY saying something][28].
+ * [GPLv3][23] is the [single][24] [most][25] [terrifying][26] [thing][27]
+   to ever happen to GNU, and that is [REALLY saying something][28].
  * "There are two ways of constructing a software design: One way is to make it
    so simple that there are obviously no deficiencies and the other way is to
    make it so complicated that there are no obvious deficiencies." ~ C.A.R.
    Hoare.
       - I believe [Object Oriented Code][29] is the latter. (OOPs..)
  * It is highly likely that the days of good code are over, because when
-   given the choice between easy and terrible ([Java][30], [Python][31], [Ruby][32]) versus
-   hard but stable ([LISP][33],[C][34],[Go][35]) the entire [computer science][36] world has
-   embraced the first.
+   given the choice between easy and terrible ([Java][30], [Python][31],
+   [Ruby][32]) versus hard but stable ([LISP][33],[C][34],[Go][35]) the entire
+   [computer science][36] world has embraced the first.
  * I don't believe that just because you have a 1TB Hard Drive that you can
    justify or allow a 16+ Gigabyte operating system.
  * I don't believe just because you have CPU cycles you should waste them
