@@ -12,8 +12,9 @@ tags:
 - Tutorials
 ---
 * [Icinga2 Tutorial: Part 1][1]
-* [Icinga2 Tutorial: Part 2][2]
-* [Icinga2 Tutorial: Part 3][3]
+<!-- These two aren't ready yet and jekyll will fail to build. -->
+<!-- * [Icinga2 Tutorial: Part 2][2] -->
+<!-- * [Icinga2 Tutorial: Part 3][3] -->
 
 Introduction
 ============
@@ -77,8 +78,8 @@ I do plan to branch off into [Netflow][19] at some point. So you can expect
 that in the future.
 
 [1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
-[2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
-[3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
+<!-- [2]:  % post_url 2015-08-16-Icinga2-Tutorial-Part-2 % "Icinga2 Tutorial Part 2" -->
+<!-- [3]:  % post_url 2015-08-17-Icinga2-Tutorial-Part-3 % "Icinga2 Tutorial Part 3" -->
 [4]:  https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol "Wikipedia: SNMP"
 [5]:  https://en.wikipedia.org/wiki/Management_information_base "Wikipedia: MIB"
 [6]:  https://en.wikipedia.org/wiki/Command-line_interface "Wikipedia: CLI"
