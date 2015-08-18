@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: page
+title: Tag Listing
 ---
 
 <h1>Tags</h1>
