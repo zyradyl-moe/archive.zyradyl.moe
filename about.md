@@ -2,6 +2,10 @@
 layout: page
 title: About
 ---
+
+> **“And folks, let’s be honest. Sturgeon was an optimist. Way more than
+> 90% of code is crap.”** ~ *Al Viro*
+
 ## Character Statistics ##
 **Name:**       Natalie Spencer  
 **Level:**      26  
