@@ -1,44 +1,30 @@
-# Jekyll configuration
-
-name: Bit of a Byte
-description: My name is Natalie. I am a 26 year old who spends most of her time taking apart software and hardware I have no business taking apart. Professionally, I'm a pharmacist. All the posts that I write here are licensed under the Creative Commons Zero Public Domain license unless otherwise noted.
-
-# url is currently only used only for the RSS feed in feed.xml
-url: http://zyradyl.github.io
-
-# baseurl will often be '', but for a project page on gh-pages, it needs to
-# be the project name.
-# *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
-#     run it like so: jekyll serve --baseurl=''
-baseurl:
-
-# This can be '' to hide the Github nav button
-github: 'zyradyl/zyradyl.github.io'
-
-# Set this to your UA-# value, or '' to disable the block completely
-gaaccount: ''
-
-# Set this to your disqus shortname to enable comments. Note that the 'comments'
-# setting below must also be true. Individual posts can override 'comments' to
-# disable on a post-by-post basis
-disqus: ''
-comments: true
-
-permalink: /:year/:month/:day/:title
-paginate: 3
-
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-
-exclude: ['README.md', 'LICENSE']
-
+# Permalinks
 #
-# Gem includes
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Bit of A Byte
+tagline:             Testing
+url:                 http://zyradyl.github.io
+paginate:            1
+baseurl:             ""
+
+# Assets
 #
-gems:
- - jekyll-mentions
- - jemoji
- - jekyll-redirect-from
- - jekyll-sitemap
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Natalie M. Spencer
+  url:               https://twitter.com/zyradyl
+  email:             zyradyrad@gmail.com
+
+# Custom vars
+version:             2.0.0
+github:
+  repo:              https://github.com/poole/poole
