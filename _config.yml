@@ -7,7 +7,7 @@ relative_permalinks: true
 
 # Setup
 title:               Bit of A Byte
-tagline:             Testing
+description:         My name is Natalie, and I make it a habit to take apart hardware and software that I don't have any business taking apart.
 url:                 http://zyradyl.github.io
 paginate:            5
 baseurl:             ""
@@ -28,4 +28,4 @@ author:
 # Custom vars
 version:             0.2.0
 github:
-  repo:              https://github.com/poole/poole
+  repo:              https://github.com/zyradyl/zyradyl.github.io
