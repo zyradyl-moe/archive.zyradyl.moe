@@ -7,6 +7,7 @@ relative_permalinks: true
 
 # Setup
 title:               Bit of A Byte
+tagline:             Bit of A Byte
 description:         My name is Natalie, and I make it a habit to take apart hardware and software that I don't have any business taking apart.
 url:                 http://zyradyl.github.io
 paginate:            5
