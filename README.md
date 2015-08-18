@@ -41,6 +41,14 @@ The content of this theme is distributed and licensed under a
 # Hyde
 This blog uses the theme hyde based on poole.
 
+## Development
+
+Hyde has two branches, but only one is used for active development.
+
+- `master` for development.  **All pull requests should be submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+
+
 ## Author
 **Mark Otto**
 <https://github.com/mdo>
