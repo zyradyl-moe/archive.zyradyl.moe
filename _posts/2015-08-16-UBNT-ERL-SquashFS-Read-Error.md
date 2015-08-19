@@ -5,17 +5,11 @@ license: cc0
 date: 2015-08-16 00:00:00 -05:00
 categories:
 - Ubiquiti
-- EdgeRouter
 - EdgeOS
-- Vyatta
-- File Systems
+- Tutorials
 tags:
 - ubiquiti
-- ubnt
-- ERL
 - EdgeRouter
-- EdgeRouter Lite
-- EdgeMax
 - Vyatta
 - EdgeOS
 - Filesystems

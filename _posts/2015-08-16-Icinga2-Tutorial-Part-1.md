@@ -5,12 +5,11 @@ date: 2015-08-16 02:00:00 -05:00
 license: cc0
 categories:
 - Icinga2
-- Network Monitoring
+- Monitoring
+- Tutorials
 tags:
 - Icinga2
 - IcingaWeb2
-- Network Monitoring
-- Tutorials
 ---
 * [Icinga2 Tutorial: Part 0][1]
 * Icinga2 Tutorial: Part 2
