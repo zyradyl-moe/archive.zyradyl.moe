@@ -29,3 +29,5 @@ author:
 version:             0.2.0
 github:
   repo:              https://github.com/zyradyl/zyradyl.github.io
+
+exclude: [vendor]
