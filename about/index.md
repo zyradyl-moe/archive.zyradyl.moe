@@ -87,7 +87,7 @@ small list of view points:
  * Just because everyone uses a software, a software is easy, you are mandated
    to use a software, or the software/protocol is old **does not mean
    you should live in a delusional world about how bad it is.** ([*I'm looking
-   at you,*][40] [SSH][39].*)
+   at you,*][40] [*SSH*][39].)
 
 
    > **"Zyradyl is a 72 year old male Bell Labs Employee trapped in the
