@@ -248,3 +248,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* Tags */
+#tagcloud { font-size:.9em;  }
+.tags li { display:inline; padding:0 4px; background:#EEE;}
