@@ -20,8 +20,8 @@ author:
 
 # Source vars
 version:             0.5.0
-github:              https://github.com/zyradyl
-repo:                https://github.com/zyradyl.github.io
+github:              "https://github.com/zyradyl"
+repo:                "https://github.com/zyradyl/zyradyl.github.io"
 
 # Page Listing
 pages_list:
