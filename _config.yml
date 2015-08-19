@@ -1,22 +1,31 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink:           :year/:month/:day/:title/
 relative_permalinks: true
 
 # Setup
-title:               Lanyon
-tagline:             'A Jekyll theme'
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 http://lanyon.getpoole.com
+title:               Bit of A Byte
+tagline:             "less $(find /var/log -maxdepth 1 -name '*.log' -print | head -n 5)"
+description:         'My name is Natalie and I spend most of my time taking apart things I have no business taking apart.'
+url:                 http://zyradyl.github.io
 baseurl:             ''
 paginate:            5
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              Natalie M. Spencer
+  url:               https://twitter.com/zyradyl
+  email:             nmspencer89@gmail.com
 
-# Custom vars
-version:             1.0.0
+# Source vars
+version:             0.5.0
+github:              https://github.com/zyradyl
+repo:                https://github.com/zyradyl.github.io
+
+# Page Listing
+pages_list:
+  About:             /about
+  Archive:           /archive
+  Tags:              /tags
+  Feed:              /atom.xml

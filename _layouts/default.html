@@ -13,8 +13,8 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
+            <small><a href="http://127.0.0.1">$USER</a>@<a href="{{ site.baseurl }}/" title="Home">{{ site.title | downcase | replace:" ","-" }}</a>
+             ~ $ {{ site.tagline }}</small>
           </h3>
         </div>
       </div>
