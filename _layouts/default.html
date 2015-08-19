@@ -13,8 +13,20 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
+            {% if page.url contains 'page' %}
+                {% assign number = page.url | remove: site.url | remove: 'page' | remove: '/' | replace: ' ','-' | remove: "index.html" %}
+            <small><a href="http://127.0.0.1">$USER</a>@<a href="{{ site.baseurl }}/" title="Home">{{ site.title | downcase | replace:" ","-" }}</a>
+         ~ $ cat $(find /var/log -name '*.log' -print | awk 'NR>{{ number | minus: '1' | times: '3' }}&&NR<={{ number | times: '3' }}')</small>
+            {% elsif page.title == 'Home' %}
             <small><a href="http://127.0.0.1">$USER</a>@<a href="{{ site.baseurl }}/" title="Home">{{ site.title | downcase | replace:" ","-" }}</a>
              ~ $ {{ site.tagline }}</small>
+             {% elsif page.url contains '20' %}
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="{{ site.baseurl }}/" title="Home">{{ site.title | downcase | replace:" ","-" }}</a>
+              ~ $ cat /var/log/{{ page.title | remove: ' -' | downcase | remove: ':' | replace: ' ','-' | remove: "." }}.log</small>
+              {% else %}
+                <small><a href="http://127.0.0.1">$USER</a>@<a href="{{ site.baseurl }}/" title="Home">{{ site.title | downcase | replace:" ","-" }}</a>
+             ~ $ cat /var/log/pages/{{ page.title | downcase | replace:' ','-' | remove: '.' }}.md</small>
+              {% endif %}
           </h3>
         </div>
       </div>

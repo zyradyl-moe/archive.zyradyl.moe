@@ -6,11 +6,11 @@ relative_permalinks: true
 
 # Setup
 title:               Bit of A Byte
-tagline:             "less $(find /var/log -maxdepth 1 -name '*.log' -print | head -n 5)"
+tagline:             "cat $(find /var/log -name '*.log' -print | head -n 3)"
 description:         'My name is Natalie and I spend most of my time taking apart things I have no business taking apart.'
 url:                 http://zyradyl.github.io
 baseurl:             ''
-paginate:            5
+paginate:            3
 
 # About/contact
 author:
