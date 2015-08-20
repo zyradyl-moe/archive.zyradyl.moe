@@ -18,11 +18,11 @@ tags:
 
 # Master Host Configuration #
 So in our last part we focused on getting your machine set up as the
-[Icinga2 master controller][4]. Now we can focus on getting interoperability setup. As
-always, this tutorial assumes you are sudo’d as root. You can do this by
-running “[sudo -s][5]”.
+[Icinga2 master controller][4]. Now we can focus on getting interoperability
+setup. As always, this tutorial assumes you are sudo’d as root. You can do this
+by running “[sudo -s][5]”. Then we need to set ourselves up as the master node
+on our network.
 
-First, we need to set ourselves up as a master node.
     captor zyradyl # icinga2 node wizard
     Welcome to the Icinga 2 Setup Wizard!
 
@@ -57,8 +57,8 @@ First, we need to set ourselves up as a master node.
     captor zyradyl #
 
 Note that in your case, you may see one or two warning messages, but if it
-pertains to files already existing, don' worry about it, I also clipped all the
-output that [Icinga2][6] spits out when it restarts in order to save space.
+pertains to files already existing, don't worry about it, I also clipped all
+the output that [Icinga2][6] spits out when it restarts in order to save space.
 These posts are long enough as it is. After restarting, if you check the
 [website for your master node][7], you will see a whole bunch of new
 information. This has also established the [certificates][8] the
