@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Icinga2 Tutorial: Part 2 - Agent-less Checks."
+title: "Icinga2 Tutorial: Part 2 - Agent-Less Checks"
 date: 2015-08-16 03:00:00 -05:00
 license: cc0
 categories:
@@ -12,11 +12,11 @@ tags:
 - Network Monitoring
 - Tutorials
 ---
-* [Icinga2 Tutorial: Part 0][1]
-* [Icinga2 Tutorial: Part 1][2]
-* Icinga2 Tutorial: Part 3
+* [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
+* [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
+* [Icinga2 Tutorial: Part 3 - Agent-Based Checks][3]
 
-# Master Host Configuration #
+## Master Host Configuration ##
 So in our last part we focused on getting your machine set up as the
 [Icinga2 master controller][4]. Now we can focus on getting interoperability
 setup. As always, this tutorial assumes you are sudo’d as root. You can do this
@@ -64,7 +64,7 @@ These posts are long enough as it is. After restarting, if you check the
 information. This has also established the [certificates][8] the
 [icinga2 protocol][9] uses for security.
 
-# Host Monitoring #
+## Host Monitoring ##
 Now, while it is nice to have access to the Icinga protocol, in our case we
 will be working with devices that do not make the option of installing Icinga
 possible. Instead, we will be monitoring through four different
@@ -153,7 +153,7 @@ but the HTTPS server going down is a much bigger deal.
 You can see the
 [configuration of the monitoring setup for my core router here][29].
 
-# External Resources: #
+## External Resources: ##
 * [Icinga2 Monitoring Remote Systems: Agentless Checks][30]
 * [Icinga2 Monitoring Basics: Hosts and Services][31]
 * [Icinga2 Plugin Check Commands: SSH][32]
@@ -164,7 +164,7 @@ You can see the
 
 [1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
 [2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
-<!-- [3]: % post_url 2015-08-17-Icinga2-Tutorial-Part-3 % "Icinga2 Tutorial Part 3" -->
+[3]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
 [4]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/icinga2-client#icinga2-client-installation-master-setup "Icinga2 Official Documentation: Setting up a Master for Data Gathering"
 [5]: http://linux.die.net/man/8/sudo "Manual Page: Sudo"
 [6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Official Documentation"

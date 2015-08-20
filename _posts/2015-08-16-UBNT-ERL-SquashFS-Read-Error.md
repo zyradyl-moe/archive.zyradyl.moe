@@ -17,8 +17,7 @@ tags:
 - squashfs
 ---
 
-Problem Description
-===================
+## Problem Description ##
 Upon booting the [EdgeRouter Lite][1], the system will not boot. Connecting to
 console reveals the following log:
 
@@ -34,8 +33,7 @@ power failure. Due to the failure, parts of the internal [ext3][2] filesystem
 become corrupted, which causes the inability to load the [SquashFS][3] partition
 which contains EdgeOS. The end result, of course, is a non-functional unit.
 
-Problem Severity
-================
+## Problem Severity ##
 There are four potential levels to determining the severity of this issue:
 
 * Can the filesystem be salvaged by [fscking][4] the ext3 partition until it is
@@ -51,20 +49,17 @@ There are four potential levels to determining the severity of this issue:
   (**Severity:** Hardware issue - RMA the device.) If no, (**Severity:** Device
   Replacement.)
 
-Problem Resolution
-==================
+## Problem Resolution ##
 Resolutions will be broken down into two posts, one for each problem the user
 could resolve without warranty work.
 
-Resolution Credits
-------------------
+### Resolution Credits ###
 A special thanks to Ubiquiti for providing a [community support option][7] via
 their official website. Additionally, special thanks to all those users that
 utilize said forum, your information was invaluable in helping me to fix my
 EdgeRouter, and write this article.
 
-Resolution One: Repair the File System
-======================================
+## Resolution One: Repair the File System ##
 This is by far the easiest resolution. Open the EdgeRouter Lite (**Caution:**
 *Your warranty is now void. Depending on how soon you need the device
 back in operation, it may be acceptable for you to void the warranty on a
@@ -169,8 +164,7 @@ If you are still having problems, stick around for part two of this guide, where
 I will be walking you through using a separate host computer to recreate the
 filesystem.
 
-External Links & Resources
-==========================
+## External Links & Resources ##
 [How to Recover an EXT3 Volume with an Unreadable Journal][15]
 
 [1]:  https://www.ubnt.com/edgemax/edgerouter-lite/                                                       "EdgeRouter Lite"

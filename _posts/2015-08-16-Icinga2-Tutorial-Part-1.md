@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Icinga2 Tutorial: Part 1 - Installation and Configuration."
+title: "Icinga2 Tutorial: Part 1 - Installation and Configuration"
 date: 2015-08-16 02:00:00 -05:00
 license: cc0
 categories:
@@ -11,11 +11,11 @@ tags:
 - Icinga2
 - IcingaWeb2
 ---
-* [Icinga2 Tutorial: Part 0][1]
-* [Icinga2 Tutorial: Part 2][2]
-* Icinga2 Tutorial: Part 3
+* [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
+* [Icinga2 Tutorial: Part 2 - Agent-less Checks][2]
+* [Icinga2 Tutorial: Part 3 - Agent-Based Checks][3]
 
-# Introduction #
+## Introduction ##
 I wanted to get this out fairly quickly, because I just actually did this, and
 while the default [Icinga2 tutorial][4] is pretty good, it is lacking in some
 areas, and since everything is fresh in my mind I wanted to go ahead and draft
@@ -69,10 +69,10 @@ Tada! You now have a [data aggregator][39]/network monitor setup! However, we
 want a nice way to get information from our monitoring host, so now we need to
 install the web frontend.
 
-# Installing [IcingaWeb2][17] #
+## Installing [IcingaWeb2][17] ##
 Let’s start with all the essentials.
 
-#### Package Installation ####
+### Package Installation ###
 
     captor zyradyl # apt-get install postgresql icinga2-ido-pgsql apache2 php5-ldap php5-imagick php5-pgsql php5-intl icingaweb2 icingaweb2-module-doc icingaweb2-module-monitoring icingaweb2-module-setup
 
@@ -94,7 +94,7 @@ Once this completes, get everything running and added to the default
     captor zyradyl # service apache2 start
     captor zyradyl # update-rc.d apache2 enable
 
-#### Database Configuration ####
+### Database Configuration ###
 Now we need to make that database. The first command defines a new user named
 "*icinga*" with a password of the same name. The second command then creates a
 database named *icinga*, and grants ownership to the user *icinga*.
@@ -177,7 +177,7 @@ configuring icinga to speak to simple hosts.
 
 [1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
 [2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
-<!-- [3]:  % post_url 2015-08-17-Icinga2-Tutorial-Part-3 % "Icinga2 Tutorial Part 3" -->
+[3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
 [4]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2 "Icinga2 Setup Guide"
 [5]:  http://linux.die.net/man/8/sudo "Manual Page: Sudo"
 [6]:  https://en.wikipedia.org/wiki/Debian "Wikipedia: Debian"

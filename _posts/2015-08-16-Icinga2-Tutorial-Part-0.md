@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses."
+title: "Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses"
 date: 2015-08-16 01:00:00 -05:00
 license: cc0
 categories:
@@ -11,12 +11,11 @@ tags:
 - Icinga2
 - IcingaWeb2
 ---
-* [Icinga2 Tutorial: Part 1][1]
-* [Icinga2 Tutorial: Part 2][2]
-* Icinga2 Tutorial: Part 3
+* [Icinga2 Tutorial: Part 1 - Installation and Configuration][1]
+* [Icinga2 Tutorial: Part 2 - Agent-Less Checks][2]
+* [Icinga2 Tutorial: Part 3 - Agent-Based Checks][3]
 
-Introduction
-============
+## Introduction ##
 This will be a bit more informal than most of my posts as this is more of a
 hobby project than anything with really standardized applications. I’ve been
 exploring the network protocols available to me on my EdgeRouter now for the
@@ -32,8 +31,7 @@ So I started exploring multi-protocol management systems today. Clearly,
 [Windows][9] only. Here on Linux, I really only have [NAGIOS][10], or so I
 thought.
 
-Enter Icinga2
-=============
+## Enter Icinga2 ##
 [Icinga2][11] is a very interesting program to me in the same way that
 [Maxthon][12] was a very interesting browser. Both Maxthon 2 and Icinga 1 were
 built on top of existing applications (Internet Explorer and NAGIOS,
@@ -48,8 +46,7 @@ and programming. Anyways, then Maxthon 3 came out, and it stepped away from the
 Icinga2 has stepped away from NAGIOS and has become its own solution, but still
 remains compatibility with NAGIOS monitoring plugins.
 
-Purpose of These Posts
-======================
+## Purpose of These Posts ##
 At first this was just going to be something fun for me to do. However, I have
 noticed a somewhat disturbing lack of end to end documentation for Icinga.
 Yes, all the information is there in the [manuals][16], but it is still nice to
@@ -57,8 +54,7 @@ see how someone sets it up from end to end. This series of posts is going to
 show how to do just that, starting with how to install Icinga, which will go up
 in the next post.
 
-Some Things to Consider
-=======================
+## Some Things to Consider ##
 This is my first time using Icinga2. You will be learning right along with me.
 Which means some posts may spend a lot of time going back and working on things
 that should have already been done. Besides that, I am not using an Icinga
@@ -78,7 +74,7 @@ that in the future.
 
 [1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
 [2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
-<!-- [3]:  % post_url 2015-08-17-Icinga2-Tutorial-Part-3 % "Icinga2 Tutorial Part 3" -->
+[3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
 [4]:  https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol "Wikipedia: SNMP"
 [5]:  https://en.wikipedia.org/wiki/Management_information_base "Wikipedia: MIB"
 [6]:  https://en.wikipedia.org/wiki/Command-line_interface "Wikipedia: CLI"
