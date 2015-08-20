@@ -35,20 +35,19 @@
  */
 
 /* Prevent scroll on narrow devices */
-html,
-body {
-  overflow-x: hidden;
+html, body {
+    overflow-x: hidden;
 }
 
 html {
-  font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Dosis", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #313131;
-  letter-spacing: -.025rem;
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    color: #313131;
+    letter-spacing: -.025rem;
 }
 
 
@@ -59,10 +58,9 @@ h1, h2, h3, h4, h5, h6 {
  * use an outter wrap to position the sidebar without interferring with the
  * regular page content.
  */
-
 .wrap {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 
@@ -71,19 +69,18 @@ h1, h2, h3, h4, h5, h6 {
  *
  * Center the page content.
  */
-
 .container {
-  max-width: 28rem;
+    max-width: 28rem;
 }
 @media (min-width: 38em) {
-  .container {
-    max-width: 32rem;
-  }
+    .container {
+        max-width: 32rem;
+    }
 }
 @media (min-width: 56em) {
-  .container {
-    max-width: 38rem;
-  }
+    .container {
+        max-width: 38rem;
+    }
 }
 
 
