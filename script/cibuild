@@ -2,4 +2,4 @@
 set -e # halt script on error
 
 bundle exec jekyll build
-bundle exec htmlproof --href-ignore=127.0.0.1 ./_site
+bundle exec htmlproof --check-html --check-favicon --only-4xx --verbose ./_site
