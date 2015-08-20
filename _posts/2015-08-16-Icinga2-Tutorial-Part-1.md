@@ -186,7 +186,7 @@ configuring icinga to speak to simple hosts.
 [9]:  http://linux.die.net/man/8/apt "Manual Page: Apt"
 [10]: http://linux.die.net/man/3/ansible.apt_key "Manual Page: apt-key"
 [11]: https://wiki.debian.org/SourcesList "Debian Wiki: Apt Sources"
-[12]: http://askubuntu.com/questions/222348/whhttp://manpages.org/icinga2-enable-feature/8at-does-sudo-apt-get-update-do "Ask Ubuntu: Apt-get update"
+[12]: http://askubuntu.com/questions/222348/what-does-sudo-apt-get-update-do "Ask Ubuntu: Apt-get update"
 [13]: https://www.icinga.org/icinga/icinga-2/ "Icinga2 Official Website"
 [14]: https://en.wikipedia.org/wiki/Nagios "Wikipedia: Nagios"
 [15]: https://www.monitoring-plugins.org/ "Monitoring Plugins Official Website"
