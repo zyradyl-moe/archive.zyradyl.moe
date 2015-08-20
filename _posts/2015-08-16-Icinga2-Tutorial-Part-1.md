@@ -12,7 +12,7 @@ tags:
 - IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 0][1]
-* Icinga2 Tutorial: Part 2
+* [Icinga2 Tutorial: Part 2][2]
 * Icinga2 Tutorial: Part 3
 
 # Introduction #
@@ -176,7 +176,7 @@ will be configuring hosts both capable of using the icinga2 protocol, and
 configuring icinga to speak to simple hosts.
 
 [1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
-<!-- [2]:  % post_url 2015-08-16-Icinga2-Tutorial-Part-2 % "Icinga2 Tutorial Part 2" -->
+[2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
 <!-- [3]:  % post_url 2015-08-17-Icinga2-Tutorial-Part-3 % "Icinga2 Tutorial Part 3" -->
 [4]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2 "Icinga2 Setup Guide"
 [5]:  http://linux.die.net/man/8/sudo "Manual Page: Sudo"
