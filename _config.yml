@@ -29,3 +29,4 @@ pages_list:
   Archive:           /archive
   Tags:              /tags
   Feed:              /atom.xml
+  Site Information:  /site
