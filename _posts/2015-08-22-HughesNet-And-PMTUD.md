@@ -1,6 +1,7 @@
 ---
 layout: post
-title: HughesNet Gen4 and IPv6 PMTUD: A Tragedy.
+title: "HughesNet Gen4 and IPv6 PMTUD: A Tragedy"
+license: cc0
 date: 2015-08-22 14:50:00 -05:00
 categories:
     - HughesNet
