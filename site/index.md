@@ -39,7 +39,7 @@ three different fonts:
    is an elegant, sans-serif font that is minimalist at the 300 weight, but
    manages to bring in quite a lot of character at the 400 weight. It was
    developed by ***"The League of Movable Type"*** but that website lists
-   ***Matt McInerney*** as the sole contributer. I use it at 300 weight.  
+   ***Matt McInerney*** as the sole contributer. I use it at 400 weight.  
    _**Raleway** is released under the **[SIL Open Font License][8].**_
  * **[Dosis][9]** is the font that is used for headers, pagination buttons,
    as well as the navigation bar. It was designed by ***Edgar Tolentino***,
