@@ -1,5 +1,5 @@
 ---
-post: layout
+layout: post
 title: HughesNet Gen4 and IPv6 PMTUD: A Tragedy.
 date: 2015-08-22 14:50:00 -05:00
 categories:
