@@ -149,6 +149,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
+background-image: url(/images/dark-leather.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }
