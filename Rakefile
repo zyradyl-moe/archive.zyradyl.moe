@@ -58,6 +58,7 @@ task :test => [:build] do
         :check_favicon    => true,
         :check_html       => true,
         :href_ignore      => [
+            "http://127.0.0.1",
             "http://127.0.0.1/",
             "http://127.0.0.1/icingaweb2/",
             "http://127.0.0.1/icingaweb2/setup"
