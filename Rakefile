@@ -6,7 +6,7 @@ require 'rake'
 require 'yaml'
 require 'jekyll'
 require 'html/proofer'
-require 'launchy'
+# require 'launchy'
 
 #
 # Default Task Specification
