@@ -63,7 +63,7 @@ task :test => [:build] do
             "http://127.0.0.1/icingaweb2/",
             "http://127.0.0.1/icingaweb2/setup"
         ],
-        :only_4xx         => false,
+        :only_4xx         => true,
         :verbose          => true,
         :typhoeus         => {
             :verbose      => false
