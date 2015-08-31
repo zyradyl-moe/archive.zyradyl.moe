@@ -2,11 +2,12 @@
 # Requirements Block
 #
 require 'rubygems'
+require 'bundler/setup'
 require 'rake'
 require 'yaml'
 require 'jekyll'
+require 'launchy'
 require 'html/proofer'
-# require 'launchy'
 
 #
 # Default Task Specification
@@ -21,9 +22,24 @@ task :build do
     })
 end
 
-task :preview => [:serve] do
-    puts "Opening in browser..."
-    Launchy.open("http://127.0.0.1:4000")
+task :preview do
+    puts "Compiling the site..."
+    Jekyll::Commands::Build.process({
+        "source"      => File.expand_path("."),
+        "destination" => File.expand_path("./_site")
+    })
+    Thread.new do
+        sleep 2
+        puts "Opening in browser..."
+        Launchy.open("http://127.0.0.1:4000")
+    end
+    puts "Running Jekyll..."
+    Jekyll::Commands::Serve.process({
+        "source"      => File.expand_path("."),
+        "destination" => File.expand_path("./_site"),
+        "watch"       => true,
+        "serve"       => true
+        })
 end
 
 task :serve => [:build] do
@@ -46,7 +62,7 @@ task :test => [:build] do
             ".*127.0.0.1.*",
             "http://127.0.0.1/icingaweb2/setup"
         ],
-        :only_4xx         => true,
+        :only_4xx         => false,
         :verbose          => true,
         :typhoeus         => {
             :verbose      => false
