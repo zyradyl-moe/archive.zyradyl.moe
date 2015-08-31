@@ -1,5 +1,5 @@
 #
-# Requirements Block
+# Requirements Block...
 #
 require 'rubygems'
 require 'bundler/setup'
@@ -10,49 +10,29 @@ require 'launchy'
 require 'html/proofer'
 
 #
-# Default Task Specification
+# Define Variable...
 #
-task :default => [:serve]
+$options = {
+    "source"      => File.expand_path("."),
+    "destination" => File.expand_path("_site"),
+    "watch"       => true,
+    "serving"     => true
+}
 
-task :build do
+#
+# Create Methods...
+#
+def build()
     puts "Compiling the site..."
-    Jekyll::Commands::Build.process({
-        "source"      => File.expand_path("."),
-        "destination" => File.expand_path("./_site")
-    })
+    Jekyll::Commands::Build.process($options)
 end
 
-task :preview do
-    puts "Compiling the site..."
-    Jekyll::Commands::Build.process({
-        "source"      => File.expand_path("."),
-        "destination" => File.expand_path("./_site")
-    })
-    Thread.new do
-        sleep 2
-        puts "Opening in browser..."
-        Launchy.open("http://127.0.0.1:4000")
-    end
+def serve()
     puts "Running Jekyll..."
-    Jekyll::Commands::Serve.process({
-        "source"      => File.expand_path("."),
-        "destination" => File.expand_path("./_site"),
-        "watch"       => true,
-        "serve"       => true
-        })
+    Jekyll::Commands::Serve.process($options)
 end
 
-task :serve => [:build] do
-    puts "Running Jekyll..."
-    Jekyll::Commands::Serve.process({
-        "source"      => File.expand_path("."),
-        "destination" => File.expand_path("./_site"),
-        "watch"       => true,
-        "serve"       => true
-        })
-end
-
-task :test => [:build] do
+def testsite()
     puts "Testing Website..."
     HTML::Proofer.new("./_site", {
         :check_favicon    => true,
@@ -72,4 +52,33 @@ task :test => [:build] do
             :in_processes => 3
         }
     }).run
+end
+
+#
+# Default Task Specification
+#
+task :default => [:serve]
+
+task :build do
+    build
+end
+
+task :preview do
+    build
+    Thread.new do
+        sleep 2
+        puts "Opening in browser..."
+        Launchy.open("http://127.0.0.1:4000")
+    end
+    serve
+end
+
+task :serve do
+    build
+    serve
+end
+
+task :test do
+    build
+    testsite
 end
