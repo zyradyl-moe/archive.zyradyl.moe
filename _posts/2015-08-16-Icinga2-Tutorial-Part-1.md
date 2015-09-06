@@ -40,7 +40,7 @@ easy to adjust this tutorial for your needs.
 #### Adding Repositories ####
 
     captor zyradyl # wget -O - http://debmon.org/debmon/repo.key 2>/dev/null | apt-key add -
-    captor zyradyl # echo ‘deb http://debmon.org/debmon debmon-jessie main’ >/etc/apt/sources.list.d/debmon.list
+    captor zyradyl # echo deb http://debmon.org/debmon debmon-jessie main >/etc/apt/sources.list.d/debmon.list
     captor zyradyl # apt-get update
 
 The first command downloads ([wget][7]) the [cryptographic key][48] for the
