@@ -90,6 +90,8 @@ defining a service. The first service defined in the
 [Icinga2 Manubulon Documentation][9] is the *snmp-load* check. Seems like a
 good starting place to me!
 
+### SNMP-Load ###
+
     //    
     // Service Declaration Block
     // Service:     snmp_load
@@ -135,12 +137,37 @@ Once you have your file saved, restart Icinga2, and check the web interface.
 Your new check will likely have an _Unknown_ Status in purple, just click on
 the check, and manually run it by clicking "Check Now" in the right most panel.
 
+With that, we can move on to the next check!
+
+### SNMP-Memory ###
+
+    //
+    // Service Declaration Block
+    // Service: SNMP-Memory
+    // Description: Uses SNMP commands to check status of RAM
+    //              and swap on the device.
+    //
+    object Service "snmp-memory" {
+        host_name      = "djehuti.zyradyl.org"
+        // Set the Memory warning for Ram and swap Respectively.
+        // Uses percents.
+        vars.snmp_warn = "50,0"
+        vars.snmp_crit = "80,0"
+        check_command  = "snmp-memory"
+    }
+
+The warning and critical values are expressed as percentages of the total
+amount of their applicable setting. The first one applies to RAM and the second
+value corresponds to swap. Restart Icinga2 and log on to the web interface to
+check that the new service works.
 
 
-[1]
-[2]
-[3]
-[4]
-[5]
-[6]
-[7]
+[1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
+[2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
+[3]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
+[4]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
+[5]: http://jimlynch.com/linux-articles/the-psychology-of-a-distrohopper/ "Jim Lynch: Psychology of a Distrohopper"
+[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/monitoring-remote-systems#agent-based-checks "Icinga2 Documentation: Agent-Based Checks"
+[7]: https://wiki.icinga.org/display/howtos/check_apt+via+SNMP "Icinga2 Wiki: Check_apt via SNMP"
+[8]: http://nagios.manubulon.com/ "SNMP Manubulon Plugins"
+[9]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/snmp-manubulon-plugin-check-commands "Icinga2 Dcumentation: SNMP Manubulon Checks"
