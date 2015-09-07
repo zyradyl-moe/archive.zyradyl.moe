@@ -19,24 +19,38 @@ tags:
 ## Introduction ##
 Well I have finally persuaded myself to continue writing these posts by
 completely deleting all the configuration I had already set up. It is worth
-noting that I have switched over to [Debian Jessie][5], for no other reason than
-to cause myself more [frustration and suffering][6]. Anyways, let's get started.
+noting that I have switched over to Debian Jessie, for no other reason than
+to cause myself more [frustration and suffering][5]. Anyways, let's get started.
 
-[SNMP][6] is considered an [Agent-Based Check][7], and is actually quite
+SNMP is considered an [Agent-Based Check][6], and is actually quite
 flexible. You can even go as far as to code in custom return options, to check
 things you normally wouldn't be able to check over snmp, for example,
-[apt status][8], and other such things.
+[apt status][7], and other such things.
 
-It is worth noting that due to using a very small [LAN][9], I will not be
-fiddling around with [SNMPv3][10], I will be going with straight [SNMPv1][11],
-just with a modified [community][12] string. We will get started with my core
-router, [Djehuti][13]. It is outside the scope of this tutorial to discuss
-[how to enable SNMP on your device][14], but if you use a [Ubiquiti][15] device,
+It is worth noting that due to using a very small LAN, I will not be
+fiddling around with SNMPv3, I will be going with straight SNMPv1,
+just with a modified community string. We will get started with my core
+router, Djehuti. It is outside the scope of this tutorial to discuss
+how to enable SNMP on your device, but if you use a Ubiquiti device,
 hey that might come soon.
 
 Starting from this post forward, I will be embedding code here instead of
 referring to an external link, as embedding will encourage me to be a bit more
 complete in my explanations. So, with all of that said, let's get started.
+
+## Initial Setup ##
+To monitor SNMP we will be using the [Manubulon SNMP Plugins][8]. So we first
+need to install them.
+
+    zyradyl@captor:~$ sudo apt-get install nagios-snmp-plugins
+
+Now we need to open up the main Icinga2 Configuration file and add in the
+proper include to allow us to use these plugins. You may notice while poking
+around this file that there are many things you either don't need or would like
+to change. I do plan to come back to this file at a later time, but feel free to
+edit this file before that happens.
+
+    zyradyl@captor:~$ sud
 
 [1]
 [2]
@@ -45,11 +59,3 @@ complete in my explanations. So, with all of that said, let's get started.
 [5]
 [6]
 [7]
-[8]
-[9]
-[10]
-[11]
-[12]
-[13]
-[14]
-[15]
