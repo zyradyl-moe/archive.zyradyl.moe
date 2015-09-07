@@ -100,7 +100,7 @@ Now we need to make that database. The first command defines a new user named
 database named *icinga*, and grants ownership to the user *icinga*.
 
     captor zyradyl # cd /tmp
-    captor tmp # sudo -u postgres psql -c “CREATE ROLE icinga WITH LOGIN PASSWORD ‘icinga’”;
+    captor tmp # sudo -u postgres psql -c “CREATE ROLE icinga WITH LOGIN PASSWORD ‘icinga’;"
     captor tmp # sudo -u postgres createdb -O icinga -E UTF8 icinga
 
 Once this is done, edit your [pg_hba conf][30]. This file controls the way

@@ -1,35 +1,55 @@
 ---
 layout: post
 title: Icinga2 Tutorial Part 4 - Expanding Checks to SNMP
+date: 2015-09-07 16:18:00 -05:00
+license: cc0
+categories:
+- Icinga2
+- Networking
+- Tutorials
+tags:
+- Icinga2
+- IcingaWeb2
 ---
+* [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
+* [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
+* [Icinga2 Tutorial: Part 2 - Agent-Less Checks][3]
+* [Icinga2 Tutorial: Part 3 - Agent-Based Checks][4]
 
-SNMP is a very interesting protocol in that I consider it to be both an
-agentless and an agent based check. Obviously, there is nothing that you really
-need to install on most devices, which would suggest agentless, but you have
-to enable the service, which implies an agent. Icinga2′s documentation
-considers it to be agent based.
+## Introduction ##
+Well I have finally persuaded myself to continue writing these posts by
+completely deleting all the configuration I had already set up. It is worth
+noting that I have switched over to [Debian Jessie][5], for no other reason than
+to cause myself more [frustration and suffering][6]. Anyways, let's get started.
 
-Install the plugins we will need using “apt-get install nagios-snmp-plugins”.
+[SNMP][6] is considered an [Agent-Based Check][7], and is actually quite
+flexible. You can even go as far as to code in custom return options, to check
+things you normally wouldn't be able to check over snmp, for example,
+[apt status][8], and other such things.
 
-The first thing you need to do is open up your primary Icinga2 configuration
-and add in the include to enable these plugins. This file is located at
-/etc/icinga2/icinga2.conf. While you are in here, if you are anything like me,
-you will notice that there are a few things in here that you don’t need. Don’t
-worry, I plan to include a guide on these configuration files, as well as users
-and groups, and establishing a notification method, soon. Find the line that
-says “include <itl>” and add “include <manubulon>”. You do not have to reload
-the configuration, but I did anyways just to make sure there were not any
-errors. You can do this with “service icinga2 reload”
+It is worth noting that due to using a very small [LAN][9], I will not be
+fiddling around with [SNMPv3][10], I will be going with straight [SNMPv1][11],
+just with a modified [community][12] string. We will get started with my core
+router, [Djehuti][13]. It is outside the scope of this tutorial to discuss
+[how to enable SNMP on your device][14], but if you use a [Ubiquiti][15] device,
+hey that might come soon.
 
-We are going to start with Djehuti. While Djehuti is able to use version
-three, which is what I plan on doing, and thus makes configuration a bit more
-difficult, Wepwawet will actually require some custom fetch commands to be
-written, and I would like to save that for another article. Djehuti also has
-some custom commands, but nothing as in depth as wepwawet (or so I think.)
+Starting from this post forward, I will be embedding code here instead of
+referring to an external link, as embedding will encourage me to be a bit more
+complete in my explanations. So, with all of that said, let's get started.
 
-
-
-
-
-External Resources
-Icinga2 Check Plugins - SNMP Manubulon Plugins
+[1]
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
