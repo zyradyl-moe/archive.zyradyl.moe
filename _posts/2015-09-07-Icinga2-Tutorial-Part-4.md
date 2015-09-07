@@ -97,13 +97,43 @@ good starting place to me!
     //              on the device.
     //
     object Service "snmp-load" {
-        host_name      = "djehuti.zyradyl.org"
+        host_name           = "djehuti.zyradyl.org"
+        // Set the type of load check to use.
+        vars.snmp_load_type = "netsl"
         // Set the Load Average warning threshold.
-        vars.snmp_warn = "5.00, 3.00, 2.00"
+        vars.snmp_warn      = "5,3,2"
         // Set the Load Average critical threshold.
-        vars.snmp_crit = "6.00, 5.00, 3.00"
-        check_command  = "snmp-load"
+        vars.snmp_crit      = "6,5,3"
+        check_command       = "snmp-load"
     }
+
+I feel I should take a minute to explain the warning and critical variables,
+because the icinga2 documentation doesn't do a very good job. When checking
+load averages on \*nix systems, there are three parameters:
+
+ - Average Load over one minute
+ - Average Load over five Minutes
+ - Average Load over fifteen minutes
+
+Since my router is a dual core device, I have set it up so that if the system
+is at full load for 15 minutes, I get a warning. If it has one process over
+full load for five minutes, I get a warning. If it is three processes over full
+load in one minute, I want a warning. Same thing applies to critical. If you
+are trying to figure out what to set your levels at, I tend to use the following
+formulas:
+
+ - **Warning:**
+    - 1min: 2\*\(Number of Cores\)\+1
+    - 5min: \(Number of Cores\)\+1
+    - 15min: \(Number of Cores\)
+ - **Critical:**
+    - 1min: 3\*\(Number of Cores\)
+    - 5min: 2\*\(Number of Cores\)\+1
+    - 15min: \(Number of Cores\)\+1
+
+Once you have your file saved, restart Icinga2, and check the web interface.
+Your new check will likely have an _Unknown_ Status in purple, just click on
+the check, and manually run it by clicking "Check Now" in the right most panel.
 
 
 
