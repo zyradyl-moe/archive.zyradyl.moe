@@ -15,13 +15,14 @@ tags:
 * [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
 * [Icinga2 Tutorial: Part 3 - Agent-Based Checks][3]
+* [Icinga2 Tutorial: Part 4 - Extending Checks to SNMP][4]
 
 ## Master Host Configuration ##
 So in our last part we focused on getting your machine set up as the
-[Icinga2 master controller][4]. Now we can focus on getting interoperability
+[Icinga2 master controller][5]. Now we can focus on getting interoperability
 setup. As always, this tutorial assumes you are sudo’d as root. You can do this
-by running “[sudo -s][5]”. Then we need to set ourselves up as the master node
-on our network.
+by running “sudo -s”. Then we need to set ourselves up as the master node on our
+network.
 
     captor zyradyl # icinga2 node wizard
     Welcome to the Icinga 2 Setup Wizard!
@@ -60,9 +61,9 @@ Note that in your case, you may see one or two warning messages, but if it
 pertains to files already existing, don't worry about it, I also clipped all
 the output that [Icinga2][6] spits out when it restarts in order to save space.
 These posts are long enough as it is. After restarting, if you check the
-[website for your master node][7], you will see a whole bunch of new
-information. This has also established the [certificates][8] the
-[icinga2 protocol][9] uses for security.
+website for your master node, you will see a whole bunch of new information.
+This has also established the certificates the [icinga2 protocol][7] uses for
+security.
 
 ## Host Monitoring ##
 Now, while it is nice to have access to the Icinga protocol, in our case we
@@ -165,12 +166,10 @@ You can see the
 [1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
 [2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
 [3]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
-[4]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/icinga2-client#icinga2-client-installation-master-setup "Icinga2 Official Documentation: Setting up a Master for Data Gathering"
-[5]: http://linux.die.net/man/8/sudo "Manual Page: Sudo"
+[4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %} "Icinga2 Tutorial Part 4"
+[5]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/icinga2-client#icinga2-client-installation-master-setup "Icinga2 Official Documentation: Setting up a Master for Data Gathering"
 [6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Official Documentation"
-[7]: http://127.0.0.1/icingaweb2/ "Localhost: Icinga2"
-[8]: https://en.wikipedia.org/wiki/Public_key_certificate "Wikipedia: Public Key Certificates"
-[9]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/icinga2-client#icinga2-client-setup "Icinga2 Official Documentation: Icinga2 Client"
+[7]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/icinga2-client#icinga2-client-setup "Icinga2 Official Documentation: Icinga2 Client"
 [10]: https://en.wikipedia.org/wiki/Communications_protocol "Wikipedia: Network Protocol"
 [11]: https://en.wikipedia.org/wiki/Secure_Shell "Wikipedia: SSH"
 [12]: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol "Wikipedia: SNMP"
