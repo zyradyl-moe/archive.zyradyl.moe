@@ -287,6 +287,19 @@ minutes, to calculate what has changed. Until you have a row in the database
 that is the proper age, you will get a big _Unknown_ status. Nothing to worry
 about, check back in a half hour.
 
+## Conclusion ##
+There is one more snmp check that is available, and that is the process check.
+While I previously used this setup on my core router, it ended up causing some
+rather wonky effects, so I have elected to not use it. This check would be
+useful to monitor the status of a mission critical process, such as a webserver
+or even a database server. It works by searching the process list for the number
+of times a string appears, and then going from there. I may cover this in the
+future, but I won't be at the moment.
+
+Thank you for reading, and I hope to have part five up with less of a lag time.
+I am also planning to do Icinga2 integration with slack soon, so stay tuned
+for that!
+
 
 [1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
 [2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
