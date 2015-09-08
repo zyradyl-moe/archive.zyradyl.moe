@@ -143,7 +143,7 @@ With that, we can move on to the next check!
 
     //
     // Service Declaration Block
-    // Service: SNMP-Memory
+    // Service:     SNMP-Memory
     // Description: Uses SNMP commands to check status of RAM
     //              and swap on the device.
     //
@@ -160,6 +160,132 @@ The warning and critical values are expressed as percentages of the total
 amount of their applicable setting. The first one applies to RAM and the second
 value corresponds to swap. Restart Icinga2 and log on to the web interface to
 check that the new service works.
+
+### SNMP-Storage ###
+
+    //
+    // Service Declaration Block
+    // Service:     SNMP-Storage
+    // Description: Uses SNMP commands to check the status of disk
+    //              storage space.
+    //
+    object Service "snmp-storage" {
+        host_name              = "djehuti.zyradyl.org"
+        // Uses percents.
+        vars.snmp_warn         = "50"
+        vars.snmp_crit         = "80"
+        // Specify which partition to monitor
+        vars.snmp_storage_name = "/root.dev"
+        check_command          = "snmp-storage"
+    }
+
+The *snmp_storage_name* variable is used to specify which device you want to
+check the status of. If you aren't sure which device you need to check, set
+it to blank, then let it run. It will return a list of partitions that you can
+check. Simply enter the name into that variable and you are good to go.
+
+Just as memory, snmp-storage uses percent values in the warning and critical
+threshold variables.
+
+### SNMP-Interfaces ###
+
+I personally like to specify a different service block for each interface
+that I am monitoring, so I am not sure if it is possible to mix interfaces
+together, but I don't see any reason it wouldn't be possible. I'm going to
+list the interface configurations below, and if any variables need to be
+explained I will do that below the code.
+
+    //
+    // Service Declaration Block
+    // Service:     SNMP-Interface
+    // Description: Uses SNMP commands to check the status of
+    //              various network interfaces on device.
+    //
+    object Service "snmp-int-lan" {
+        host_name                      = "djehuti.zyradyl.org"
+        // Define interface variables.
+        vars.snmp_interface            = "eth0"
+        vars.snmp_interface_label      = "LAN"
+        vars.snmp_interface_perf       = "true"
+        vars.snmp_interface_bits_bytes = "true"
+        vars.snmp_interface_megabytes  = "true"
+        vars.snmp_interface_noregexp   = "true"
+        vars.snmp_warncrit_percent     = "true"
+        // Set warning and crits to 100 to disable.
+        vars.snmp_warn                 = "100,100"
+        vars.snmp_crit                 = "100,100"
+        check_command                  = "snmp-interface"
+    }
+
+    //
+    // Service Declaration Block
+    // Service:     SNMP-Interface
+    // Description: Uses SNMP commands to check the status of
+    //              various network interfaces on device.
+    //
+    object Service "snmp-int-wan" {
+        host_name                      = "djehuti.zyradyl.org"
+        // Define interface variables.
+        vars.snmp_interface            = "eth1"
+        vars.snmp_interface_label      = "WAN"
+        vars.snmp_interface_perf       = "true"
+        vars.snmp_interface_bits_bytes = "true"
+        vars.snmp_interface_megabytes  = "true"
+        vars.snmp_interface_noregexp   = "true"
+        vars.snmp_warncrit_percent     = "true"
+        // Set warning and crits to 100 to disable.
+        vars.snmp_warn                 = "100,100"
+        vars.snmp_crit                 = "100,100"
+        check_command                  = "snmp-interface"
+    }
+
+    //
+    // Service Declaration Block
+    // Service:     SNMP-Interface
+    // Description: Uses SNMP commands to check the status of
+    //              various network interfaces on device.
+    //
+    object Service "snmp-int-dmz" {
+        host_name                      = "djehuti.zyradyl.org"
+        // Define interface variables.
+        vars.snmp_interface            = "eth2"
+        vars.snmp_interface_label      = "DMZ"
+        vars.snmp_interface_perf       = "true"
+        vars.snmp_interface_bits_bytes = "true"
+        vars.snmp_interface_megabytes  = "true"
+        vars.snmp_interface_noregexp   = "true"
+        vars.snmp_warncrit_percent     = "true"
+        // Set warning and crits to 100 to disable.
+        vars.snmp_warn                 = "100,100"
+        vars.snmp_crit                 = "100,100"
+        check_command                  = "snmp-interface"
+    }
+
+So a few things in here need some explanation. The variable
+*vars.snmp_interface* specifies which interface we will be checking.
+*vars.snmp_interface_noregexp* is related to this in that it tells icinga2
+to not use regex matching. *vars.snmp_interface_label* configures a label
+that will be shown in the console. *vars.snmp_interface_megabytes*, and
+*vars.snmp_interface_bits_bytes* tells Icinga2 that we want to see bandwidth
+measured in megabits. These variables can be adjusted accordingly. Finally,
+*vars.snmp_interface_perf* tells Icinga2 that we want to monitor bandwidth
+usage.
+
+As for warning and critical values, while I like to monitor my bandwidth, I
+don't actually care how high it goes, at least not at the moment. More relevant
+than that is the fact that my bandwidth is much less than a gigabit, but let's
+move on from that. *vars.snmp_warncrit_percent* says that we are going to
+specify our warning and critical thresholds as a percent of total available
+bandwidth on that port. I then set *vars.snmp_warn*, and *vars.snmp_crit* to
+100 so that it is effectively disabled.
+
+Once activating these services, you should reset Icinga2. It is worth noting
+that you will first get a pending, and then an unknown status for about five
+minutes, depending on your check time. Icinga compares the newest reading to
+a previous reading that is sufficently old enough, which is usually about five
+minutes, to calculate what has changed. Until you have a row in the database
+that is the proper age, you will get a big _Unknown_ status. Nothing to worry
+about, check back in a half hour.
 
 
 [1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
