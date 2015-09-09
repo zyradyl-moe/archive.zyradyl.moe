@@ -65,7 +65,7 @@ This is by far the easiest resolution. Open the EdgeRouter Lite (**Caution:**
 back in operation, it may be acceptable for you to void the warranty on a
 $100USD device if you can get it back in service by the end of the day. If
 you think your device may need to be RMA’d, do not open the device and proceed
-to UBNT's Support Site.*) by removing two screws on the bottom
+to UBNT’s Support Site.*) by removing two screws on the bottom
 of the device, located right under where the interface connections are. Your
 device will slide apart, revealing the internal board. On the board you
 will see a soldered on female USB port with a small silver USB flash drive,

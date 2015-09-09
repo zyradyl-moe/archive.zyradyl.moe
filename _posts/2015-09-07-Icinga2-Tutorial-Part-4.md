@@ -20,11 +20,11 @@ tags:
 Well I have finally persuaded myself to continue writing these posts by
 completely deleting all the configuration I had already set up. It is worth
 noting that I have switched over to Debian Jessie, for no other reason than
-to cause myself more [frustration and suffering][5]. Anyways, let's get started.
+to cause myself more [frustration and suffering][5]. Anyways, let’s get started.
 
 SNMP is considered an [Agent-Based Check][6], and is actually quite
 flexible. You can even go as far as to code in custom return options, to check
-things you normally wouldn't be able to check over snmp, for example,
+things you normally wouldn’t be able to check over snmp, for example,
 [apt status][7], and other such things.
 
 It is worth noting that due to using a very small LAN, I will not be
@@ -36,7 +36,7 @@ hey that might come soon.
 
 Starting from this post forward, I will be embedding code here instead of
 referring to an external link, as embedding will encourage me to be a bit more
-complete in my explanations. So, with all of that said, let's get started.
+complete in my explanations. So, with all of that said, let’s get started.
 
 ## Initial Setup ##
 To monitor SNMP we will be using the [Manubulon SNMP Plugins][8]. So we first
@@ -46,7 +46,7 @@ need to install them.
 
 Now we need to open up the main Icinga2 Configuration file and add in the
 proper include to allow us to use these plugins. You may notice while poking
-around this file that there are many things you either don't need or would like
+around this file that there are many things you either don’t need or would like
 to change. I do plan to come back to this file at a later time, but feel free to
 edit this file before that happens. Once you have made the proper changes,
 restart Icinga2 so the new settings take effect.
@@ -62,7 +62,7 @@ With that, we can move on to creating configuration files!
 ## Djehuti ##
 We will be starting with my core router, which is running SNMPv1. The first
 thing we will want to do is to add some essential variables to our host
-directive so that we don't have to redefine them with every service.
+directive so that we don’t have to redefine them with every service.
 
     //
     // Host Declaration Block
@@ -110,7 +110,7 @@ good starting place to me!
     }
 
 I feel I should take a minute to explain the warning and critical variables,
-because the icinga2 documentation doesn't do a very good job. When checking
+because the icinga2 documentation doesn’t do a very good job. When checking
 load averages on \*nix systems, there are three parameters:
 
  - Average Load over one minute
@@ -135,7 +135,7 @@ formulas:
 
 Once you have your file saved, restart Icinga2, and check the web interface.
 Your new check will likely have an _Unknown_ Status in purple, just click on
-the check, and manually run it by clicking "Check Now" in the right most panel.
+the check, and manually run it by clicking “Check Now” in the right most panel.
 
 With that, we can move on to the next check!
 
@@ -180,7 +180,7 @@ check that the new service works.
     }
 
 The *snmp_storage_name* variable is used to specify which device you want to
-check the status of. If you aren't sure which device you need to check, set
+check the status of. If you aren’t sure which device you need to check, set
 it to blank, then let it run. It will return a list of partitions that you can
 check. Simply enter the name into that variable and you are good to go.
 
@@ -191,7 +191,7 @@ threshold variables.
 
 I personally like to specify a different service block for each interface
 that I am monitoring, so I am not sure if it is possible to mix interfaces
-together, but I don't see any reason it wouldn't be possible. I'm going to
+together, but I don’t see any reason it wouldn’t be possible. I’m going to
 list the interface configurations below, and if any variables need to be
 explained I will do that below the code.
 
@@ -272,8 +272,8 @@ measured in megabits. These variables can be adjusted accordingly. Finally,
 usage.
 
 As for warning and critical values, while I like to monitor my bandwidth, I
-don't actually care how high it goes, at least not at the moment. More relevant
-than that is the fact that my bandwidth is much less than a gigabit, but let's
+don’t actually care how high it goes, at least not at the moment. More relevant
+than that is the fact that my bandwidth is much less than a gigabit, but let’s
 move on from that. *vars.snmp_warncrit_percent* says that we are going to
 specify our warning and critical thresholds as a percent of total available
 bandwidth on that port. I then set *vars.snmp_warn*, and *vars.snmp_crit* to
@@ -294,7 +294,7 @@ rather wonky effects, so I have elected to not use it. This check would be
 useful to monitor the status of a mission critical process, such as a webserver
 or even a database server. It works by searching the process list for the number
 of times a string appears, and then going from there. I may cover this in the
-future, but I won't be at the moment.
+future, but I won’t be at the moment.
 
 Thank you for reading, and I hope to have part five up with less of a lag time.
 I am also planning to do Icinga2 integration with slack soon, so stay tuned

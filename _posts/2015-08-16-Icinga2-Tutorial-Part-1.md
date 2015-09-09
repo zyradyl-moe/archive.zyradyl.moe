@@ -92,11 +92,11 @@ Once this completes, get everything running and added to the default runlevel.
 
 ### Database Configuration ###
 Now we need to make that database. The first command defines a new user named
-"*icinga*" with a password of the same name. The second command then creates a
+“*icinga*” with a password of the same name. The second command then creates a
 database named **icinga**, and grants ownership to the user **icinga**.
 
     captor zyradyl # cd /tmp
-    captor tmp # sudo -u postgres psql -c “CREATE ROLE icinga WITH LOGIN PASSWORD ‘icinga’;"
+    captor tmp # sudo -u postgres psql -c "CREATE ROLE icinga WITH LOGIN PASSWORD 'icinga';"
     captor tmp # sudo -u postgres createdb -O icinga -E UTF8 icinga
 
 Once this is done, edit your pg_hba conf. This file controls the way
@@ -159,7 +159,7 @@ have checked all your log files in */var/log*, and you are certain everything
 is correct, and the programming is just being buggy. Also keep in mind that
 postgres uses **port 5432**, not the default port of 3306. Finally, you should
 set a password for the postgres’ database superuser, because you are
-going to need to use the superuser's account credentials in the setup program
+going to need to use the superuser’s account credentials in the setup program
 to create the database.
 
     captor tmp # sudo -u postgres psql postgres

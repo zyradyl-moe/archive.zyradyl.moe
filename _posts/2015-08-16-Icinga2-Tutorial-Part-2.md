@@ -27,28 +27,28 @@ network.
     captor zyradyl # icinga2 node wizard
     Welcome to the Icinga 2 Setup Wizard!
 
-    We’ll guide you through all required configuration details.
+    We'll guide you through all required configuration details.
 
-    Please specify if this is a satellite setup (‘n’ installs a master setup) [Y/n]: n
+    Please specify if this is a satellite setup ('n' installs a master setup) [Y/n]: n
     Starting the Master setup routine…
     Please specifiy the common name (CN) [captor.zyradyl.org]:
-    information/cli: Generating new CSR in ’/etc/icinga2/pki/captor.zyradyl.org.csr’.
-    information/cli: Created backup file ’/etc/icinga2/pki/captor.zyradyl.org.key.orig’.
-    information/cli: Created backup file ’/etc/icinga2/pki/captor.zyradyl.org.csr.orig’.
-    information/base: Writing private key to ’/etc/icinga2/pki/captor.zyradyl.org.key’.
-    information/base: Writing certificate signing request to ’/etc/icinga2/pki/captor.zyradyl.org.csr’.
-    information/cli: Signing CSR with CA and writing certificate to ’/etc/icinga2/pki/captor.zyradyl.org.crt’.
-    information/cli: Created backup file ’/etc/icinga2/pki/captor.zyradyl.org.crt.orig’.
-    information/cli: Copying CA certificate to ’/etc/icinga2/pki/ca.crt’.
-    information/cli: Created backup file ’/etc/icinga2/pki/ca.crt.orig’.
-    information/cli: Dumping config items to file ’/etc/icinga2/zones.conf’.
+    information/cli: Generating new CSR in '/etc/icinga2/pki/captor.zyradyl.org.csr'.
+    information/cli: Created backup file '/etc/icinga2/pki/captor.zyradyl.org.key.orig'.
+    information/cli: Created backup file '/etc/icinga2/pki/captor.zyradyl.org.csr.orig'.
+    information/base: Writing private key to '/etc/icinga2/pki/captor.zyradyl.org.key'.
+    information/base: Writing certificate signing request to '/etc/icinga2/pki/captor.zyradyl.org.csr'.
+    information/cli: Signing CSR with CA and writing certificate to '/etc/icinga2/pki/captor.zyradyl.org.crt'.
+    information/cli: Created backup file '/etc/icinga2/pki/captor.zyradyl.org.crt.orig'.
+    information/cli: Copying CA certificate to '/etc/icinga2/pki/ca.crt'.
+    information/cli: Created backup file '/etc/icinga2/pki/ca.crt.orig'.
+    information/cli: Dumping config items to file '/etc/icinga2/zones.conf'.
     Please specify the API bind host/port (optional):
     Bind Host []:
     Bind Port []:
     information/cli: Enabling the APIlistener feature.
     information/cli: Updating constants.conf.
-    information/cli: Updating constants file ’/etc/icinga2/constants.conf’.
-    information/cli: Updating constants file ’/etc/icinga2/constants.conf’.
+    information/cli: Updating constants file '/etc/icinga2/constants.conf'.
+    information/cli: Updating constants file '/etc/icinga2/constants.conf'.
     Done.
     Now restart your Icinga 2 daemon to finish the installation!
 
@@ -58,7 +58,7 @@ network.
     captor zyradyl #
 
 Note that in your case, you may see one or two warning messages, but if it
-pertains to files already existing, don't worry about it, I also clipped all
+pertains to files already existing, don’t worry about it, I also clipped all
 the output that [Icinga2][6] spits out when it restarts in order to save space.
 These posts are long enough as it is. After restarting, if you check the
 website for your master node, you will see a whole bunch of new information.
@@ -75,7 +75,7 @@ We are going to go simple in this route through the use of
 [agent-less checks.][8] Agent-less checks do not rely on having a remote
 program installed, and this is useful for embedded devices that may not
 have enough memory to host another program.  This is also helpful if your
-client only offers one or two services and it isn't worth taking the time to
+client only offers one or two services and it isn’t worth taking the time to
 install and configure a node setup. For example, you can check if SSH is
 available on a remote host, or check if the HTTP server is alive, or even
 simply see if the host is alive. We will start there.
@@ -114,9 +114,8 @@ So with this basic configuration, we get three checks:
 
 For my HTTP check, the website uses HTTPS, and no HTTP site is available. So
 by setting the SSL variable, we can ensure that just HTTPS is being checked.
-This ensures we are getting an accurate reading. I also set warning time to
-five minutes of down, and critical to 10 minutes of down. Now we need to
-assure that our definition works.
+This ensures we are getting an accurate reading. Now we need to ensure that our
+declaration works.
 
     captor conf.d # /etc/init.d/icinga2 checkconfig
     checking Icinga2 configuration.

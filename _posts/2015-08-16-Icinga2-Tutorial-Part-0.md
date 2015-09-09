@@ -42,7 +42,7 @@ agree, except for one thing. If I want ease of configuration, I have to pay
 if I did, you can bet your ass it would go to getting me embedded development
 boards or external controllers for debugging and programming. Anyways, then
 Maxthon 3 came out, and it stepped away from the Trident engine, and went with
-Google's WebKit. Just like Maxthon, Icinga2 has stepped away from NAGIOS and has
+Google’s WebKit. Just like Maxthon, Icinga2 has stepped away from NAGIOS and has
 become its own solution, but still remains compatibility with NAGIOS monitoring
 plugins.
 

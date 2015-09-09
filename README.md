@@ -5,7 +5,7 @@ After a few days I discovered Poole, and implemented that, followed by the Hyde
 theme for poole. You can read more about that below, as well as the file list
 and what license applies to each one. For my own work, everything is licensed
 under Creative Commons Zero except where otherwise noted. If you are unsure,
-check the front matter in the page's markdown file for confirmation.
+check the front matter in the page’s markdown file for confirmation.
 
 Thank you for checking out my repository.  
 ~ Natalie Spencer (Zyradyl)

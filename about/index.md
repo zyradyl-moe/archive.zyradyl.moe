@@ -23,12 +23,12 @@ title: About
 **SAN:** 02  
 
 ## Blurb ##
-Hi my name is Natalie and I'm a 26 year old Pharmacy student based out of
-Michigan. When I'm not reading up on the latest and greatest pharmaceuticals
+Hi my name is Natalie and I’m a 26 year old Pharmacy student based out of
+Michigan. When I’m not reading up on the latest and greatest pharmaceuticals
 I like to take things apart. Anything. A car, a computer, dumping compiled
 code into object code to see how it works. Running network scans on my ISP
 to try and figure out why PMTUD on IPv6 is broken and I have to manually set
-an MTU of 1280 on my router... If you can think of something, I've probably
+an MTU of 1280 on my router… If you can think of something, I’ve probably
 done it.
 
 Right now I am especially interested in embedded systems and networking, which
@@ -42,7 +42,7 @@ small list of view points:
  * My favourite processor is [SPARC][1]. This is followed by [MIPS][2],
    [AVR32][3], [ARM][4], and last and certainly least, [x86 and x64][5]. The
    last x86 processor I actually liked was when [Cyrix][6]
-   [reverse engineered][7] [Intel's Pentium][8] via [clean room engineering][9]
+   [reverse engineered][7] [Intel’s Pentium][8] via [clean room engineering][9]
    and produced a faster processor, which Intel
    [then stole and made into the Pentium Pro.][10]
  * I think [microkernels][11] are the golden standard of what should be
@@ -52,7 +52,7 @@ small list of view points:
  * [Dynamic linking][13] is
    [one of the worst things to ever happen to programming][14].
    ([Library Symbol Versioning Hell][15])
- * [SystemD][16] is the worst thing to ever happen to [Linux][17], and that's
+ * [SystemD][16] is the worst thing to ever happen to [Linux][17], and that’s
    [saying something][18]. (GNU is Not Usable)
  * In a past life, I was a developer for a source based linux distribution
    where I spent literally all of my time attempting to make linux packages
@@ -63,35 +63,35 @@ small list of view points:
  * [GPL][22] is just as bad, if not worse, than standard copyright.
  * [GPLv3][23] is the [single][24] [most][25] [terrifying][26] [thing][27]
    to ever happen to GNU, and that is [REALLY saying something][28].
- * "There are two ways of constructing a software design: One way is to make it
+ * “There are two ways of constructing a software design: One way is to make it
    so simple that there are obviously no deficiencies and the other way is to
-   make it so complicated that there are no obvious deficiencies." ~ C.A.R.
+   make it so complicated that there are no obvious deficiencies.” ~ C.A.R.
    Hoare.
       - I believe [Object Oriented Code][29] is the latter. (OOPs..)
  * It is highly likely that the days of good code are over, because when
    given the choice between easy and terrible ([Java][30], [Python][31],
    [Ruby][32]) versus hard but stable ([LISP][33],[C][34],[Go][35]) the entire
    [computer science][36] world has embraced the first.
- * I don't believe that just because you have a 1TB Hard Drive that you can
+ * I don’t believe that just because you have a 1TB Hard Drive that you can
    justify or allow a 16+ Gigabyte operating system.
- * I don't believe just because you have CPU cycles you should waste them
+ * I don’t believe just because you have CPU cycles you should waste them
    on abstraction compared to low level clean code.
- * I don't believe that any program other than those handling data sets of
+ * I don’t believe that any program other than those handling data sets of
    over 512MB should EVER use 1GB or more of RAM.
  * [SQL Databases][37] are so horrible that the designer will get into heaven
-   simply because the devil doesn't have time to deal with that shit.
+   simply because the devil doesn’t have time to deal with that shit.
  * [Git][38] is the only sane version control software.
 
  **Last, but certainly not least:**
 
  * Just because everyone uses a software, a software is easy, you are mandated
    to use a software, or the software/protocol is old **does not mean
-   you should live in a delusional world about how bad it is.** ([*I'm looking
+   you should live in a delusional world about how bad it is.** ([*I’m looking
    at you,*][40] [*SSH*][39].)
 
 
-   > **"Zyradyl is a 72 year old male Bell Labs Employee trapped in the
-   > wrong body."** - *Asaph*
+   > **“Zyradyl is a 72 year old male Bell Labs Employee trapped in the**
+   > **wrong body.”** - *Asaph*
 
 [1]: https://en.wikipedia.org/wiki/SPARC "Wikipedia: SPARC"
 [2]: https://en.wikipedia.org/wiki/MIPS_instruction_set "Wikipedia: MIPS"
