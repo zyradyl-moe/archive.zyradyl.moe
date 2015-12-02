@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Icinga2 Tutorial Part 4 - Expanding Checks to SNMP
+title: An Actual Update
 date: 2015-12-02 12:30:00 -05:00
 license: cc0
 categories:
