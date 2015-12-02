@@ -132,4 +132,4 @@ small list of view points:
 [37]: https://en.wikipedia.org/wiki/SQL "Wikipedia: SQL"
 [38]: https://en.wikipedia.org/wiki/Git_(software) "Wikipedia: Git"
 [39]: https://en.wikipedia.org/wiki/Secure_Shell "Wikipedia: Secure Shell"
-[40]: http://lists.9front.org/9fans/2001-January.txt "Mailing List: On SSH"
+[40]: http://harmful.cat-v.org/software/ssh "Cat-V: On SSH"
