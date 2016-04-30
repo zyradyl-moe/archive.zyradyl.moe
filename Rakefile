@@ -7,7 +7,7 @@ require 'rake'
 require 'yaml'
 require 'jekyll'
 require 'launchy'
-require 'html/proofer'
+require 'html-proofer'
 
 #
 # Define Variable...
@@ -34,7 +34,7 @@ end
 
 def testsite()
     puts "Testing Website..."
-    HTML::Proofer.new("./_site", {
+    HTMLProofer.check_directory("./_site", {
         :check_favicon    => true,
         :check_html       => true,
         :href_ignore      => [

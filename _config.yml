@@ -2,7 +2,7 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           :year/:month/:day/:title/
-relative_permalinks: true
+relative_permalinks: false
 
 # Setup
 title:               Bit of A Byte
@@ -30,3 +30,6 @@ pages_list:
   Tags:              /tags
   Feed:              /atom.xml
   Site Information:  /site
+
+# Gem Listing
+gems:               [jekyll-paginate]
