@@ -26,7 +26,7 @@ library that works properly with SFML, is clean and simple, and is small.
 
 Turns out, this isn't actually possible.
 
-###[SFGUI][2]###
+### [SFGUI][2] ###
 SFGUI is the first thing I spent time working on. The problem with SFGUI is it
 suffers from "There's a fleck on the speck on the tail on the frog on the bump
 on the branch on the log in the hole in the bottom of the sea" Syndrome. If you
@@ -67,7 +67,7 @@ window on top of our background, yeah it didn't go to well, and I don't need
 _another_ engine on top of the engine on top of this game engine. That's just..
 absurd. Not to mention the documentation sucks. I hate crappy documentation.
 
-###[TGUI][3]###
+### [TGUI][3] ###
 TGUI bills itself as the "Simple GUI" for SFML. So naturally, I was really
 quite excited to try it out. Until I figured out it required configuration
 files, and every button had to be an image or it wouldn't render. So in theory,
@@ -76,7 +76,7 @@ that this game will require. Secondly, if you require a configuration syntax,
 you are _not_ a simple library. Ever. All I want is to be able to call methods
 that create a button.
 
-###[CEGUI][4]###
+### [CEGUI][4] ###
 Desperate times call for desperate measures. Or so I believed. Problem is,
 CEGUI actually contains its own OpenGL renderer, which is redundant on top of
 SFML. There is never a reason to have two OpenGL renderers, they will conflict.
@@ -85,7 +85,7 @@ that this is to reduce the frustration of having to change your code to adjust
 the GUI interface, but I would rather adjust my code than end up dependent on
 XML files.
 
-###Conclusion###
+### Conclusion ###
 At the end of the day, All I really need to do for this particular engine is
 lay out a few menus and then a general presentation on top of those for the
 in game content. So I used [Thor][5] to render shapes, and then I'm writing my
