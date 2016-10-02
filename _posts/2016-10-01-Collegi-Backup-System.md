@@ -231,6 +231,13 @@ Backblaze B2 can take a while), I will demonstrate here.
 Thank you so much for reading, I look forward to sharing more about the inner
 workings of the Collegi Infrastructure as time permits.
 
+## Video ##
+I just recently completed an asciinema of the process. See below. Also note
+that you can copy and paste commands from inside the video itself. Go ahead, try
+it!
+
+<script type="text/javascript" src="https://asciinema.org/a/14pvurnnazr6res7f5u1yvg7u.js" id="asciicast-14pvurnnazr6res7f5u1yvg7u" async></script>
+
 [1]:  http://collegi.enjin.com "Collegi Pixelmon Main Website"
 [2]:  http://pixelmonmod.com/ "Pixelmon Mod Main Website"
 [3]:  https://www.bisecthosting.com/ "BisectHosting"
