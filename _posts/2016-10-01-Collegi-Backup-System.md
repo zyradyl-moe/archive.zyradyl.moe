@@ -188,7 +188,8 @@ into a sane, usable 127GB.
 
 The current command that is used looks like this:
 
-    borg create --chunker-params=10,23,16,4095 --compression zlib,9 --stats --progress /Volumes/Collegi/collegi.repo::1.10.2-09292016 .
+    borg create --chunker-params=10,23,16,4095 --compression zlib,9 --stats \
+        --progress /Volumes/Collegi/collegi.repo::1.10.2-09292016 .
 
 ## Step Three - Offsite Replication ##
 I could easily spend a very long time here discussing how I chose the cloud
@@ -223,7 +224,7 @@ the content is uploaded to B2.
 ## Conclusion ##
 The end result of this is that our 100GB server, as it stands at any day, is
 mirrored in four separate locations. One on the host itself, one on the MBP
-hard drive, one in the Borg Repository, and one on the BackBlaze cloud. More
+hard drive, one in the Borg Repository, and one on the BackBlaze B2 Cloud. More
 than that though, we have a system that is easily automated via a simple shell
 script, which after completing the initial setup (sending 20,000+ files to
 Backblaze B2 can take a while), I will demonstrate here.
