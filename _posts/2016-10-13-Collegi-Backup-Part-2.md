@@ -20,7 +20,7 @@ way to use git-annex to completely unify those repositories and distribute their
 information as needed.
 
 This started as a brief foray into [git submodules][6] which, while allowing me
-to consolidate data **locally** does nothing in helping me to properly
+to consolidate data **locally**, does nothing in helping me to properly
 redistribute that data to various locations. The only way that it would be
 possible to do such a thing would be to take all the various git repositories
 that Collegi utilizes, which currently is sitting at [six total][7], including
