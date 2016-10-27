@@ -75,13 +75,13 @@ next step in cleaning up the repository. I'm rewriting the commit history
 to completely remove files I don't need from the actual `git` repo. In theory
 this shouldn't touch `git-annex` at all, but that remains to be seen.
 * Ran BFG Repo Cleaner on the following directories and files:
- * collegi.web
- * collegi.pack
- * collegi.git
- * .DS_Store
- * .gitmodules
- * collegi.logs (Just for a moment, and we made backups.)
- * collegi.configs
+  * collegi.web
+  * collegi.pack
+  * collegi.git
+  * .DS_Store
+  * .gitmodules
+  * collegi.logs (Just for a moment, and we made backups.)
+  * collegi.configs
 * Ran filter branch to purge any empty commits left after the above.
 * Expired original ref-logs, repacked archive.
 
@@ -173,4 +173,54 @@ stupid, and not at all within our budget. What I will likely do is initialize
 a "bare repository" on my time machine drive, and mirror the entirity of the
 `git-annex` repository to that._
 
-### To be continued... ###
+### Mandatory Break Notes ###
+
+* You need to run borg info to make sure the latest creation thingy is the
+proper size, and a borg check might not be a bad idea either as you fell asleep
+and closed the mac during work on the repo.
+* Cleaned the time machine volume of the repeated backups of the new repository
+because it doesn't make any sense to have 20 versions of it.
+* Moved the repo to the time machine drive as temporary storage using rsync.
+
+### Tasks ###
+* Restarted the transfer process starting on the 8th of October
+
+_**Notes 13:** Not a huge shock but running some of these commands across USB
+2.0 can add anywhere from 10 to 30 minutes. Doing them cross device gets even
+worse, with some transactions taking almost an hour._
+
+_**Notes 14:** I've been going back and forth on what filesystem I would like
+to deploy since I am redoing the collegi drive as a whole. Now the interesting
+thing to note here is that by the time I get this thing fully ready to deploy,
+the drive I have here may not be the drive it ends up on, but this is as good
+of a testbed as any. I'm really thinking I will go with apfs. Most of the
+gripes I have with it are easily resolved through borg and git annex._
+
+_**Notes 15:** In a highly amusing turn of events, it is bigger in lzma 9 than
+it was with gzip 9. weird._
+
+_**Notes 16:** While it would likely be prudent to go back to the previous
+compression method, the benefits that I have made to the directory structure
+while redoing the borg repository are worth the few extra gigabytes of overhead
+especially concerning with Backblaze B2 it barely costs a penny._
+
+### Tasks ###
+
+* Use JHFSX for the new drive. I would have really liked to use APFS but I am
+still worried about the data loss considering there is almost a year till it
+will ship. JHFSX is reasonable enough for right now, while still being safe to
+unplug.
+* I went round and round on using encryption on the new drive. did it.
+* using rsync to bring the data to its final resting location.
+* OK started setting things up
+* Defined gitlab as the metadata backup again
+* created a bare repository on skaia
+* set up prefered content so skaia requires everything in the main repo
+* set the main repo to require a --force to drop content via preferred content
+* Set the backend to SHA512E
+* began the long process of adding the data to the git-annex
+* Set up bin directory to not be tracked by git-annex but instead by git
+* added backblaze remote, not encrypted, with a proper prefix
+* started to sync to backblaze
+* noticed an issue with how the sync was going to gitlab, will correct.
+  * corrected the issue
