@@ -511,7 +511,7 @@ train_cfg = {
     'num_epochs': 700,
     'gen_epochs': 50,
     'batch_size': 1024,
-    'train_size': 0.9,
+    'train_size': 0.75,
     'dropout': 0.0,
     'max_gen_length': 300,
     'validation': True,
