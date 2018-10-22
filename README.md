@@ -49,6 +49,6 @@ This blog previously used Jekyll clean. This is here for historical reference.
 
 * Get it from [github](https://github.com/scotte/jekyll-clean).
 
-The content of this theme is distributed and licensed under a  
+The content of this theme is distributed and licensed under the  
 ![License Badge](/images/cc_by_88x31.png)
 [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
