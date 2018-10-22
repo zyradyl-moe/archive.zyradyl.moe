@@ -7,11 +7,11 @@ title: About
 > **90% of code is crap.”** ~ *Al Viro*
 
 ## Character Statistics ##
-**Name:**       Natalie Spencer  
-**Level:**      26  
+**Name:**       Natalie
+**Level:**      29  
 **Gender:**     Female  
 **Class:**      Technomage  
-**Occupation:** Pharmacy Student  
+**Occupation:** Mental Health Specialized CPhT/Pharm Student  
 
 ## Combat Statistics ##
 **STR:** 08  
@@ -19,12 +19,12 @@ title: About
 **CON:** 10  
 **INT:** 18  
 **WIS:** 06  
-**CHA:** 03  
-**SAN:** 02  
+**CHA:** 06  
+**SAN:** 08  
 
 ## Blurb ##
-Hi my name is Natalie and I’m a 26 year old Pharmacy student based out of
-Michigan. When I’m not reading up on the latest and greatest pharmaceuticals
+Hi my name is Natalie and I’m a 29 year old Pharmacy student based out of
+Missouri When I’m not reading up on the latest and greatest pharmaceuticals
 I like to take things apart. Anything. A car, a computer, dumping compiled
 code into object code to see how it works. Running network scans on my ISP
 to try and figure out why PMTUD on IPv6 is broken and I have to manually set
