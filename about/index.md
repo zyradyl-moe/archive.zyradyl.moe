@@ -10,7 +10,7 @@ title: About
 **Name:**       Natalie  
 **Level:**      29  
 **Gender:**     Female  
-**Class:**      Technomage  
+**Class:**      Dual Class - Healer/Technomage  
 **Occupation:** Mental Health Specialized CPhT/Pharm Student  
 
 ## Combat Statistics ##
