@@ -7,7 +7,7 @@ title: About
 > **90% of code is crap.”** ~ *Al Viro*
 
 ## Character Statistics ##
-**Name:**       Natalie
+**Name:**       Natalie  
 **Level:**      29  
 **Gender:**     Female  
 **Class:**      Technomage  
