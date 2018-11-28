@@ -30,7 +30,7 @@ But for now, we have a lot of ground to cover, so let's get to work.
 
 #### Part 1 - Cross Platform is hard ####
 
-One of the biggest parts of the backup project was it's ability to be
+One of the biggest parts of the backup project was its ability to be
 cross-platform. I want the system to be easy enough to use that anyone and
 everyone could grab a client, get it configured, and get going. To facilitate
 this, the initial idea was to use tools that were built into the operating
@@ -49,7 +49,7 @@ isn't a great selling point.
 
 The first idea that I had was to write something on my own. Maybe have shell
 scripts on all platforms check for required code and fetch anything that is
-needed. However, shell scripts are hard for many people to debug, and the site
+needed. However, shell scripts are hard for many people to debug, and the sight
 of a command prompt can strike fear into the hearts of many windows users.
 
 The second iteration of the idea was to write something in Python. However at
@@ -59,7 +59,7 @@ a neat little backup service for my friends and family.
 
 Thankfully, there are many other software suites that are both cross platform
 and useful for this task. We ended up going with [SyncThing][2]. SyncThing is
-an open-source (MPL2, which is a permissive form of copyleft) syncronization
+an open-source (MPL2, which is a permissive form of copyleft) synchronization
 library that is cross-platform and written in Go. I'm a huge fan of Go even
 though I don't actually write it myself, as it is a fantastic language for
 exactly this type of thing. Even better, SyncThing comes with easy to use and
@@ -78,7 +78,7 @@ software.
 
 #### Part 2 - Changes in Sync Methods ####
 
-As hinted above, the original plan to syncronize systems wasn't going to work
+As hinted above, the original plan to synchronize systems wasn't going to work
 without more work than I was willing to put in to a single component of the
 system. Once we threw out the initial way the system was supposed to work, we
 had to retool the way things worked on the operating system too.
