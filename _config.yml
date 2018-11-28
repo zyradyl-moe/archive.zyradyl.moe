@@ -3,7 +3,7 @@ permalink:           :year/:month/:day/:title/
 
 # Setup
 title:               Bit of A Byte
-tagline:             "cat $(find /var/log -name '*.log' -print | head -n 3)"
+tagline:             "cat $(find /var/log -name '*.log' -print | head -n 5)"
 description:         'My name is Natalie and I spend most of my time taking apart things I have no business taking apart.'
 url:                 http://zyradyl.github.io
 baseurl:             ''
@@ -21,12 +21,11 @@ author:
 version:             0.5.0
 github:              "https://github.com/zyradyl"
 repo:                "https://github.com/zyradyl/zyradyl.github.io"
-theme:                jekyll-theme-lanyon
 
 # Plugins
 plugins:            [jekyll-paginate]
 paginate:           5
-paginate_path:    "page:num"
+paginate_path:      "page:num"
 
 # Page Listing
 pages_list:

@@ -7,8 +7,8 @@ title: Tags
         {% assign t = tag | first %}
         {% assign posts = tag | last %}
         <li>
-            <a href="#{{t | downcase | replace " ","-"}}">
-                {{t | downcase | replace:" ","-" }}
+            <a href="#{{ t | downcase | replace:' ','-' }}">
+                {{ t | downcase | replace:" ","-" }}
             </a>
         </li>
     {% endfor %}
@@ -17,7 +17,7 @@ title: Tags
     {% assign t = tag | first %}
     {% assign posts = tag | last %}
     <strong>
-        <a name="{{ t | downcase | replace " ","-"}}">
+        <a name="{{ t | downcase | replace:' ','-' }}">
             {{ t | downcase }}
         </a>
     </strong>
