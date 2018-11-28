@@ -4,7 +4,7 @@ require 'json'
 require 'open-uri'
 versions = JSON.parse(open('https://pages.github.com/versions.json').read)
 
-gem 'github-pages', versions['github-pages'], group: :jekyll_plugins
+gem 'github-pages', group: :jekyll_plugins
 gem 'github-linguist'
 gem 'github-markdown'
 gem 'gemoji'
@@ -19,4 +19,3 @@ gem 'html-proofer'
 gem 'rake'
 gem 'launchy'
 gem 'rubygems-bundler'
-gem 'travis'
