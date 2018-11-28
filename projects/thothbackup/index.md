@@ -21,13 +21,13 @@ based on the most recent formulation of the system.
 * [Stage 8 - Conclusions][9]
 * [GitHub Repository][10]
 
-[1]:  /projects/thothbackup/stage-0/index.md
-[2]:  /projects/thothbackup/stage-1/index.md
-[3]:  /projects/thothbackup/stage-2/index.md
-[4]:  /projects/thothbackup/stage-3/index.md
-[5]:  /projects/thothbackup/stage-4/index.md
-[6]:  /projects/thothbackup/stage-5/index.md
-[7]:  /projects/thothbackup/stage-6/index.md
-[8]:  /projects/thothbackup/stage-7/index.md
-[9]:  /projects/thothbackup/stage-8/index.md
+[1]:  /projects/thothbackup/stage-0/
+[2]:  /projects/thothbackup/stage-1/
+[3]:  /projects/thothbackup/stage-2/
+[4]:  /projects/thothbackup/stage-3/
+[5]:  /projects/thothbackup/stage-4/
+[6]:  /projects/thothbackup/stage-5/
+[7]:  /projects/thothbackup/stage-6/
+[8]:  /projects/thothbackup/stage-7/
+[9]:  /projects/thothbackup/stage-8/
 [10]: https://github.com/zyradyl/ThothBackup
