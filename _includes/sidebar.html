@@ -25,14 +25,16 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="{{ site.github_repo }}/archive/v{{ site.version }}.zip">Download</a>
-    <a class="sidebar-nav-item" href="{{ site.github_repo }}">GitHub project</a>
-    <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+    <a class="sidebar-nav-item" href="{{ site.github_repo }}">
+      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+    </a>
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 20{15..18} - No Rights Reserved.
+      </a>
     </p>
   </div>
 </div>
