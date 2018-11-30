@@ -15,7 +15,7 @@ author:
   email:             nmspencer89@gmail.com
 
 # Optional features
-#google_analytics_id: UA-XXXX-Y
+google_analytics_id: UA-130197091-1
 
 # Source vars
 version:             0.6.0
