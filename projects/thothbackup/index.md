@@ -1,5 +1,5 @@
 ---
-layout: unlisted
+layout: no-sidebar
 ---
 # ThothBackup #
 

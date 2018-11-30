@@ -1,9 +1,9 @@
 ---
-layout: unlisted
+layout: no-sidebar
+title: ThothBackup - Stage 0
 ---
-# ThothBackup - Stage 0 #
 
-### Table of Contents ###
+### Project Contents ###
 
 * Stage 0 - Environment & Hardware Setup
 * [Stage 1 - Server Configuration & Hardening][2]
@@ -17,7 +17,19 @@ layout: unlisted
 * [GitHub Repository][10]
 
 ### Stage 0 - Environment & Hardware Setup ###
-in progress...
+
+#### Introduction ####
+
+This section will be divided into several parts. In the first part, we will talk
+about the environment that the server exists in. This will handle things like
+power and networking, basically everything that exists outside the server. Next,
+we will take a look at the server itself, and any changes that have been made to
+it. We will then discuss the currently used storage devices. Finally, we will
+talk about things that could be improved with this setup, and any potential
+changes that could be made to increase security.
+
+
+
 
 [1]:  /projects/thothbackup/stage-0/
 [2]:  /projects/thothbackup/stage-1/

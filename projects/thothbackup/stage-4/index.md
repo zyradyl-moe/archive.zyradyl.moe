@@ -1,7 +1,7 @@
 ---
-layout: unlisted
+layout: no-sidebar
+title: ThothBackup - Stage 4
 ---
-# ThothBackup - Stage 4 #
 
 ### Table of Contents ###
 

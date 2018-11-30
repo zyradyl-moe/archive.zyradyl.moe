@@ -1,7 +1,7 @@
 ---
-layout: unlisted
+layout: no-sidebar
+title: ThothBackup - Stage 7
 ---
-# ThothBackup - Stage 7 #
 
 ### Table of Contents ###
 
