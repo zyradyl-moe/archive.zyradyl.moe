@@ -1,8 +1,7 @@
 ---
 layout: no-sidebar
+title: ThothBackup
 ---
-# ThothBackup #
-
 The backup project was broken down into stages to make it easier for me to both
 manage, research, and prototype. While each stage may have had multiple blog
 posts written about it, the pages below should be the ones considered to be
