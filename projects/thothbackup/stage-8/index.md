@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 8
 ---
 
-## Stage 8 - Conclusions ##
+## Conclusions ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

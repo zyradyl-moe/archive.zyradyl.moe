@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 3
 ---
 
-## Stage 3 - Establishment of Local Repository ##
+## Establishment of Local Repository ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

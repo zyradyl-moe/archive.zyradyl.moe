@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 1
 ---
 
-## Stage 1 - Server Configuration & Hardening ##
+## Server Configuration & Hardening ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

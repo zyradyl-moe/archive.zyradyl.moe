@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 7
 ---
 
-## Stage 7 - Restore Capabilities ##
+## Restore Capabilities ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

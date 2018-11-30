@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 5
 ---
 
-## Stage 5 - Remote Synchronization ##
+## Remote Synchronization ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 4
 ---
 
-## Stage 4 - Preparation for Remote Syncronization ##
+## Preparation for Remote Syncronization ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

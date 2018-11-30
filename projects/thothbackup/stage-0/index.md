@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 0
 ---
 
-## Stage 0 - Environment & Hardware Setup ##
+## Environment & Hardware Setup ##
 
 ### Project Contents ###
 * Stage 0 - Environment & Hardware Setup
@@ -25,6 +25,8 @@ we will take a look at the server itself, and any changes that have been made to
 it. We will then discuss the currently used storage devices. Finally, we will
 talk about things that could be improved with this setup, and any potential
 changes that could be made to increase security.
+
+### Environment ####
 
 
 

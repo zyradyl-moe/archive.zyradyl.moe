@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 6
 ---
 
-## Stage 6 - Scheduled Data Integrity Verification ##
+## Scheduled Data Integrity Verification ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]

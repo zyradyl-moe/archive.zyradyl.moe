@@ -3,7 +3,7 @@ layout: no-sidebar
 title: ThothBackup - Stage 2
 ---
 
-## Stage 2 - Client to Server Synchronization ##
+## Client to Server Synchronization ##
 
 ### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]
