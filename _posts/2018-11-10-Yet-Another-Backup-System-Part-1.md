@@ -225,4 +225,4 @@ Extensive testing was performed to detect any chance of infant-mortality in the
 hardware. I have previously had negative experiences utilizing hardware right
 out of the box.
 
-[mac-mini]: /images/mac-mini.jpeg
+[mac-mini]: /images/posts/mac-mini.jpeg
