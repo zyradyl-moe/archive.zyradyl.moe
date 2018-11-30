@@ -3,8 +3,9 @@ layout: no-sidebar
 title: ThothBackup - Stage 4
 ---
 
-### Table of Contents ###
+## Stage 4 - Preparation for Remote Syncronization ##
 
+### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]
 * [Stage 1 - Server Configuration & Hardening][2]
 * [Stage 2 - Client to Server Syncronization][3]
@@ -16,7 +17,7 @@ title: ThothBackup - Stage 4
 * [Stage 8 - Conclusions][9]
 * [GitHub Repository][10]
 
-### Stage 4 - Preparation for Remote Syncronization ###
+### Introduction ###
 in progress...
 
 [1]:  /projects/thothbackup/stage-0/

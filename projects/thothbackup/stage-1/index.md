@@ -3,8 +3,9 @@ layout: no-sidebar
 title: ThothBackup - Stage 1
 ---
 
-### Table of Contents ###
+## Stage 1 - Server Configuration & Hardening ##
 
+### Project Contents ###
 * [Stage 0 - Environment & Hardware Setup][1]
 * Stage 1 - Server Configuration & Hardening
 * [Stage 2 - Client to Server Syncronization][3]
@@ -16,7 +17,7 @@ title: ThothBackup - Stage 1
 * [Stage 8 - Conclusions][9]
 * [GitHub Repository][10]
 
-### Stage 1 - Server Configuration & Hardening ###
+### Introduction ###
 in progress...
 
 [1]:  /projects/thothbackup/stage-0/

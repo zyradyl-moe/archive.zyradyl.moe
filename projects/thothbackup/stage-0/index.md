@@ -3,8 +3,9 @@ layout: no-sidebar
 title: ThothBackup - Stage 0
 ---
 
-### Project Contents ###
+## Stage 0 - Environment & Hardware Setup ##
 
+### Project Contents ###
 * Stage 0 - Environment & Hardware Setup
 * [Stage 1 - Server Configuration & Hardening][2]
 * [Stage 2 - Client to Server Syncronization][3]
@@ -16,10 +17,7 @@ title: ThothBackup - Stage 0
 * [Stage 8 - Conclusions][9]
 * [GitHub Repository][10]
 
-### Stage 0 - Environment & Hardware Setup ###
-
-#### Introduction ####
-
+### Introduction ###
 This section will be divided into several parts. In the first part, we will talk
 about the environment that the server exists in. This will handle things like
 power and networking, basically everything that exists outside the server. Next,
