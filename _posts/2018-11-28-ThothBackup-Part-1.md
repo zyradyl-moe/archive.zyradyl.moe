@@ -5,15 +5,13 @@ date: 2018-11-28 16:30:00 -06:00
 license: cc0
 published: True
 categories:
-- Home
+- ThothBackup
 tags:
 - BorgBackup
 - Git
 - Git-Annex
 - Wasabi
-- Rsync
-- ThothBackup
-- Backups
+- SyncThing
 ---
 As many people may have guessed, this backup system very quickly got much larger
 than I initially expected. Because of the size of the backup project, the number

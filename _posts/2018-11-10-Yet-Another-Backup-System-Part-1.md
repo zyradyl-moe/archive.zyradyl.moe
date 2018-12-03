@@ -5,15 +5,15 @@ date: 2018-11-10 12:00:00 -06:00
 license: cc0
 published: True
 categories:
-- Home
+- ThothBackup
 tags:
 - BorgBackup
 - Git
 - Git-Annex
 - Wasabi
-- Rsync
-- Backups
+- SyncThing
 ---
+
 ## Introduction ##
 I've been wanting to get back into blogging, or at least writing more
 consistently, and I've also been looking for projects to work on. One of my
