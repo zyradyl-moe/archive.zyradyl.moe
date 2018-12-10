@@ -45,3 +45,5 @@ I'm also in the process of going back through previous posts and cleaning up
 the YAML front matter. While this front-matter previously had very little
 impact on the site, it now can matter quite a lot with the way the related
 posts system works.
+
+.
