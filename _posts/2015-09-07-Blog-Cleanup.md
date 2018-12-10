@@ -3,6 +3,10 @@ layout: post
 title: "Blog Cleanup"
 date: 2015-09-07 21:04:00 -05:00
 license: cc0
+categories:
+- Blog
+tags:
+- Blog Updates
 ---
 I just spent the past thirty minutes going back and removing a number of the
 links that were in my posts up to this point. Nothing important, just links

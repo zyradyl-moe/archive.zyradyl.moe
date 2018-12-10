@@ -7,6 +7,7 @@ published: True
 categories:
 - Blog
 tags:
+- Blog Updates
 ---
 Yes, it's that time of year again. I have updated the blog! You can find more
 information below.

@@ -4,9 +4,9 @@ title: An Actual Update
 date: 2015-12-02 12:30:00 -05:00
 license: cc0
 categories:
-- Personal
+- Blog
 tags:
-- Blog Stuff
+- Blog Updates
 ---
 
 So I recently purchased a new MacBook Pro, and in the time it took me to get the
