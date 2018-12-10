@@ -26,6 +26,10 @@ previous statement, please keep in mind that this week's post only refers to the
 root drive. I didn't make much progress because of things happening at work, but
 this is a nice, strong, foundation to build upon.
 
+Many of the steps in this post were cobbled together from various sources across
+the internet. At the bottom of this post you can find a works cited that will
+show the posts that I used to gather the appropriate information.
+
 ## End Goal ##
 The end goal is to ensure that the operating system's root drive is encrypted at
 rest. Full Disk Encryption is _not_ an active security measure, it is a passive
@@ -261,7 +265,30 @@ everything is still working as intended. If it is, you are ready for the next
 step, which is automating the unlock process.
 
 ## Auto-Decryption ##
+There are a few ways to handle USB key based auto-decryption. The end goal is
+to actually use a hardware security module to do this, and I don't anticipate
+the FBI busting down my door any time soon for hosting the data of my friends
+and family, so I opted for one that is easily extendable.
 
+Essentially, the key will live on an `ext4` filesystem. It will be a simple
+hidden file, so nothing extremely complex to find. This shouldn't be considered
+secure at _this point_, but it is paving the way to a slightly more secure
+future.
+
+
+## Works Cited ##
+The following sources were invaluable in cobbling this process together. I
+sincerely thank the authors both for figuring the process out and documenting
+the process online.
+
+  * [Debian Stretch - USB Keyfile with LUKS][3]
+  * [Arch Wiki - Secure Disk Wiping][4]
+  * [Arch Wiki - Encrypting an Entire Disk][5]
+  * [Gentoo Wiki - Sakaki's EFI Install Guide][6]
+  * [Chroot Into Broken Linux Install][7]
+  * [Linux Images for 32Bit EFI Macs][8]
+  * [Reducing 30 Second Delay when Booting Linux][9]
+  * [Over-Provisioning SSDs][10]
 
 Begin conversion to autobooting from a key on the USB stick
 start by writing random data to the USB stick, though this isn't really boosting security since we use the filesystem method
@@ -269,5 +296,13 @@ partition external with GPT, create an ext4 partition
 format the ext4 partition and name it KEYS
 generate a 4k file from /dev/random
 
-[1]: https://en.wikipedia.org/wiki/Serpent_(cipher)
-[2]: https://en.wikipedia.org/wiki/Disk_encryption_theory#XTS
+[1]:  https://en.wikipedia.org/wiki/Serpent_(cipher)
+[2]:  https://en.wikipedia.org/wiki/Disk_encryption_theory#XTS
+[3]:  https://lists.debian.org/debian-user/2017/12/msg00523.html
+[4]:  https://wiki.archlinux.org/index.php/Securely_wipe_disk
+[5]:  https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system
+[6]:  https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide/Preparing_the_LUKS-LVM_Filesystem_and_Boot_USB_Key
+[7]:  https://aaronbonner.io/post/21103731114/chroot-into-a-broken-linux-install
+[8]:  https://mattgadient.com/2016/07/11/linux-dvd-images-and-how-to-for-32-bit-efi-macs-late-2006-models/
+[9]:  https://mattgadient.com/2018/02/12/reducing-the-30-second-delay-when-starting-64-bit-ubuntu-in-bios-mode-on-the-old-32-bit-efi-macs/
+[10]: https://support.siliconmechanics.com/portal/kb/articles/over-provisioning-ssds

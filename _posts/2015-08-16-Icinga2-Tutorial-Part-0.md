@@ -4,17 +4,21 @@ title: "Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses"
 date: 2015-08-16 01:00:00 -05:00
 license: cc0
 categories:
-- Icinga2
-- Networking
 - Tutorials
+- Networking
 tags:
 - Icinga2
-- IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][1]
 * [Icinga2 Tutorial: Part 2 - Agent-Less Checks][2]
 * [Icinga2 Tutorial: Part 3 - Agent-Based Checks][3]
 * [Icinga2 Tutorial: Part 4 - Expanding Checks to SNMP][4]
+
+__EDIT (2018/12/09):__ _These guides haven't been updated since 2015. It is
+possible that there are dead links, or that the configuration syntax has changed
+dramatically. These posts are also some of the most popular on my blog. I plan
+to do a new guide eventually, but for right now please take the following
+entries with a grain of salt._
 
 ## Introduction ##
 This will be a bit more informal than most of my posts as this is more of a
@@ -72,9 +76,9 @@ your deployment.
 I do plan to branch off into Netflow at some point. So you can expect
 that in the future.
 
-[1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
-[2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
-[3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %} "Icinga2 Tutorial Part 3"
-[4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %} "Icinga2 Tutorial Part 4"
-[5]: https://assets.nagios.com/handouts/nagiosxi/Nagios-XI-2014-Pricing-Documentation.pdf "Official NAGIOS Pricing Information"
-[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Offcial Documentation"
+[1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %}
+[2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %}
+[3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
+[4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
+[5]: https://assets.nagios.com/handouts/nagiosxi/Nagios-XI-2014-Pricing-Documentation.pdf
+[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc

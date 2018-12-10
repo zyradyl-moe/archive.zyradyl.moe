@@ -4,11 +4,10 @@ title: "HughesNet Gen4 and IPv6 PMTUD: A Tragedy"
 license: cc0
 date: 2015-08-22 14:50:00 -05:00
 categories:
-    - HughesNet
+- Networking
 tags:
-    - IPv6
-    - HughesNet
-    - Networking
+- IPv6
+- HughesNet
 ---
 So before I went to bed last night I started experiencing some very odd issues
 with my connection. I could connect to Skype, but I couldn’t visit twitter.

@@ -16,7 +16,8 @@ infrastructure. As such, they're arranged in no real sensible order besides
 having been written chronologically. Additionally, these have not been
 proofread, grammar checked, copyedited, or spell checked, as i write them in an
 IDE and not an actual text editor. As such, please don't judge my writing
-ability off of them. More importantly, however, these do not have the standardized links that i provide to new concepts or commands in my blog posts,
+ability off of them. More importantly, however, these do not have the
+standardized links that i provide to new concepts or commands in my blog posts,
 as embedding links to things I already know or have access to in a developer log
 that on average no one else sees just seems silly.
 
