@@ -23,7 +23,9 @@ github:              "https://github.com/zyradyl"
 repo:                "https://github.com/zyradyl/zyradyl.github.io"
 
 # Plugins
-plugins:               [jekyll-paginate-v2]
+plugins:               [jekyll-paginate]
+paginate: 5
+paginate_path: "/page/:num/"
 
 # Collections
 collections:
