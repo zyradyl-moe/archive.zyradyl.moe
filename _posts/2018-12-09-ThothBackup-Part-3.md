@@ -3,7 +3,7 @@ layout: post
 title: ThothBackup - Part 3
 date: 2018-12-09 17:00:00 -06:00
 license: cc0
-published: False
+published: True
 categories:
 - ThothBackup
 tags:
@@ -275,6 +275,97 @@ hidden file, so nothing extremely complex to find. This shouldn't be considered
 secure at _this point_, but it is paving the way to a slightly more secure
 future.
 
+The first thing that I did, though it isn't strictly necessary, is write random
+data to the entire USB stick. In my case, the USB drive could be found at
+`/dev/sdb`.
+
+```
+# dd if=/dev/urandom of=/dev/sdb status=progress bs=1M
+```
+
+Once this is done, we've effectively destroyed the partition table. We will
+recreate a GPT table, and then create a partition that fills the usable space
+of the drive.
+
+```
+# apt update
+# apt install parted
+# parted /dev/sdb
+(parted) mklabel gpt
+(parted) mkpart KEYS ext4 0% 100%
+(parted) quit
+```
+
+Now we just create the filesystem, a mount point for the filesystem, and make
+our new LUKS keyfile. Once the file has been created, we just add it to the
+existing LUKS header.
+
+```
+# mkfs.ext4 -L KEYS /dev/sdb1
+# mkdir /mnt/KEYS
+# mount LABEL=KEYS /mnt/KEYS
+# dd if=/dev/random of=/mnt/KEYS/.root_key bs=1 count=4096 status=progress
+# cryptsetup luksAddKey /dev/sda3 /mnt/KEYS/.root_key
+```
+
+After this point, the setup diverges a bit depending on what guide you follow.
+We will stick close to the guide posted to the Debian mailing list for now, as
+that guide got me a successful boot on the first try. The others are slightly
+more elegant looking, but at the expense of added complexity. As such, they may
+end up being the _final_ configuration, but for this prototyping phase they are
+a bit excessive.
+
+We have to modify the `crypttab` file to enable the keyfile to be loaded off of
+our freshly set up key drive.
+
+```
+sda3_crypt  UUID="..."  /dev/disk/by-label/KEYS:/.root_key:5  luks,initramfs,keyscript=/lib/cryptsetup/scripts/passdev,tries=2
+```
+
+At this point, we need to repackage our startup image, update grub, and reboot
+to test the whole package.
+
+```
+# update-initramfs -tuck all
+# update-grub
+# reboot
+```
+
+At this point the system should boot automatically, but you will notice a weird
+`systemd` based timeout that happens. This is mentioned in the guide posted to
+the Debian Stretch mailing list, and is fairly easy to solve. We just need to
+create an empty service file to prevent `systemd` from doing it's own thing.
+
+```
+# touch "/etc/systemd/system/systemd-cryptsetup@sda3_crypt.service"
+# reboot
+```
+
+At this point, everything should boot correctly and quickly. You may notice a
+few thrown errors, but it shouldn't be anything severe, more services loading
+out of order.
+
+At this point, it used to be possible to allow for the creation of a fallback
+in the event that the key drive wasn't present, but that seems to have been
+removed. I plan to look into it further when I have more time.
+
+## Conclusion ##
+This concludes the first part of the Operating System setup process. The next
+step was originally planned to be thin-provisioning the partitions inside the
+`djehuti-root` volume group, but there seems to be some problems in getting
+the system to boot from a thin-provisioned root. I'm looking into a weird
+combined system, where the root is static but all the accessory partitions are
+thinly provisioned, but it will take time to tinker with this and report back.
+
+Thin Provisioning isn't strictly required, but it is a rather neat feature and
+I like the idea of being able to create more partitions than would technically
+fit. I'm not sure when this would be useful, but we will see.
+
+Once all of this is finalized, we will move on to hardening the base system,
+and last but not least creating the Stage 1 Project page. Then it is back to
+experiments with data synchronization. This is a fairly large step back in
+progress, but I am hopeful it will result in a better end product, where
+security can be dynamically updated as needed.
 
 ## Works Cited ##
 The following sources were invaluable in cobbling this process together. I
@@ -289,12 +380,6 @@ the process online.
   * [Linux Images for 32Bit EFI Macs][8]
   * [Reducing 30 Second Delay when Booting Linux][9]
   * [Over-Provisioning SSDs][10]
-
-Begin conversion to autobooting from a key on the USB stick
-start by writing random data to the USB stick, though this isn't really boosting security since we use the filesystem method
-partition external with GPT, create an ext4 partition
-format the ext4 partition and name it KEYS
-generate a 4k file from /dev/random
 
 [1]:  https://en.wikipedia.org/wiki/Serpent_(cipher)
 [2]:  https://en.wikipedia.org/wiki/Disk_encryption_theory#XTS

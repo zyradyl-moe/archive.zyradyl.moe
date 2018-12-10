@@ -145,17 +145,12 @@ remind me what I need to work on. Hopefully having this publicly viewable will
 encourage me to actually follow through on writing more than one blog post every
 18 days.
 
-  * stage 0 project page
   * stage 1 project page
   * stage 2 project page
-  * second blog post on things that have been learned
   * talk about security improvements that can be done
   * rewrite the server side new client script
   * talk about specific SyncThing configuration options used
-  * Sync speed discussion
   * write utility script to keep server config files up to date in git
-  * document blog updates
-  * edit old posts to make them look nicer
 
 [1]: https://www.rsync.net/resources/howto/windows_rsync.html
 [2]: https://syncthing.net/
