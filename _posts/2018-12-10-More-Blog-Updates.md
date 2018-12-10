@@ -25,8 +25,11 @@ were broken and went ahead and fixed those:
 
   * The "Site Version" link in the sidebar now properly links to the GitHub
     source repository.
-  * A long standing issue with pagination has been corrected by updating to
-    the jekyll-paginate-v2 gem, and rewriting the appropriate liquid blocks.
+  * ~~A long standing issue with pagination has been corrected by updating to
+    the jekyll-paginate-v2 gem, and rewriting the appropriate liquid blocks.~~
+      * Github-Pages does not support the v2 gem. Therefore, the site has been
+        downgraded back to the v1 gem, and the liquid blocks were cleaned up
+        based on trial and error.
   * Related posts are now actually related! This is accomplished by iterating
     through tags at compile time and creating a list of related posts. While
     this may not always be accurate, it is far more accurate than the time
@@ -37,9 +40,14 @@ were broken and went ahead and fixed those:
   * The archive page now uses a new Liquid code block. This is to resolve the
     long standing `</ul>` problem, where the code would generate trailing
     closing tags.
+  * HTTPS links have been enforced across the board. I cannot promise the site
+    that you visit will have a valid SSL certificate, but we will certainly try
+    to redirect the connection over SSL now.
 
-HTML proofer is still throwing a few errors related to my consistent use of
-the Introduction and Conclusion headers, but these are not actual errors.
+~~HTML proofer is still throwing a few errors related to my consistent use of
+the Introduction and Conclusion headers, but these are not actual errors.~~
+  * Even these errors have been fixed. HTMLProofer now returns a completely safe
+    site.
 
 I'm also in the process of going back through previous posts and cleaning up
 the YAML front matter. While this front-matter previously had very little
