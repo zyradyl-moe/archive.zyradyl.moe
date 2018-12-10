@@ -14,7 +14,7 @@ tags:
 - SyncThing
 ---
 
-## Introduction ##
+## Introduction ## {: #yet-another-introduction }
 I've been wanting to get back into blogging, or at least writing more
 consistently, and I've also been looking for projects to work on. One of my
 favorite things to do, oddly enough, is to work on systems that will manage
@@ -213,7 +213,7 @@ compared to those from the table dumped prior to running `badblocks`.
 As these tests are actually still in progress, the results are not yet
 definitive.
 
-## Conclusion ##
+## Conclusion ## {: #yet-another-conclusion }
 
 This first post simply outlines the primary variables in this project. Hardware,
 operating system, and environment should all be assumed to remain static for

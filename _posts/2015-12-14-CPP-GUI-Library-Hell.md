@@ -85,7 +85,7 @@ that this is to reduce the frustration of having to change your code to adjust
 the GUI interface, but I would rather adjust my code than end up dependent on
 XML files.
 
-### Conclusion ###
+### Conclusion ### {: #cpp-library-hell-conclusion }
 At the end of the day, All I really need to do for this particular engine is
 lay out a few menus and then a general presentation on top of those for the
 in game content. So I used [Thor][5] to render shapes, and then I'm writing my

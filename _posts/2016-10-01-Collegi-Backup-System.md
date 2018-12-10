@@ -221,7 +221,7 @@ used a [plugin][23] for git-annex to add support for a B2 content backend. Then,
 the metadata information for the git repository gets synced to [GitLab][24], and
 the content is uploaded to B2.
 
-## Conclusion ##
+## Conclusion ## {: #collegi-backup-system-conclusion }
 The end result of this is that our 100GB server, as it stands at any day, is
 mirrored in four separate locations. One on the host itself, one on the MBP
 hard drive, one in the Borg Repository, and one on the BackBlaze B2 Cloud. More

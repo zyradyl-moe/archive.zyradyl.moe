@@ -21,7 +21,7 @@ dramatically. These posts are also some of the most popular on my blog. I plan
 to do a new guide eventually, but for right now please take the following
 entries with a grain of salt._
 
-## Introduction ##
+## Introduction ## {: #icinga2-part-0-introduction }
 This will be a bit more informal than most of my posts as this is more of a
 hobby project than anything with really standardized applications. I’ve been
 exploring the network protocols available to me on my EdgeRouter now for the

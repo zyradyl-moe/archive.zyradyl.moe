@@ -19,7 +19,7 @@ work. This episode is far less technical and focuses more on the concept of a
 
 It fucking sucks.
 
-### Introduction ###
+### Introduction ### {: #thoth-2-introduction }
 This entry is slightly unidirectional. The concept of a simple, easy to
 implement, catch everything you might ever need solution is quite literally the
 holy grail, yet it has never honestly been implemented. Sure, user data is
@@ -101,7 +101,7 @@ scenario for the backup system._ As of my independent, albeit anecdotal testing,
 After 7 days the synchronization process is still in effect. This represents a
 very __poor user experience__ and would not be ideal for a widespread rollout.
 
-### Conclusion ###
+### Conclusion ### {: #thoth-2-conclusion }
 The primary goal of a backup utility is to synchronize files and achieve cross
 system consistency as quickly as possible. While it is true that eventually
 consistent systems are utilized in large scale operations, this type of

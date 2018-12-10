@@ -129,7 +129,7 @@ of documentation available for Debian. It paid off well too. The initial install
 of Debian stable clocked in at 60MB of ram used, where as OpenSUSE was running
 around 200MB after reboot.
 
-#### Conclusion ####
+#### Conclusion #### {: #thoth-1-conclusion }
 
 There is honestly still quite a bit more that needs to be discussed. One of the
 most amusing things that the past week or so has taught me is that Sydney's
@@ -139,7 +139,7 @@ and about a terabyte of _used_ storage on it. Combining his single computer
 with my mac and a windows virtual machine, and we have as much testing as we
 could need.
 
-#### Notes ####
+#### Notes #### {: #thoth-1-notes }
 I'm going to start including a little section at the bottom of each post to
 remind me what I need to work on. Hopefully having this publicly viewable will
 encourage me to actually follow through on writing more than one blog post every

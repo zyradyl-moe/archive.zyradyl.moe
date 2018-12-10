@@ -21,7 +21,7 @@ dramatically. These posts are also some of the most popular on my blog. I plan
 to do a new guide eventually, but for right now please take the following
 entries with a grain of salt._
 
-## Introduction ##
+## Introduction ## {: #icinga2-part-1-introduction }
 I wanted to get this out fairly quickly, because I just actually did this, and
 while the default [Icinga2 tutorial][5] is pretty good, it is lacking in some
 areas, and since everything is fresh in my mind I wanted to go ahead and draft

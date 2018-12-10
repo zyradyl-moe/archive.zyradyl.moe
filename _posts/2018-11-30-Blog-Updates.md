@@ -76,7 +76,7 @@ the page run faster. Additionally, the tags page is simply a disaster. Between
 all of that and the project pages, there is still a lot left to be done.
 Hopefully, all will be accomplished in time.
 
-#### Conclusion ####
+#### Conclusion #### {: #blog-updates-conclusion }
 Hopefully all of these changes make the site a bit more enjoyable to use. I do
 understand if the use of analytics bothers you. Please make an issue in the
 tracker, or if someone already has, comment accordingly. If there are enough

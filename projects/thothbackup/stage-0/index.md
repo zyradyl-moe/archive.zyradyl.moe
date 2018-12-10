@@ -197,6 +197,6 @@ how to make it more secure for it's use as a hosting environment.
 [15]: /images/posts/mac-mini.jpeg
 [16]: https://www.owcdigital.com/products/electra-3g-ssd
 [17]: https://eshop.macsales.com/item/OWC/5300DDR2S4GP/
-[18]: http://madebymitchell.com/edid/
+[18]: https://madebymitchell.com/edid/
 [19]: https://www.g-technology.com/products/desktop/g-drive-usb-c#0G05666
 [20]: https://www.anker.com/products/variant/powerline-usb-c-to-usb-a-double-braided-nylon-fast-charging-cable/B8266092

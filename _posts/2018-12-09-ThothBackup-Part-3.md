@@ -41,7 +41,7 @@ In short, we will utilize a USB key to provide a Keyfile which will then be
 combined with LUKS encryption to unlock the LVM array to allow the initramfs to
 hand over control to the operating system.
 
-## Notes ##
+## Notes ## {: #thoth-3-notes }
 Because we are using a solid state drive, and we will be filling the drive with
 data, it was important for me to over-provision the drive. The SSD we're using
 comes with 240GB of space. We can assume that there is some form of manufacturer
@@ -349,7 +349,7 @@ At this point, it used to be possible to allow for the creation of a fallback
 in the event that the key drive wasn't present, but that seems to have been
 removed. I plan to look into it further when I have more time.
 
-## Conclusion ##
+## Conclusion ## {: #thoth-3-conclusion }
 This concludes the first part of the Operating System setup process. The next
 step was originally planned to be thin-provisioning the partitions inside the
 `djehuti-root` volume group, but there seems to be some problems in getting

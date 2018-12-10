@@ -21,7 +21,7 @@ dramatically. These posts are also some of the most popular on my blog. I plan
 to do a new guide eventually, but for right now please take the following
 entries with a grain of salt._
 
-## Introduction ##
+## Introduction ## {: #icinga2-part-4-introduction }
 Well I have finally persuaded myself to continue writing these posts by
 completely deleting all the configuration I had already set up. It is worth
 noting that I have switched over to Debian Jessie, for no other reason than
@@ -306,7 +306,7 @@ minutes, to calculate what has changed. Until you have a row in the database
 that is the proper age, you will get a big _Unknown_ status. Nothing to worry
 about, check back in a half hour.
 
-## Conclusion ##
+## Conclusion ## {: #icinga2-part-4-conclusion }
 There is one more snmp check that is available, and that is the process check.
 While I previously used this setup on my core router, it ended up causing some
 rather wonky effects, so I have elected to not use it. This check would be
