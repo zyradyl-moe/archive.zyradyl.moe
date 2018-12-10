@@ -82,4 +82,4 @@ that in the future.
 [3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
 [5]: https://assets.nagios.com/handouts/nagiosxi/Nagios-XI-2014-Pricing-Documentation.pdf
-[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc
+[6]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc

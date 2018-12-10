@@ -324,8 +324,8 @@ for that!
 [2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %}
 [3]: {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %}
 [4]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
-[5]: http://jimlynch.com/linux-articles/the-psychology-of-a-distrohopper/
-[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/agent-based-checks-addon
+[5]: https://jimlynch.com/linux-articles/the-psychology-of-a-distrohopper/
+[6]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/agent-based-checks-addon
 [7]: https://wiki.icinga.org/display/howtos/check_apt+via+SNMP
-[8]: http://nagios.manubulon.com/
-[9]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#snmp-manubulon-plugin-check-commands
+[8]: https://nagios.manubulon.com/
+[9]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#snmp-manubulon-plugin-check-commands

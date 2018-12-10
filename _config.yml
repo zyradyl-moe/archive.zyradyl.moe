@@ -23,20 +23,18 @@ github:              "https://github.com/zyradyl"
 repo:                "https://github.com/zyradyl/zyradyl.github.io"
 
 # Plugins
-plugins:               [jekyll-paginate]
-paginate: 5
-paginate_path: "/page/:num/"
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
 
 # Collections
 collections:
   - posts
 
 # Pagination Configuration
-pagination:
-  enabled: true
-  per_page: 5
-  sort_reverse: true
-  permalink: '/page/:num/'
+paginate: 5
+paginate_path: "/page/:num/"
 
 # Page Listing
 pages_list:

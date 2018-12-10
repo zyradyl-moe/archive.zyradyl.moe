@@ -186,4 +186,4 @@ on what I mention in my posts._
 [How to Recover an EXT3 Volume with an Unreadable Journal][2]
 
 [1]:  https://community.ubnt.com/t5/EdgeMAX/EdgeRouter-LITE-OS-and-hardware-problems/td-p/667557
-[15]: http://trick.vanstaveren.us/wp/2009/06/19/how-to-recover-an-ext3-volume-with-an-unreadable-journal/
+[15]: https://trick.vanstaveren.us/wp/2009/06/19/how-to-recover-an-ext3-volume-with-an-unreadable-journal/

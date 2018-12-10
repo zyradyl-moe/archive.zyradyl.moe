@@ -35,8 +35,12 @@ end
 def testsite()
     puts "Testing Website..."
     HTMLProofer.check_directory("./_site", {
+        :allow_hash_href  => true,
+        :assume_extension => true,
         :check_favicon    => true,
         :check_html       => true,
+        :check_img_http   => true,
+        :enforce_https    => true,
         :href_ignore      => [
             "http://127.0.0.1",
             "http://127.0.0.1/",

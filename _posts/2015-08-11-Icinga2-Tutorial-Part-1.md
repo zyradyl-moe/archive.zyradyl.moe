@@ -212,9 +212,9 @@ configuring icinga to speak to simple hosts.
 [2]:  {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %}
 [3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
-[5]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2
-[6]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2
+[5]:  https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2
+[6]:  https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#setting-up-icinga2
 [7]:  https://www.icinga.org/icinga/icinga-2/
-[8]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/advanced-topics#db-ido
-[9]:  http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#configuring-db-ido-postgresql
-[10]: http://php.net/manual/en/timezones.php
+[8]:  https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/advanced-topics#db-ido
+[9]:  https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#configuring-db-ido-postgresql
+[10]: https://php.net/manual/en/timezones.php

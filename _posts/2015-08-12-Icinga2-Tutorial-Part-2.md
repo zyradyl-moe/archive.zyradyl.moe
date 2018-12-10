@@ -174,22 +174,22 @@ You can see the
 [2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %}
 [3]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
-[5]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/distributed-monitoring#distributed-monitoring-setup-master
-[6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc
-[7]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/distributed-monitoring#distributed-monitoring-setup-satellite-client
-[8]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#check-commands
-[9]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#configuration-syntax-highlighting-nano
-[10]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#hosts-conf
-[11]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#services-conf
-[12]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#conf-d
-[13]: http://pastebin.com/twTv3bem
-[14]: http://namsep.blogspot.com/2014/07/icinga-2-https-and-ssl-key-expiry-check.html
-[15]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-tcp
-[16]: http://pastebin.com/H7TMnCpQ
-[17]: http://pastebin.com/NnJCYuLM
-[18]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-remote-systems#agent-less-checks
-[19]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#hosts-services
-[20]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-ssh
-[21]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-ssl
-[22]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#command-passing-parameters
-[23]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/cli-commands#config-validation
+[5]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/distributed-monitoring#distributed-monitoring-setup-master
+[6]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc
+[7]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/distributed-monitoring#distributed-monitoring-setup-satellite-client
+[8]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#check-commands
+[9]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/getting-started#configuration-syntax-highlighting-nano
+[10]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#hosts-conf
+[11]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#services-conf
+[12]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/configuring-icinga2-first-steps#conf-d
+[13]: https://pastebin.com/twTv3bem
+[14]: https://namsep.blogspot.com/2014/07/icinga-2-https-and-ssl-key-expiry-check.html
+[15]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-tcp
+[16]: https://pastebin.com/H7TMnCpQ
+[17]: https://pastebin.com/NnJCYuLM
+[18]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-remote-systems#agent-less-checks
+[19]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#hosts-services
+[20]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-ssh
+[21]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-ssl
+[22]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#command-passing-parameters
+[23]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/cli-commands#config-validation

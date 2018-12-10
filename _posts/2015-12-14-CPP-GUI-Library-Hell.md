@@ -96,8 +96,8 @@ Control over individual placement makes sense, and most of the time I define
 my placement on top of positioning logic, so in those cases it makes more sense
 to have it in the code than in an external file.
 
-[1]: http://warp.povusers.org/OpenLetters/ResponseToTorvalds.html
-[2]: http://sfgui.sfml-dev.de
+[1]: https://warp.povusers.org/OpenLetters/ResponseToTorvalds.html
+[2]: https://sfgui.sfml-dev.de
 [3]: https://tgui.eu
-[4]: http://cegui.org.uk
-[5]: http://www.bromeon.ch/libraries/thor/
+[4]: https://cegui.org.uk
+[5]: https://www.bromeon.ch/libraries/thor/

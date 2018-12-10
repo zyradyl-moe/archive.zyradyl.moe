@@ -61,9 +61,9 @@ take shape, and turn into the omnipresent repository of every single facet of
 a Minecraft community.
 
 [1]:  https://github.com/borgbackup/borg "BorgBackup"
-[2]:  http://git-annex.branchable.com/ "Git-Annex"
+[2]:  https://git-annex.branchable.com/ "Git-Annex"
 [3]:  https://twitter.com/Zyradyl/status/786205897810780160 "Zyradyl's Twitter"
-[4]:  http://collegi.enjin.com "Collegi Pixelmon Main Website"
+[4]:  https://collegi.enjin.com "Collegi Pixelmon Main Website"
 [5]:  https://gitlab.com/ "GitLab"
 [6]:  https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.24xm3mdlt "Mastering Git Submodules"
 [7]:  https://gitlab.com/groups/collegi "GitLab: Collegi Group"

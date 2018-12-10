@@ -264,5 +264,5 @@ very least I hope the comments in the file are helpful.
 [2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
 [3]: {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
 [4]: {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %} "Icinga2 Tutorial Part 4"
-[5]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Official Documentation"
-[6]: http://pastebin.com/KEfuNcEt "Pastebin: Captor Configuration"
+[5]: https://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Official Documentation"
+[6]: https://pastebin.com/KEfuNcEt "Pastebin: Captor Configuration"
