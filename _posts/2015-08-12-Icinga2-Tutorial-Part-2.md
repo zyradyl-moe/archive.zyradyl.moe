@@ -1,13 +1,14 @@
 ---
 layout: post
 title: "Icinga2 Tutorial: Part 2 - Agent-Less Checks"
-date: 2015-08-16 03:00:00 -05:00
+date: 2015-08-12 03:00:00 -05:00
 license: cc0
 categories:
 - Tutorials
 - Networking
 tags:
 - Icinga2
+- IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
@@ -169,8 +170,8 @@ You can see the
 * [Icinga2 Monitoring Basics: Command Passing Variables][22]
 * [Icinga2 Configuration Validation][23]
 
-[1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %}
-[2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %}
+[1]: {% post_url 2015-08-10-Icinga2-Tutorial-Part-0 %}
+[2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %}
 [3]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
 [5]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/distributed-monitoring#distributed-monitoring-setup-master

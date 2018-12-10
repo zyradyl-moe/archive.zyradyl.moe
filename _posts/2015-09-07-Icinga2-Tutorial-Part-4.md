@@ -8,6 +8,7 @@ categories:
 - Networking
 tags:
 - Icinga2
+- IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
@@ -319,9 +320,9 @@ I am also planning to do Icinga2 integration with slack soon, so stay tuned
 for that!
 
 
-[1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %}
-[2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %}
-[3]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %}
+[1]: {% post_url 2015-08-10-Icinga2-Tutorial-Part-0 %}
+[2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %}
+[3]: {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %}
 [4]: {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [5]: http://jimlynch.com/linux-articles/the-psychology-of-a-distrohopper/
 [6]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/agent-based-checks-addon

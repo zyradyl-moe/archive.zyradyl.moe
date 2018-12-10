@@ -8,6 +8,7 @@ categories:
 - Networking
 tags:
 - Icinga2
+- IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses][1]
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][2]
@@ -259,9 +260,9 @@ It is worth noting that this article was intended to be a quick write up to
 get something online. In time, I may come back to rewrite things, but at the
 very least I hope the comments in the file are helpful.
 
-[1]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
-[2]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
-[3]: {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
-[4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %} "Icinga2 Tutorial Part 4"
+[1]: {% post_url 2015-08-10-Icinga2-Tutorial-Part-0 %} "Icinga2 Tutorial Part 0"
+[2]: {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %} "Icinga2 Tutorial Part 1"
+[3]: {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %} "Icinga2 Tutorial Part 2"
+[4]: {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %} "Icinga2 Tutorial Part 4"
 [5]: http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc "Icinga2 Official Documentation"
 [6]: http://pastebin.com/KEfuNcEt "Pastebin: Captor Configuration"

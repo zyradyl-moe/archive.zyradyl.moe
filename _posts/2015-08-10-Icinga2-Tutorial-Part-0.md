@@ -1,13 +1,14 @@
 ---
 layout: post
 title: "Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses"
-date: 2015-08-16 01:00:00 -05:00
+date: 2015-08-10 01:00:00 -05:00
 license: cc0
 categories:
 - Tutorials
 - Networking
 tags:
 - Icinga2
+- IcingaWeb2
 ---
 * [Icinga2 Tutorial: Part 1 - Installation and Configuration][1]
 * [Icinga2 Tutorial: Part 2 - Agent-Less Checks][2]
@@ -76,8 +77,8 @@ your deployment.
 I do plan to branch off into Netflow at some point. So you can expect
 that in the future.
 
-[1]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-1 %}
-[2]:  {% post_url 2015-08-16-Icinga2-Tutorial-Part-2 %}
+[1]:  {% post_url 2015-08-11-Icinga2-Tutorial-Part-1 %}
+[2]:  {% post_url 2015-08-12-Icinga2-Tutorial-Part-2 %}
 [3]:  {% post_url 2015-08-17-Icinga2-Tutorial-Part-3 %}
 [4]:  {% post_url 2015-09-07-Icinga2-Tutorial-Part-4 %}
 [5]: https://assets.nagios.com/handouts/nagiosxi/Nagios-XI-2014-Pricing-Documentation.pdf
