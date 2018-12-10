@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      C++ GUI Libraries &middot; Bit of A Byte
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/2015/12/14/CPP-GUI-Library-Hell/">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+              ~ $ cat /var/log/c++-gui-libraries.log</small>
+              
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">C++ GUI Libraries</h1>
+  <span class="post-date">14 Dec 2015</span>
+  <p>So, one of the many projects that I have been working on as of late is a game
+engine for a small game studio called Near The Resolution. Really awesome
+people to work for, lemme tell ya. They are allowing me to release the engine
+under one of my crazy “No Rights Reserved” licenses. I have learned that one
+of the unfortunate parts of game design is that if you’re not using C++ then
+you are essentially doomed to having to rewrite the wheel. After a lot of
+research, I settled on utilizing SFML as the basis of the game engine, because
+it is released under zlib.</p>
+
+<p>One of the many, I suppose, <em>features</em> of C++ is that a number of libraries are
+available for solving things without having to rewrite the wheel. This makes me
+personally uncomfortable on a number of levels, but that comes with
+<a href="http://warp.povusers.org/OpenLetters/ResponseToTorvalds.html">“C Hacker Syndrome”</a> which I definitely suffer from. Anyways, I decided
+that I would attempt to put this.. <em>feature</em> to my advantage, and find a GUI
+library that works properly with SFML, is clean and simple, and is small.</p>
+
+<p>Turns out, this isn’t actually possible.</p>
+
+<h3 id="sfgui"><a href="http://sfgui.sfml-dev.de">SFGUI</a></h3>
+<p>SFGUI is the first thing I spent time working on. The problem with SFGUI is it
+suffers from “There’s a fleck on the speck on the tail on the frog on the bump
+on the branch on the log in the hole in the bottom of the sea” Syndrome. If you
+want to make a button, for example.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Create the label.
+m_label = sfg::Label::Create( "Hello world!" );
+
+// Create a simple button and connect the click signal.
+auto button = sfg::Button::Create( "Greet SFGUI!" );
+button-&gt;GetSignal( sfg::Widget::OnLeftClick ).Connect( std::bind( &amp;HelloWorld::OnButtonClick, this ) );
+
+// Create a vertical box layouter with 5 pixels spacing and add the label
+// and button to it.
+auto box = sfg::Box::Create( sfg::Box::Orientation::VERTICAL, 5.0f );
+box-&gt;Pack( m_label );
+box-&gt;Pack( button, false );
+
+// Create a window and add the box layouter to it. Also set the window's title.
+auto window = sfg::Window::Create();
+window-&gt;SetTitle( "Hello world!" );
+window-&gt;Add( box );
+
+// Create a desktop and add the window to it.
+sfg::Desktop desktop;
+desktop.Add( window );
+
+// We're not using SFML to render anything in this program, so reset OpenGL
+// states. Otherwise we wouldn't see anything.
+render_window.resetGLStates();
+</code></pre></div></div>
+
+<p>So you want a button. There’s a Label on the button in the box on the window
+on the desktop in the SFML window on the openGL at the bottom of the code tree.
+Needless to say, this lasted about five minutes in our source tree before I
+broke down sobbing. Not to mention, the entire system renders in its own area
+of the main SFML window. So when I tried to make an SFGUI button in the SFML
+window on top of our background, yeah it didn’t go to well, and I don’t need
+<em>another</em> engine on top of the engine on top of this game engine. That’s just..
+absurd. Not to mention the documentation sucks. I hate crappy documentation.</p>
+
+<h3 id="tgui"><a href="https://tgui.eu">TGUI</a></h3>
+<p>TGUI bills itself as the “Simple GUI” for SFML. So naturally, I was really
+quite excited to try it out. Until I figured out it required configuration
+files, and every button had to be an image or it wouldn’t render. So in theory,
+you couldn’t have a completely transparent button, which is one of the things
+that this game will require. Secondly, if you require a configuration syntax,
+you are <em>not</em> a simple library. Ever. All I want is to be able to call methods
+that create a button.</p>
+
+<h3 id="cegui"><a href="http://cegui.org.uk">CEGUI</a></h3>
+<p>Desperate times call for desperate measures. Or so I believed. Problem is,
+CEGUI actually contains its own OpenGL renderer, which is redundant on top of
+SFML. There is never a reason to have two OpenGL renderers, they will conflict.
+Furthermore, CEGUI requires XML. Which is -not- a simple library. They claim
+that this is to reduce the frustration of having to change your code to adjust
+the GUI interface, but I would rather adjust my code than end up dependent on
+XML files.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>At the end of the day, All I really need to do for this particular engine is
+lay out a few menus and then a general presentation on top of those for the
+in game content. So I used <a href="http://www.bromeon.ch/libraries/thor/">Thor</a> to render shapes, and then I’m writing my
+own logic on top of that. This gives me total control over the implementation,
+and the logic of the GUI system. Maybe I’m strange in that I don’t mind having
+to change values in my code and recompile, but I honestly prefer to do that.
+Control over individual placement makes sense, and most of the time I define
+my placement on top of positioning logic, so in those cases it makes more sense
+to have it in the code than in an external file.</p>
+
+
+</div>
+
+<div class="related">
+<h2>Related Posts</h2>
+
+
+
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

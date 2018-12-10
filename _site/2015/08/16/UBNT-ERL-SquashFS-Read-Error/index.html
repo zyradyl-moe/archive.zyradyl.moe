@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ubiquiti EdgeRouter Lite SquashFS Block Read Error: Part 1 &middot; Bit of A Byte
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/2015/08/16/UBNT-ERL-SquashFS-Read-Error/">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+              ~ $ cat /var/log/ubiquiti-edgerouter-lite-squashfs-block-read-error-part-1.log</small>
+              
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Ubiquiti EdgeRouter Lite SquashFS Block Read Error: Part 1</h1>
+  <span class="post-date">16 Aug 2015</span>
+  <h2 id="problem-description">Problem Description</h2>
+<p>Upon booting the EdgeRouter Lite, the system will not boot. Connecting to
+console reveals the following log:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SQUASHFS error: zlib_inflate error, data probably corrupt
+SQUASHFS error: squashfs_read_data failed to read block 0x1b4574
+SQUASHFS error: Unable to read fragment cache entry [1b4574]
+SQUASHFS error: Unable to read page, block 1b4574, size 8519
+SQUASHFS error: Unable to read fragment cache entry [1b4574]
+SQUASHFS error: Unable to read page, block 1b4574, size 8519
+</code></pre></div></div>
+
+<p>This can be caused by an unclean shutdown, which could potentially occur with a
+power failure. Due to the failure, parts of the internal ext3 filesystem
+become corrupted, which causes the inability to load the SquashFS partition
+which contains EdgeOS. The end result, of course, is a non-functional unit.</p>
+
+<h2 id="problem-severity">Problem Severity</h2>
+<p>There are four potential levels to determining the severity of this issue:</p>
+
+<ul>
+  <li>Can the filesystem be salvaged by fscking the ext3 partition until it is
+salvageable? (<strong>Severity:</strong> Annoying.)</li>
+  <li>If the answer to the above is no, can the flash drive be saved by zeroing out
+the device and writing a new filesystem to it? (<strong>Severity:</strong> Hardware issue -
+End user repair possible..)</li>
+  <li>If the answer to the above is no, is the device capable of booting? If yes, it
+is possible you may be suffering
+from the <a href="https://community.ubnt.com/t5/EdgeMAX/EdgeRouter-LITE-OS-and-hardware-problems/td-p/667557">EdgeRouter Lite RAM issue</a>. (<strong>Severity:</strong> Hardware issue -
+RMA the device.)</li>
+  <li>If the answer to the above is no, is the device under warranty? If yes,
+(<strong>Severity:</strong> Hardware issue - RMA the device.) If no, (<strong>Severity:</strong> Device
+Replacement.)</li>
+</ul>
+
+<h2 id="problem-resolution">Problem Resolution</h2>
+<p>Resolutions will be broken down into two posts, one for each problem the user
+could resolve without warranty work.</p>
+
+<h3 id="resolution-credits">Resolution Credits</h3>
+<p>A special thanks to Ubiquiti for providing a community support option via
+their official website. Additionally, special thanks to all those users that
+utilize said forum, your information was invaluable in helping me to fix my
+EdgeRouter, and write this article.</p>
+
+<h2 id="resolution-one-repair-the-file-system">Resolution One: Repair the File System</h2>
+<p>This is by far the easiest resolution. Open the EdgeRouter Lite (<strong>Caution:</strong>
+<em>Your warranty is now void. Depending on how soon you need the device
+back in operation, it may be acceptable for you to void the warranty on a
+$100USD device if you can get it back in service by the end of the day. If
+you think your device may need to be RMA’d, do not open the device and proceed
+to UBNT’s Support Site.</em>) by removing two screws on the bottom
+of the device, located right under where the interface connections are. Your
+device will slide apart, revealing the internal board. On the board you
+will see a soldered on female USB port with a small silver USB flash drive,
+roughly 3cm long. This is your 2GB of internal memory, but the device itself
+is 2.6GB.</p>
+
+<p>Remove the USB drive and plug it into a USB port on your Mac OSX or Linux
+powered device. Open a terminal, and run dmesg. You are looking for the
+devfs name of your device.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[  262.645401] scsi 2:0:0:0: Direct-Access                               5.00 PQ: 0 ANSI: 2
+[  262.647109] sd 2:0:0:0: Attached scsi generic sg1 type 0
+[  262.648527] sd 2:0:0:0: [sdb] 4057088 512-byte logical blocks: (2.07 GB/1.93 GiB)
+[  262.648795] sd 2:0:0:0: [sdb] Write Protect is off
+[  262.648817] sd 2:0:0:0: [sdb] Mode Sense: 0b 00 00 08
+[  262.649095] sd 2:0:0:0: [sdb] No Caching mode page found
+[  262.649114] sd 2:0:0:0: [sdb] Assuming drive cache: write through
+[  262.652309]  sdb: sdb1
+[  262.655018] sd 2:0:0:0: [sdb] Attached SCSI removable disk
+</code></pre></div></div>
+
+<p>In this case, my device name is <code class="highlighter-rouge">sdb</code>. Please note that for this guide I am not
+using an actual EdgeRouter flash drive. This is a stand-in device. The next
+thing to do is make sure none of the partitions on the device have been
+automatically mounted. Where I used <code class="highlighter-rouge">sdb</code> in the following example, use whatever
+dmesg identified as your USB device.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ mount | grep sdb
+/dev/sdb1 on /media/zyradyl/b7bcf200-26a1-41ed-9122-625558dbc907 type ext4 (rw,nosuid,nodev,relatime,data=ordered,uhelper=udisks2)
+</code></pre></div></div>
+
+<p>This would indicate that at least one of the partitions on the disk has been
+mounted. To correct this we need to use the <code class="highlighter-rouge">umount</code> command. Note that in
+some operating systems an eject button exists in the taskbar. In my experience,
+not only do these buttons unmount the mounted partitions, it also removed the
+device entry from the kernel. So I prefer to use manual <code class="highlighter-rouge">umount</code> commands. In
+the following example, do one line per mounted partition, substituting the
+device names of your partitions where I specified <code class="highlighter-rouge">/dev/sdb1</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ sudo umount /dev/sdb1
+</code></pre></div></div>
+
+<p>Once you have unmounted the devices, you can use fdisk to get a good view
+of the partition layout on your USB device. I like to do this even if I know
+what I should expect, just as a form of a sanity test to make sure I have the
+right device. Note that, as previously stated, this device is a stand in. I have
+tried to recreate the partition table to the best of my memory.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ sudo fdisk -l /dev/sdb
+
+Disk /dev/sdb: 2 GiB, 2077229056 bytes, 4057088 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xd9dd6356
+
+Device     Boot  Start     End Sectors  Size Id Type
+/dev/sdb1         2048  264191  262144  128M  b W95 FAT32
+/dev/sdb2       264192 4057087 3792896  1.8G 83 Linux
+</code></pre></div></div>
+
+<p>So we can see from the above that we have two partitions on the USB device. In
+your case, when using an actual EdgeRouter flash drive, one of the partitions
+will be a vfat partition type, and the second one will be a linux
+partition type. Now that we know where our partitions are, and that they are
+safely unmounted, we can use fsck. Remember to replace my instance of <code class="highlighter-rouge">sdb2</code>
+with the correct partition for your device. Note that depending on the damage to
+the filesystem, this has the potential to be a <strong>destructive operation</strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ fsck.ext3 -fvy /dev/sdb2
+</code></pre></div></div>
+
+<p>Allow the program to run till completion. If you notice the command has become
+looped, you will need to clear the journal out on your device. Note that
+this is a <strong>potentially destructive operation</strong> to data that had not been
+written from the journal to the disk. The first thing that we need to do is
+clear out the recovery indicator using <code class="highlighter-rouge">debugfs</code> Remember to replace <code class="highlighter-rouge">sdb2</code>
+with the proper device name of your ext3 partition.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ debugfs -w -R “feature ^needs_recovery” /dev/sdb2
+</code></pre></div></div>
+
+<p>After clearing out this flag, it is now possible to use <code class="highlighter-rouge">tune2fs</code> to force
+removal of the journal.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ tune2fs -f -O ^has_journal /dev/sdb2
+</code></pre></div></div>
+
+<p>Now you can go back up and run the <code class="highlighter-rouge">fsck</code> command. Once that is done, you will
+need to re-enable the journal on your filesystem.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor ~ $ tune2fs -f -O has_journal -j size=128M /dev/sdb2
+</code></pre></div></div>
+
+<p>Once you have a clean fsck output, and you have your journal enabled again, plug
+the USB device back into the EdgeRouter and boot. If you are lucky, everything
+will come back as it should. As there may be data loss, make sure to restore
+from a recent configuration backup (you <strong>do</strong> have configuration backups,
+right?) and reboot, before logging into the device through ssh to make sure
+everything is where it should be.</p>
+
+<p>If you are still having problems, stick around for part two of this guide, where
+I will be walking you through using a separate host computer to recreate the
+filesystem.</p>
+
+<p><strong>EDIT (2018/12/09):</strong> <em>Part 2 was never written, but this is actually a fairly
+common issue with EdgeRouter Lites. A simple Google search should turn up the
+EdgeRouter Emergency Recovery Kit GitHub, and that plus some posts on the UBNT
+forums should help you solve the problem. Sorry about my inability to deliver
+on what I mention in my posts.</em></p>
+
+<h2 id="external-links--resources">External Links &amp; Resources</h2>
+<p>[How to Recover an EXT3 Volume with an Unreadable Journal][2]</p>
+
+
+</div>
+
+<div class="related">
+<h2>Related Posts</h2>
+
+
+
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

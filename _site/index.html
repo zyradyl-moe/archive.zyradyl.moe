@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Bit of A Byte &middot; cat $(find /var/log -name '*.log' -print | head -n 5)
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/index.html">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+            <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+             ~ $ cat $(find /var/log -name '*.log' -print | head -n 5)</small>
+             
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2018/12/10/More-Blog-Updates/">
+        More Blog Updates
+      </a>
+    </h1>
+
+    <span class="post-date">10 Dec 2018</span>
+
+    <p>There are yet more updates to the blog. The first of which is that we now have
+an actual domain name, which is <code class="highlighter-rouge">zyradyl.moe</code>. In keeping with my tradition of
+complete transparency, the domain was acquired through Gandi.net, after I found
+out that IWantMyName was unable to accept Discover cards. While I am still
+supportive of IWMN as a company, if they don’t accept my card it leaves me
+unable to use them.</p>
+
+<p>Next, the DNS for this site is now handled through Cloudflare, which means that
+this site is now fully available via HTTPS with a valid SSL certificate. So,
+small victories.</p>
+
+<p>While running through the process of updating the blog, I noticed several things
+were broken and went ahead and fixed those:</p>
+
+<ul>
+  <li>The “Site Version” link in the sidebar now properly links to the GitHub
+source repository.</li>
+  <li>A long standing issue with pagination has been corrected by updating to
+the jekyll-paginate-v2 gem, and rewriting the appropriate liquid blocks.</li>
+  <li>Related posts are now actually related! This is accomplished by iterating
+through tags at compile time and creating a list of related posts. While
+this may not always be accurate, it is far more accurate than the time
+based system jekyll uses by default.</li>
+  <li>A small issue has been corrected with the header file used across pages.
+There was a typo that was generating invalid HTML. It didn’t cause any
+visible issues, but it was a problem all the same.</li>
+  <li>The archive page now uses a new Liquid code block. This is to resolve the
+long standing <code class="highlighter-rouge">&lt;/ul&gt;</code> problem, where the code would generate trailing
+closing tags.</li>
+</ul>
+
+<p>HTML proofer is still throwing a few errors related to my consistent use of
+the Introduction and Conclusion headers, but these are not actual errors.</p>
+
+<p>I’m also in the process of going back through previous posts and cleaning up
+the YAML front matter. While this front-matter previously had very little
+impact on the site, it now can matter quite a lot with the way the related
+posts system works.</p>
+
+<p>.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2018/12/09/ThothBackup-Part-3/">
+        ThothBackup - Part 3
+      </a>
+    </h1>
+
+    <span class="post-date">09 Dec 2018</span>
+
+    <p>So, another week has gone, and it is time to update this blog with what I have
+learned. Unfortunately, experiments were not able to be run this week in the
+realm of data transfer. I decided to revisit the base system to focus on
+encrypting backup data while it is at rest on the system. This was one of the
+remaining security vulnerabilities with this process. While end-users still have
+to trust <em>me</em>, they can at least be assured the data is encrypted at rest.</p>
+
+<p>Essentially, if the system was ever stolen, or our apartment door was broken
+down, we would just have to cut power and the data would be good. With that
+previous statement, please keep in mind that this week’s post only refers to the
+root drive. I didn’t make much progress because of things happening at work, but
+this is a nice, strong, foundation to build upon.</p>
+
+<p>Many of the steps in this post were cobbled together from various sources across
+the internet. At the bottom of this post you can find a works cited that will
+show the posts that I used to gather the appropriate information.</p>
+
+<h2 id="end-goal">End Goal</h2>
+<p>The end goal is to ensure that the operating system’s root drive is encrypted at
+rest. Full Disk Encryption is <em>not</em> an active security measure, it is a passive
+one. It is primarily there to ensure that should the system ever be stolen, it
+would not be readable. The root partition will not host any user data, so the
+encryption should be transparent and seamless.</p>
+
+<p>In short, we will utilize a USB key to provide a Keyfile which will then be
+combined with LUKS encryption to unlock the LVM array to allow the initramfs to
+hand over control to the operating system.</p>
+
+<h2 id="notes">Notes</h2>
+<p>Because we are using a solid state drive, and we will be filling the drive with
+data, it was important for me to over-provision the drive. The SSD we’re using
+comes with 240GB of space. We can assume that there is some form of manufacturer
+over-provisioning in play to get that number, if I had to guess I would assume
+there is actually 256GB of NAND memory on the drive, but only 240GB are made
+available to the user. This is a fairly reasonable level of over-provisioning.</p>
+
+<p>However, with us planning to fill the drive with pseudorandom data in order to
+obfuscate the amount of data actually in use, this 16GB could potentially be
+used quite quickly. SSDs cannot actually rewrite sectors on the fly, they have
+to run a READ/ERASE/WRITE cycle. This is typically done by writing the new block
+to an over-provisioned area and then pointing the drive’s firmware at that
+block. In this way we avoid the ERASE penalty, which can be on the order of 0.5
+seconds per block.</p>
+
+<p>Essentially then, every single write to the drive will require a
+READ/ERASE/WRITE cycle, so padding the over-provisioning is a very good idea. It
+will help with wear leveling and prevent severe write amplification, while also
+making the drive “feel” faster.</p>
+
+<h2 id="prior-work">Prior Work</h2>
+<p>Before we get into the new installation, we need to prepare the drive for its
+new role. Unless the flash cells are at their default state, the firmware will
+regard them as holding data and will not utilize them for wear leveling, thus
+rendering the over-provisioning useless.</p>
+
+<p>To begin, boot the system via a Debian Live-CD and open up a root prompt using
+<code class="highlighter-rouge">sudo</code>.</p>
+
+<p>If you, like me, prefer to work remotely, you will then need to run a sequence
+of commands to prep the system for SSH access. We need to add a password to the
+liveCD user, then install openSSH, and finally start the service. Once all of
+this is complete, you can log in from a more comfortable system.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># apt-get update
+# apt-get install openssh-server
+# passwd user
+# systemctl start sshd
+</code></pre></div></div>
+
+<p>We will need to install one last software package, <code class="highlighter-rouge">hdparm</code>. Run
+<code class="highlighter-rouge">apt-get install hdparm</code> to grab it. Once you have done so, run
+<code class="highlighter-rouge">hdparm -I /dev/sda</code>. Under “Security” you are looking for the words “<strong>not</strong>
+frozen”. If it says frozen, and you are working remotely, you will need to
+access the physical console to suspend/resume the machine. This should
+unfreeze access to the ATA security system.</p>
+
+<p>The first thing we need to do is to run an ATA Enhanced Erase. After this is
+done, I still like to run <code class="highlighter-rouge">blkdiscard</code> just to make sure every sector has been
+marked as empty. Finally, we will use <code class="highlighter-rouge">hdparm</code> to mark a host-protected-area,
+which the drive firmware will be able to use as an over-provisioning space.
+To calculate the HPA size, figure out what size you want to be available to
+<em>you</em>. Convert that into bytes, and divide by 512, which is the sector size.
+This will give you the number to pass to <code class="highlighter-rouge">hdparm</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># hdparm --user-master u --security-set-pass Eins /dev/sda
+# hdparm --user-master u --security-erase-enhanced Eins /dev/sda
+# blkdiscard /dev/sda
+# hdparm -Np390625000 --yes-i-know-what-i-am-doing /dev/sda
+# reboot
+</code></pre></div></div>
+
+<p>Once this is done <strong>reboot immediately</strong>. There is a lot that can go wrong if
+you fail to reboot. At this point, I swapped out my disk for the Debian
+installer. If you are doing this on your own 2006-2008 MacMini, you may want
+to use the AMD64-mac ISO that the Debian project provides.</p>
+
+<p>From here, we just have to confirm that the drive shows up how we want in the
+installer (200GB in size, in my case), and we can proceed with the installation.</p>
+
+<h2 id="installation">Installation</h2>
+<p>Most of the Debian installation process is self explanatory. The only point
+where I will interject is partitioning. Because of the way the MacMini2,1
+boots, it is important that we use an MBR based grub installation. You <em>can</em> do
+a 32bit EFI installation, but it is very fragile, and I’m not a fan of fragile
+things. That being said, I still wanted the ability to use GPT partitions. I
+like being able to label everything from the partition up to the individual
+filesystems.</p>
+
+<p>Accomplishing this is actually fairly easy anymore. You just need to create a
+1MB <code class="highlighter-rouge">grub_bios</code> partition as part of your scheme and you’re good to go. To get
+the level of control we need, we will select manual partitioning when prompted
+to set up our partitions in the installer.</p>
+
+<p>Create a new partition table (This will default to GPT), and then lay out your
+initial partition layout. It will look something like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;PART #&gt;  &lt;SIZE&gt;  &lt;NAME&gt;          &lt;FILESYSTEM&gt;  &lt;FLAGS&gt;
+#1        1MB     BIOS_PARTITION  none          grub_bios
+#2        1GB     BOOT_PARTITION  ext4          bootable
+#3        199GB   ROOT_PARTITION  crypto        crypto
+</code></pre></div></div>
+
+<p>When you select “Physical Volume For Encryption” it will prompt you to configure
+some features. You can customize the partition there, but I actually wanted more
+options than the GUI provided, so I accepted the defaults and planned to
+re-encrypt later. Please make sure to allow the installer to write encrypted
+data to the partition. Since we have already set up a customized HPA, a
+potential attacker already knows the maximum amount of cipher text that can
+be present, and if the HPA is disabled they would likely be able to gain
+access to more. Therefore, it is important that we take every possible
+precaution.</p>
+
+<p>Once this is done, you should scroll to the top where it will say “Configure
+Encryption” or something similar. Select this option, then select the physical
+volume we just set up, and it should drop you back to the partitioning menu.
+This time, however, you will be able to see the newly unlocked crypto partition
+as something that we can further customize.</p>
+
+<p>Select that volume and partition it like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;PART #&gt;  &lt;SIZE&gt;  &lt;NAME&gt;          &lt;FILESYSTEM&gt;  &lt;FLAGS&gt;
+#1        199GB                   none          lvm
+</code></pre></div></div>
+
+<p>The LVM option will show up in the menu as “Physical Volume for LVM.” From here,
+we go back up to the top of our menu and select “Configure Logical Volume
+Manager.” You will then be taken to a new screen where it should show that you
+have one <code class="highlighter-rouge">PV</code> available for use. Create a new volume group that fills the entire
+<code class="highlighter-rouge">PV</code> and name it as you would like. For this project, I named it <code class="highlighter-rouge">djehuti-root</code>
+and completed setup.</p>
+
+<p>Next we need to create a Logical Volume for each partition that you would like
+to have. For me, this looked like the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Logical Volume&gt;  &lt;Size&gt;  &lt;Name&gt;
+#1                30GB    root-root
+#2                25GB    root-home
+#3                10GB    root-opt
+#4                05GB    root-swap
+#5                05GB    root-tmp
+#6                10GB    root-usr-local
+#7                10GB    root-var
+#8                05GB    root-var-audit
+#9                05GB    root-var-log
+#10               05GB    root-var-tmp
+</code></pre></div></div>
+
+<p>Your layout may be similar. Once this is done, you can exit out and you will
+see that all of your logical volumes are now available for formatting. Since I
+wanted to stick with something stable, and most importantly resizable (more on
+why later), I picked <code class="highlighter-rouge">ext4</code> for all of my partitioning. We will tweak mount
+options later. For now, the end product looked like the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;PARTITION&gt;                       &lt;FS&gt;    &lt;MOUNT POINT&gt; &lt;MOUNT OPTIONS&gt;
+/dev/sda2                         ext4    /boot         defaults
+/dev/djehuti-root/root-root       ext4    /             defaults
+/dev/djehuti-root/root-home       ext4    /home         defaults
+/dev/djehuti-root/root-opt        ext4    /opt          defaults
+/dev/djehuti-root/root-swap       swapfs  none          defaults
+/dev/djehuti-root/root-tmp        ext4    /tmp          defaults
+/dev/djehuti-root/root-usr-local  ext4    /usr/local    defaults
+/dev/djehuti-root/root-var        ext4    /var          defaults
+/dev/djehuti-root/root-var-audit  ext4    /var/audit    defaults
+/dev/djehuti-root/root-var-log    ext4    /var/log      defaults
+/dev/djehuti-root/root-var-tmp    ext4    /var/tmp      defaults
+</code></pre></div></div>
+
+<p>Once everything is setup appropriately, follow through the installation until
+you get to the <code class="highlighter-rouge">task-sel</code> portion. You really only want to install an ssh server
+and the standard system utilities pack. Once the installation completes, reboot
+into your server and make sure everything boots appropriately. We’re going to be
+doing some offline tweaking after this point, so ensuring that everything is
+functioning as is will save you a lot of headache.</p>
+
+<p>Once you are satisfied the initial installation is functioning and booting
+correctly, it is time to move on to re-encrypting the partition with our own
+heavily customized parameters.</p>
+
+<h2 id="re-encryption">Re-Encryption</h2>
+<p>This process isn’t so much difficult as it is simply time consuming. Go ahead
+and reboot your system to the boot media selection screen. You will want to
+swap out your Debian Installation CD for the Debian LiveCD that we used earlier.
+Once the disks have been swapped, boot into the live environment and then
+bring up a shell. We will first need to install the tools that we will use, and
+then run the actual command. The command is actually fairly self explanatory,
+so I won’t explain that, but I will explain the reasoning behind the parameters
+below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># apt-get update
+# apt-get install cryptsetup
+# cryptsetup-reencrypt /dev/sda3 --verbose --use-random --cipher serpent-xts-plain64 --key-size 512 --hash whirlpool --iter-time &lt;higher number&gt;
+</code></pre></div></div>
+
+<p>So, onto the parameters:</p>
+
+<ul>
+  <li><em>cipher</em>    - I picked Serpent because it is <a href="https://en.wikipedia.org/wiki/Serpent_(cipher)">widely acknowledged</a> to be
+              a more “secure” cipher. Appropriate text from the above link
+              is as follows: “The official NIST report on AES competition
+              classified Serpent as having <strong>a high security margin</strong> along
+              with MARS and Twofish, <strong>in contrast to the adequate security
+              margin of RC6 and Rijndael (currently AES)</strong>.” The speed
+              trade-off was negligible for me, as the true bottleneck in the
+              system will be network speed, not disk speed.</li>
+  <li><em>key-size</em>  - The XTS algorithm requires double the number of bits to
+              achieve the same <a href="https://en.wikipedia.org/wiki/Disk_encryption_theory#XTS">level of security</a>. Therefore, 512 bits
+              are required to achieve an AES-256 level of security.</li>
+  <li><em>hash</em>      - In general, I prefer hashes that have actually had extensive
+              cryptanalysis performed to very high round counts. The best
+              example of an attack on whirlpool, with a worst case situation
+              where the attacker controls almost all aspects of the hash,
+              the time complexity is still 2^128th on 9.5 of 10 rounds. This
+              establishes a <em>known</em> time to break of over 100 years.</li>
+  <li><em>iter-time</em> - The higher your iteration time, the longer it takes to unlock,
+              but it also makes it harder to break the hash function. So if
+              we combine what we know above with a large iteration time, we
+              gain fairly strong security at the expense of a long unlock
+              time when using a passphrase.</li>
+</ul>
+
+<p>Once these specifications have been entered, you simply need to press enter and
+sit back and relax as the system handles the rest. Once this process is
+complete, you should once again reset and boot into the system to verify that
+everything is still working as intended. If it is, you are ready for the next
+step, which is automating the unlock process.</p>
+
+<h2 id="auto-decryption">Auto-Decryption</h2>
+<p>There are a few ways to handle USB key based auto-decryption. The end goal is
+to actually use a hardware security module to do this, and I don’t anticipate
+the FBI busting down my door any time soon for hosting the data of my friends
+and family, so I opted for one that is easily extendable.</p>
+
+<p>Essentially, the key will live on an <code class="highlighter-rouge">ext4</code> filesystem. It will be a simple
+hidden file, so nothing extremely complex to find. This shouldn’t be considered
+secure at <em>this point</em>, but it is paving the way to a slightly more secure
+future.</p>
+
+<p>The first thing that I did, though it isn’t strictly necessary, is write random
+data to the entire USB stick. In my case, the USB drive could be found at
+<code class="highlighter-rouge">/dev/sdb</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dd if=/dev/urandom of=/dev/sdb status=progress bs=1M
+</code></pre></div></div>
+
+<p>Once this is done, we’ve effectively destroyed the partition table. We will
+recreate a GPT table, and then create a partition that fills the usable space
+of the drive.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># apt update
+# apt install parted
+# parted /dev/sdb
+(parted) mklabel gpt
+(parted) mkpart KEYS ext4 0% 100%
+(parted) quit
+</code></pre></div></div>
+
+<p>Now we just create the filesystem, a mount point for the filesystem, and make
+our new LUKS keyfile. Once the file has been created, we just add it to the
+existing LUKS header.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.ext4 -L KEYS /dev/sdb1
+# mkdir /mnt/KEYS
+# mount LABEL=KEYS /mnt/KEYS
+# dd if=/dev/random of=/mnt/KEYS/.root_key bs=1 count=4096 status=progress
+# cryptsetup luksAddKey /dev/sda3 /mnt/KEYS/.root_key
+</code></pre></div></div>
+
+<p>After this point, the setup diverges a bit depending on what guide you follow.
+We will stick close to the guide posted to the Debian mailing list for now, as
+that guide got me a successful boot on the first try. The others are slightly
+more elegant looking, but at the expense of added complexity. As such, they may
+end up being the <em>final</em> configuration, but for this prototyping phase they are
+a bit excessive.</p>
+
+<p>We have to modify the <code class="highlighter-rouge">crypttab</code> file to enable the keyfile to be loaded off of
+our freshly set up key drive.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sda3_crypt  UUID="..."  /dev/disk/by-label/KEYS:/.root_key:5  luks,initramfs,keyscript=/lib/cryptsetup/scripts/passdev,tries=2
+</code></pre></div></div>
+
+<p>At this point, we need to repackage our startup image, update grub, and reboot
+to test the whole package.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># update-initramfs -tuck all
+# update-grub
+# reboot
+</code></pre></div></div>
+
+<p>At this point the system should boot automatically, but you will notice a weird
+<code class="highlighter-rouge">systemd</code> based timeout that happens. This is mentioned in the guide posted to
+the Debian Stretch mailing list, and is fairly easy to solve. We just need to
+create an empty service file to prevent <code class="highlighter-rouge">systemd</code> from doing it’s own thing.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># touch "/etc/systemd/system/systemd-cryptsetup@sda3_crypt.service"
+# reboot
+</code></pre></div></div>
+
+<p>At this point, everything should boot correctly and quickly. You may notice a
+few thrown errors, but it shouldn’t be anything severe, more services loading
+out of order.</p>
+
+<p>At this point, it used to be possible to allow for the creation of a fallback
+in the event that the key drive wasn’t present, but that seems to have been
+removed. I plan to look into it further when I have more time.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>This concludes the first part of the Operating System setup process. The next
+step was originally planned to be thin-provisioning the partitions inside the
+<code class="highlighter-rouge">djehuti-root</code> volume group, but there seems to be some problems in getting
+the system to boot from a thin-provisioned root. I’m looking into a weird
+combined system, where the root is static but all the accessory partitions are
+thinly provisioned, but it will take time to tinker with this and report back.</p>
+
+<p>Thin Provisioning isn’t strictly required, but it is a rather neat feature and
+I like the idea of being able to create more partitions than would technically
+fit. I’m not sure when this would be useful, but we will see.</p>
+
+<p>Once all of this is finalized, we will move on to hardening the base system,
+and last but not least creating the Stage 1 Project page. Then it is back to
+experiments with data synchronization. This is a fairly large step back in
+progress, but I am hopeful it will result in a better end product, where
+security can be dynamically updated as needed.</p>
+
+<h2 id="works-cited">Works Cited</h2>
+<p>The following sources were invaluable in cobbling this process together. I
+sincerely thank the authors both for figuring the process out and documenting
+the process online.</p>
+
+<ul>
+  <li><a href="https://lists.debian.org/debian-user/2017/12/msg00523.html">Debian Stretch - USB Keyfile with LUKS</a></li>
+  <li><a href="https://wiki.archlinux.org/index.php/Securely_wipe_disk">Arch Wiki - Secure Disk Wiping</a></li>
+  <li><a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system">Arch Wiki - Encrypting an Entire Disk</a></li>
+  <li><a href="https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide/Preparing_the_LUKS-LVM_Filesystem_and_Boot_USB_Key">Gentoo Wiki - Sakaki’s EFI Install Guide</a></li>
+  <li><a href="https://aaronbonner.io/post/21103731114/chroot-into-a-broken-linux-install">Chroot Into Broken Linux Install</a></li>
+  <li><a href="https://mattgadient.com/2016/07/11/linux-dvd-images-and-how-to-for-32-bit-efi-macs-late-2006-models/">Linux Images for 32Bit EFI Macs</a></li>
+  <li><a href="https://mattgadient.com/2018/02/12/reducing-the-30-second-delay-when-starting-64-bit-ubuntu-in-bios-mode-on-the-old-32-bit-efi-macs/">Reducing 30 Second Delay when Booting Linux</a></li>
+  <li><a href="https://support.siliconmechanics.com/portal/kb/articles/over-provisioning-ssds">Over-Provisioning SSDs</a></li>
+</ul>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2018/12/02/ThothBackup-Part-2/">
+        ThothBackup - Part 2
+      </a>
+    </h1>
+
+    <span class="post-date">02 Dec 2018</span>
+
+    <p>Hello! It’s that time of the week again, where I update everyone on my latest
+work. This episode is far less technical and focuses more on the concept of a
+“One and Done” backup solution, aka the holy grail of data maintenance.</p>
+
+<p>It fucking sucks.</p>
+
+<h3 id="introduction">Introduction</h3>
+<p>This entry is slightly unidirectional. The concept of a simple, easy to
+implement, catch everything you might ever need solution is quite literally the
+holy grail, yet it has never honestly been implemented. Sure, user data is
+generally scooped out, but in the day and age of game mods, and with some
+development projects taking place outside of the User directory, it seemed
+prudent to at least <em>attempt</em> the full backup. Well, I’ve been attempting it
+for seven days. Here’s what I’ve found.</p>
+
+<h3 id="focus">Focus</h3>
+<p>We will not be focusing on the space impact of a complete backup. This is
+actually fairly negligible. With out-of-band deduplication, only one set of
+operating system files would ever be stored, so server side storage would reach
+a weird type of equilibrium fairly quickly. Instead, I’ll talk about three
+things:</p>
+
+<ul>
+  <li>Metadata Overhead</li>
+  <li>Metadata Processing</li>
+  <li>Initial Synchronization</li>
+</ul>
+
+<p>There may be another post tonight talking about additional things, but this
+deserves it’s own little deal.</p>
+
+<h3 id="metadata-overhead">Metadata Overhead</h3>
+<p>A fully updated Windows 10 partition of your average gamer, aka my fiancé, is
+composed of <strong>479,641 files</strong> and <strong>70,005 directories</strong> which comprise a total
+data size of <strong>~216 GiB</strong>. This is actually just the C drive and typical
+programs. If you factor in the actual game drive in use by our test case, that
+drive contains <strong>354,315 files</strong> and <strong>29,111 directories</strong> which comprise a
+total of <strong>~385 GiB</strong> of space.</p>
+
+<p>In summation, an initial synchronization of what is typically considered a “full
+system backup” comprises <strong>833,956 files</strong> and <strong>99116 directories</strong> comprising
+<strong>~601GiB</strong> which results in an average filesize of <strong>~755KiB</strong> and an average
+directory size of <strong>~9 files</strong>.</p>
+
+<p>SyncThing creates a block store that is comprised of, by default, <strong>128KiB</strong>
+blocks. This means that for our system, assuming the data is contiguous, we need
+<strong>4923392 Metadata Entries</strong>. Assuming the files are NOT contiguous, this is
+probably closer to about <strong>5 Million</strong> metadata entries. As of right now, the
+server side metadata storage for the testing pool is at <strong>1.7 GiB</strong> and initial
+syncronization is <strong>not yet complete</strong>. Extrapolating a bit, we can assume that
+<strong>2.0 GiB</strong> would not be an unreasonable size for a final server side data
+store.</p>
+
+<p>The client side store, at the time of writing, is approximately <strong>1 GiB</strong> and
+may grow slightly larger. However, I will use <strong>1 GiB</strong>. This means that there
+is a plausible total of <strong>3GiB of metadata overhead</strong> representing an overhead
+percentage of <strong>~0.5%</strong> across the pool. Scaling up, this means 10 clients
+with 1TB of data each would require <strong>51.2GB of Metadata</strong>.</p>
+
+<p><strong>Should anything happen to the metadata store, it would need to be rebuilt by
+data reprocessing. This introduces a potentially massive liability, as scanning
+frequency would need to be reduced to not impact the rebuild operation.</strong></p>
+
+<h3 id="metadata-processing">Metadata Processing</h3>
+<p>The server is capable of a hash rate of <strong>107MB/s</strong>. I am picking the server’s
+hash rate because it is both the slowest hash rate of the pool and would have
+the most metadata that would need to be rebuilt.</p>
+
+<p>For a complete rebuild of the data of our current cluster, it would take the
+server <strong>~96 Minutes</strong> during which no data synchronization could occur. This
+equates to a minimum of <strong>1 Missed Hourly Update</strong> and could potentially result
+in up to 2 missed hourly updates if the timing was unfortunate enough.</p>
+
+<p>For a complete rebuild of the data of our theoretical cluster, we will allow for
+a hash rate of <strong>300MB/s</strong>. The total data needed to be rebuilt would be 10TB.
+This would result in a database rebuilt time of <strong>~10 Hours</strong> which could result
+in up to 11 missed synchronization attempts.</p>
+
+<h3 id="initial-synchronization">Initial Synchronization</h3>
+<p>The initial syncronization is composed of three primary parts. First, the
+client and host must agree on what folders to syncronize. Second, the client
+must build a database of the content hosted locally. Next, utilizing a rolling
+hash algorithm, data is entered into the metadata cache and transmitted to the
+server.</p>
+
+<p><em>Per the developer of SyncThing, millions of small files are the worst case
+scenario for the backup system.</em> As of my independent, albeit anecdotal testing,
+After 7 days the synchronization process is still in effect. This represents a
+very <strong>poor user experience</strong> and would not be ideal for a widespread rollout.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>The primary goal of a backup utility is to synchronize files and achieve cross
+system consistency as quickly as possible. While it is true that eventually
+consistent systems are utilized in large scale operations, this type of
+consistency is allowable only, in my opinion, at data sizes over 10TB. The
+current testing set is approximately 1TB at most, and thus this is unacceptable.</p>
+
+<p><strong>Either the backup paradigm must change, or the utility used to implement it
+must change.</strong> While I do not expect to find any faster utilities for performing
+the backup process, I do plan to continue to experiment. At this time, however,
+it seems that the most likely way to make the process as friendly as possible
+would be the implementation of a default backup subset, with additional data
+added upon user request, and after the high priority synchronization had been
+completed.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2018/11/30/Blog-Updates/">
+        Blog Updates
+      </a>
+    </h1>
+
+    <span class="post-date">30 Nov 2018</span>
+
+    <p>Yes, it’s that time of year again. I have updated the blog! You can find more
+information below.</p>
+
+<h4 id="analytics">Analytics</h4>
+<p>Google Analytics are back. I understand that some people may not like being
+tracked, but at that point you should have an add or tracking blocker installed.
+I recommend looking at the Brave Browser, which is what I personally use, or
+installing uBlock Origin. The reason I have added this back to the blog is that
+I have noticed links to this blog appearing in various places over the web, and
+I would like to be able to detect how much traffic I am getting from these
+links.</p>
+
+<p>I wholeheartedly understand if you disapprove of the use of Google Analytics. If
+anyone is able to suggest a better service, that collects less user data, please
+open an issue in the GitHub repository for this site. I will gladly change
+providers as long as the new one is also free.</p>
+
+<h4 id="theme-updates">Theme Updates</h4>
+<p>I forked the Lanyon repository and applied all the currently pending pull
+requests. This should keep everything up to date with the latest version of
+Jekyll. To make it easier for anyone else looking for that information, I
+created a new PR in the lanyon repository to my mergers. You can also find them
+under my GitHub site.</p>
+
+<h4 id="fonts">Fonts</h4>
+<p>Somehow the fonts on the site got nuked during the upgrade. They are back in
+place now.</p>
+
+<h4 id="page-speed">Page Speed</h4>
+<p>The new updates have not yet been optimized. Previously I used Google’s page
+load speed thingy to optimize the site. Maintaining that by hand is one of the
+reasons the upgrade was so painful to implement. I’m looking for a way to
+automate the process the same way that I have currently automated the link tests
+that I run prior to a push. This will likely involve writing a new process in
+the Rakefile, so it will take some time. In the meantime, the only thing that
+is really being pulled is a few font files and the analytics script, so the
+load impact <em>shouldn’t</em> be too bad.</p>
+
+<h4 id="organization">Organization</h4>
+<p>There is a weird issue between rendering the site on my local machine and the
+way GitHub pages renders it on their side. To solve this I created a new
+template and appended it to all the pages that should not appear in the sidebar.
+Hopefully this strikes a good balance between being able to use standardized
+templates, as well as ease of use. The new template simply imports the existing
+page template under a new name.</p>
+
+<h4 id="images">Images</h4>
+<p>While I am primarily focused on text on this blog, I have recently included a
+few images. These are also hosted on GitHub, so I cleaned up the way the image
+directory is laid out. This has impacted all of one image, but should make any
+expansion in the future much easier.</p>
+
+<h4 id="liquid-changes">Liquid Changes</h4>
+<p>There was some issue with the way the Liquid on the Tags page was written. This
+has been corrected accordingly.</p>
+
+<h4 id="about-page">About Page</h4>
+<p>The about page has been correctly updated! My view on some of the listed issues
+has evolved in recent years. You will now find those things struckthrough with
+comments added underneath.</p>
+
+<h4 id="future-improvements">Future Improvements</h4>
+<p>There is still minifying, javascript inlining, and font work to be done to make
+the page run faster. Additionally, the tags page is simply a disaster. Between
+all of that and the project pages, there is still a lot left to be done.
+Hopefully, all will be accomplished in time.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+<p>Hopefully all of these changes make the site a bit more enjoyable to use. I do
+understand if the use of analytics bothers you. Please make an issue in the
+tracker, or if someone already has, comment accordingly. If there are enough
+people using this site that honestly care, I might consider removing the
+analytics while I do further research.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2018/11/28/ThothBackup-Part-1/">
+        ThothBackup - Part 1
+      </a>
+    </h1>
+
+    <span class="post-date">28 Nov 2018</span>
+
+    <p>As many people may have guessed, this backup system very quickly got much larger
+than I initially expected. Because of the size of the backup project, the number
+of people interested, and how quickly things are changing along the way, I’ve
+decided to approach this project in a new way.</p>
+
+<p>In the sidebar to the left you will notice there is a new link to a “Projects”
+directory. Here you will be able to find all my larger works. The project is
+now called ThothBackup, and what follows is a list of things I have learned
+along the way. All of this data will be consolidated and entered in a more
+coherent fashion into the project pages, so keep an eye out for those to update.</p>
+
+<p>But for now, we have a lot of ground to cover, so let’s get to work.</p>
+
+<h4 id="part-1---cross-platform-is-hard">Part 1 - Cross Platform is hard</h4>
+
+<p>One of the biggest parts of the backup project was its ability to be
+cross-platform. I want the system to be easy enough to use that anyone and
+everyone could grab a client, get it configured, and get going. To facilitate
+this, the initial idea was to use tools that were built into the operating
+system. On Linux and macOS this is easy enough, as <code class="highlighter-rouge">rsync</code> is installed on most
+distributions by default, and if it isn’t installed it is just a quick package
+manager installation away.</p>
+
+<p>Then however, entered Windows. Initially I assumed that it would be easy to use
+with windows as well. After all, <a href="https://www.rsync.net/resources/howto/windows_rsync.html">rsync.net</a> has a nice little guide
+explaining how to set it up. However, their client can detect when you’re not
+using rsync.net servers (which is totally fair, there’s no hate from me on that)
+and limits using the program to 30 days. The other alternative is cwRsync, which
+was initially freeware, but has since changed to being a paid product. Obviously
+asking someone to play for a program to even be able to start to use the backup
+isn’t a great selling point.</p>
+
+<p>The first idea that I had was to write something on my own. Maybe have shell
+scripts on all platforms check for required code and fetch anything that is
+needed. However, shell scripts are hard for many people to debug, and the sight
+of a command prompt can strike fear into the hearts of many windows users.</p>
+
+<p>The second iteration of the idea was to write something in Python. However at
+that point the client is becoming a software project in its own right, and I
+didn’t start this to develop software, I started it because I wanted to set up
+a neat little backup service for my friends and family.</p>
+
+<p>Thankfully, there are many other software suites that are both cross platform
+and useful for this task. We ended up going with <a href="https://syncthing.net/">SyncThing</a>. SyncThing is
+an open-source (MPL2, which is a permissive form of copyleft) synchronization
+library that is cross-platform and written in Go. I’m a huge fan of Go even
+though I don’t actually write it myself, as it is a fantastic language for
+exactly this type of thing. Even better, SyncThing comes with easy to use and
+easy to understand GUIs, and is capable of NAT and Firewall punching via relays,
+and makes device configuration dependent on acceptance from both the server
+and the client. The protocol it uses is open source, and based on the usage
+reports at least one person is using it on 30 million files with 2,000 peers.
+Last, but most certainly not least, traffic is encrypted with 128 bit AES,
+and the protocol maintains perfect forward secrecy.</p>
+
+<p>All of this (and a whole lot more, it really is an awesome bit of software)
+makes SyncThing perfect for our use case. This may not always remain the case,
+but it gives me somewhere to start. Even if we end up moving beyond SyncThing in
+the future, you really should give it a look. It is a phenomenal piece of
+software.</p>
+
+<h4 id="part-2---changes-in-sync-methods">Part 2 - Changes in Sync Methods</h4>
+
+<p>As hinted above, the original plan to synchronize systems wasn’t going to work
+without more work than I was willing to put in to a single component of the
+system. Once we threw out the initial way the system was supposed to work, we
+had to retool the way things worked on the operating system too.</p>
+
+<p>The original way the sync process was meant to work was that every user’s
+operating system would get its own Server Account, and rsync or some other
+synchronization system would be tunneled through SSH. I wasn’t sure if
+authentication would be handled by system accounts or LDAP, because I never got
+that far. But I did specifically pick the operating system (OpenSUSE) because
+of that distribution’s system configuration manager (YaST).</p>
+
+<p>Now with the use of SyncThing, a daemon process would run under a single user,
+and all clients would then connect to that daemon process which would then
+write to disk using that daemon’s permission set. Thus, no need to worry about
+ACLs or anything of the like. It was interesting to work with ACLs though. You
+can see some of my old code if you browse through the commits history of the
+ThothBackup GitHub repository.</p>
+
+<h4 id="part-3---filesystem-considerations">Part 3 - Filesystem Considerations</h4>
+
+<p>When I was testing the original synchronization strategy, I had everything being
+deposited onto BTRFS subvolumes that were mounted with the <code class="highlighter-rouge">compress</code> option. To
+be entirely honest, I wasn’t that impressed with the way the compression was
+working.</p>
+
+<p>In the new system, BTRFS subvolumes are still being used (User, System Name,
+Operating System, Drive Name, Backup Client, Archive Client, etc) except now
+the subvolumes are mounted with <code class="highlighter-rouge">compress-force</code> option. Additionally, I have
+learned about out-of-band BTRFS deduplication and plan to play around with that
+at this stage in the project as well.</p>
+
+<h4 id="part-4---operating-systems">Part 4 - Operating Systems</h4>
+
+<p>I really, really like OpenSUSE. Like, a whole whole lot. It may very well be my
+favorite binary distribution, and I’ve used quite a few. I think the whole way
+it works is simply phenomenal, I like the company behind it, and it honestly
+boils down to just that: I like it.</p>
+
+<p>But, after all the changes above I began to consider if I shouldn’t change
+distributions. Originally I thought of changing to BSD, but I was concerned
+about software availability. I know FreeBSD tends to have a very well maintained
+ports collection, but I was still.. concerned. Most tools in this arena seem to
+cater toward Linux, and if I was already changing multiple systems to avoid
+having to write new software, did I really want to run the risk of needing to
+write server side software?</p>
+
+<p>After much deliberation, I ended up settling on Debian Stable with backports.
+The initial installation is extremely lean, and there is a truly massive amount
+of documentation available for Debian. It paid off well too. The initial install
+of Debian stable clocked in at 60MB of ram used, where as OpenSUSE was running
+around 200MB after reboot.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>There is honestly still quite a bit more that needs to be discussed. One of the
+most amusing things that the past week or so has taught me is that Sydney’s
+computer is as good of a backup test as a normal single family household. His
+System has 4 drives, over one million files, a quarter of a million directories,
+and about a terabyte of <em>used</em> storage on it. Combining his single computer
+with my mac and a windows virtual machine, and we have as much testing as we
+could need.</p>
+
+<h4 id="notes">Notes</h4>
+<p>I’m going to start including a little section at the bottom of each post to
+remind me what I need to work on. Hopefully having this publicly viewable will
+encourage me to actually follow through on writing more than one blog post every
+18 days.</p>
+
+<ul>
+  <li>stage 1 project page</li>
+  <li>stage 2 project page</li>
+  <li>talk about security improvements that can be done</li>
+  <li>rewrite the server side new client script</li>
+  <li>talk about specific SyncThing configuration options used</li>
+  <li>write utility script to keep server config files up to date in git</li>
+</ul>
+
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page/2/">Older</a>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

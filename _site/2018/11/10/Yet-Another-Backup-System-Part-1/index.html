@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Yet Another Backup System - Part 1 &middot; Bit of A Byte
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/2018/11/10/Yet-Another-Backup-System-Part-1/">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+              ~ $ cat /var/log/yet-another-backup-system-part-1.log</small>
+              
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Yet Another Backup System - Part 1</h1>
+  <span class="post-date">10 Nov 2018</span>
+  <h2 id="introduction">Introduction</h2>
+<p>I’ve been wanting to get back into blogging, or at least writing more
+consistently, and I’ve also been looking for projects to work on. One of my
+favorite things to do, oddly enough, is to work on systems that will manage
+large amounts of data. So, I’ve decided to start a new project.</p>
+
+<p>This is the first in a series of posts detailing the creation of a multi-tiered
+backup system for me, some of my friends, and potentially (but not likely)
+others as well. I will warn people ahead of time that I’m not building any
+hardware that could be called “resilient,” instead I’m using things that I
+already have around the house, plus a few extra cheap purchases, and a lot
+of software to make things work.</p>
+
+<p>Speaking of software, almost everything used will be cross-platform and open
+source. I will likely be writing a lot of “glue,” in the form of shell scripts
+or potentially even some ruby. I will also be trying to focus on keeping things
+secure on untrusted servers, and secure in transit, to sometimes ridiculous
+levels. That being said, this is <strong>NOT</strong> a zero-knowledge system. Since it is
+for me, family, and friends, they are made aware of this ahead of time. In time,
+it is possible that this setup will grow and evolve to make a zero-knowledge
+system that functions similarly to this initial design idea, but that’s far
+down the line.</p>
+
+<p>None of these blog posts will likely be as refined as my Icinga2 tutorials. One
+of the things I am trying to do is just get myself into the habit of documenting
+my projects. If I keep having to revise, edit, and source, I’ll eventually give
+up. So if there is anything you are interested in learning more about, Google
+will likely be your best friend.</p>
+
+<p>Essentially, these are meant to explain how I built the system, and why I did
+what I did. Sometimes that may be as simple as “because I like them more” and
+other times it may have to do with more in depth research.</p>
+
+<h2 id="environment">Environment</h2>
+
+<p>The server will exist in an environment with a battery backup system provided
+for the server, any data drives, and the core router that the server will be
+connected to. Connection to the internet is provided with a 100mbps symmetrical
+fiber connection that can be upgraded instantly to 1Gbps symmetrical if needed.
+Connections between the server and the fiber node is provided via CAT-7A
+cabling. Routing is handled by a Ubiquiti EdgeRouter Lite, with 3gbps line rate
+and one million packet per second routing. IPv6 and IPv4 are supported.</p>
+
+<p>Eventually the router will be able to provide routes both to the public internet
+and to the dn42 darknet and Tor services.</p>
+
+<h2 id="hardware">Hardware</h2>
+
+<p>The hardware isn’t exactly great, but it is the best that can be done at this
+time. The server consists of a Mac Mini Model 2,1 made circa early 2007. It
+contains a dual core Intel Core2 Duo processor running at 2.0 GHz.
+<code class="highlighter-rouge">/proc/cpuinfo</code> is provided here:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">processor</span>       <span class="p">:</span> <span class="m">0</span>
+<span class="n">vendor_id</span>       <span class="p">:</span> <span class="n">GenuineIntel</span>
+<span class="n">cpu</span> <span class="n">family</span>      <span class="p">:</span> <span class="m">6</span>
+<span class="k">model</span>           <span class="p">:</span> <span class="m">15</span>
+<span class="k">model</span> <span class="n">name</span>      <span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span><span class="m">2</span> <span class="n">CPU</span>         <span class="n">T7200</span>  <span class="p">@</span> <span class="m">2.00</span><span class="n">GHz</span>
+<span class="n">stepping</span>        <span class="p">:</span> <span class="m">6</span>
+<span class="n">microcode</span>       <span class="p">:</span> <span class="m">0xd1</span>
+<span class="n">cpu</span> <span class="n">MHz</span>         <span class="p">:</span> <span class="m">2000.000</span>
+<span class="n">cache</span> <span class="n">size</span>      <span class="p">:</span> <span class="m">4096</span> <span class="n">KB</span>
+<span class="n">physical</span> <span class="n">id</span>     <span class="p">:</span> <span class="m">0</span>
+<span class="n">siblings</span>        <span class="p">:</span> <span class="m">2</span>
+<span class="n">core</span> <span class="n">id</span>         <span class="p">:</span> <span class="m">0</span>
+<span class="n">cpu</span> <span class="n">cores</span>       <span class="p">:</span> <span class="m">2</span>
+<span class="n">apicid</span>          <span class="p">:</span> <span class="m">0</span>
+<span class="n">initial</span> <span class="n">apicid</span>  <span class="p">:</span> <span class="m">0</span>
+<span class="n">fpu</span>             <span class="p">:</span> <span class="n">yes</span>
+<span class="n">fpu_exception</span>   <span class="p">:</span> <span class="n">yes</span>
+<span class="n">cpuid</span> <span class="n">level</span>     <span class="p">:</span> <span class="m">10</span>
+<span class="n">wp</span>              <span class="p">:</span> <span class="n">yes</span>
+<span class="n">flags</span>           <span class="p">:</span> <span class="n">fpu</span> <span class="n">vme</span> <span class="n">de</span> <span class="n">pse</span> <span class="n">tsc</span> <span class="n">msr</span> <span class="n">pae</span> <span class="n">mce</span> <span class="n">cx8</span> <span class="n">apic</span> <span class="n">sep</span> <span class="n">mtrr</span> <span class="n">pge</span> <span class="n">mca</span> <span class="n">cmov</span> <span class="n">pat</span> <span class="n">pse36</span> <span class="n">clflush</span> <span class="n">dts</span> <span class="n">acpi</span> <span class="n">mmx</span> <span class="n">fxsr</span> <span class="n">sse</span> <span class="n">sse2</span> <span class="n">ss</span> <span class="n">ht</span> <span class="n">tm</span> <span class="n">pbe</span> <span class="n">syscall</span> <span class="n">nx</span> <span class="n">lm</span> <span class="n">constant_tsc</span> <span class="n">arch_perfmon</span>
+<span class="n">pebs</span> <span class="n">bts</span> <span class="n">rep_good</span> <span class="n">nopl</span> <span class="n">cpuid</span> <span class="n">aperfmperf</span> <span class="n">pni</span> <span class="n">dtes64</span> <span class="n">monitor</span> <span class="n">ds_cpl</span> <span class="n">vmx</span> <span class="n">est</span> <span class="n">tm2</span> <span class="n">ssse3</span> <span class="n">cx16</span> <span class="n">xtpr</span> <span class="n">pdcm</span> <span class="n">lahf_lm</span> <span class="n">pti</span> <span class="n">tpr_shadow</span> <span class="n">dtherm</span>
+<span class="n">bugs</span>            <span class="p">:</span> <span class="n">cpu_meltdown</span> <span class="n">spectre_v1</span> <span class="n">spectre_v2</span> <span class="n">spec_store_bypass</span> <span class="n">l1tf</span>
+<span class="n">bogomips</span>        <span class="p">:</span> <span class="m">3999.68</span>
+<span class="n">clflush</span> <span class="n">size</span>    <span class="p">:</span> <span class="m">64</span>
+<span class="n">cache_alignment</span> <span class="p">:</span> <span class="m">64</span>
+<span class="n">address</span> <span class="n">sizes</span>   <span class="p">:</span> <span class="m">36</span> <span class="n">bits</span> <span class="n">physical</span><span class="p">,</span> <span class="m">48</span> <span class="n">bits</span> <span class="n">virtual</span>
+<span class="n">power</span> <span class="n">management</span><span class="p">:</span>
+
+<span class="n">processor</span>       <span class="p">:</span> <span class="m">1</span>
+<span class="n">vendor_id</span>       <span class="p">:</span> <span class="n">GenuineIntel</span>
+<span class="n">cpu</span> <span class="n">family</span>      <span class="p">:</span> <span class="m">6</span>
+<span class="k">model</span>           <span class="p">:</span> <span class="m">15</span>
+<span class="k">model</span> <span class="n">name</span>      <span class="p">:</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span><span class="m">2</span> <span class="n">CPU</span>         <span class="n">T7200</span>  <span class="p">@</span> <span class="m">2.00</span><span class="n">GHz</span>
+<span class="n">stepping</span>        <span class="p">:</span> <span class="m">6</span>
+<span class="n">microcode</span>       <span class="p">:</span> <span class="m">0xd1</span>
+<span class="n">cpu</span> <span class="n">MHz</span>         <span class="p">:</span> <span class="m">1000.000</span>
+<span class="n">cache</span> <span class="n">size</span>      <span class="p">:</span> <span class="m">4096</span> <span class="n">KB</span>
+<span class="n">physical</span> <span class="n">id</span>     <span class="p">:</span> <span class="m">0</span>
+<span class="n">siblings</span>        <span class="p">:</span> <span class="m">2</span>
+<span class="n">core</span> <span class="n">id</span>         <span class="p">:</span> <span class="m">1</span>
+<span class="n">cpu</span> <span class="n">cores</span>       <span class="p">:</span> <span class="m">2</span>
+<span class="n">apicid</span>          <span class="p">:</span> <span class="m">1</span>
+<span class="n">initial</span> <span class="n">apicid</span>  <span class="p">:</span> <span class="m">1</span>
+<span class="n">fpu</span>             <span class="p">:</span> <span class="n">yes</span>
+<span class="n">fpu_exception</span>   <span class="p">:</span> <span class="n">yes</span>
+<span class="n">cpuid</span> <span class="n">level</span>     <span class="p">:</span> <span class="m">10</span>
+<span class="n">wp</span>              <span class="p">:</span> <span class="n">yes</span>
+<span class="n">flags</span>           <span class="p">:</span> <span class="n">fpu</span> <span class="n">vme</span> <span class="n">de</span> <span class="n">pse</span> <span class="n">tsc</span> <span class="n">msr</span> <span class="n">pae</span> <span class="n">mce</span> <span class="n">cx8</span> <span class="n">apic</span> <span class="n">sep</span> <span class="n">mtrr</span> <span class="n">pge</span> <span class="n">mca</span> <span class="n">cmov</span> <span class="n">pat</span> <span class="n">pse36</span> <span class="n">clflush</span> <span class="n">dts</span> <span class="n">acpi</span> <span class="n">mmx</span> <span class="n">fxsr</span> <span class="n">sse</span> <span class="n">sse2</span> <span class="n">ss</span> <span class="n">ht</span> <span class="n">tm</span> <span class="n">pbe</span> <span class="n">syscall</span> <span class="n">nx</span> <span class="n">lm</span> <span class="n">constant_tsc</span> <span class="n">arch_perfmon</span>
+<span class="n">pebs</span> <span class="n">bts</span> <span class="n">rep_good</span> <span class="n">nopl</span> <span class="n">cpuid</span> <span class="n">aperfmperf</span> <span class="n">pni</span> <span class="n">dtes64</span> <span class="n">monitor</span> <span class="n">ds_cpl</span> <span class="n">vmx</span> <span class="n">est</span> <span class="n">tm2</span> <span class="n">ssse3</span> <span class="n">cx16</span> <span class="n">xtpr</span> <span class="n">pdcm</span> <span class="n">lahf_lm</span> <span class="n">pti</span> <span class="n">tpr_shadow</span> <span class="n">dtherm</span>
+<span class="n">bugs</span>            <span class="p">:</span> <span class="n">cpu_meltdown</span> <span class="n">spectre_v1</span> <span class="n">spectre_v2</span> <span class="n">spec_store_bypass</span> <span class="n">l1tf</span>
+<span class="n">bogomips</span>        <span class="p">:</span> <span class="m">3999.68</span>
+<span class="n">clflush</span> <span class="n">size</span>    <span class="p">:</span> <span class="m">64</span>
+<span class="n">cache_alignment</span> <span class="p">:</span> <span class="m">64</span>
+<span class="n">address</span> <span class="n">sizes</span>   <span class="p">:</span> <span class="m">36</span> <span class="n">bits</span> <span class="n">physical</span><span class="p">,</span> <span class="m">48</span> <span class="n">bits</span> <span class="n">virtual</span>
+<span class="n">power</span> <span class="n">management</span><span class="p">:</span>
+</code></pre></div></div>
+
+<p>The server has been modified substansially from it’s factory state. The sound
+card has been removed, as has the WiFi card and Bluetooth card. IR functionality
+has been disconnected. Any extraneous wires have been removed. The original
+160GB Hitachi hard drive has been replaced with a 240GB solid state drive from
+OWC. The ram has been maxed out with 4GBs, again provided from OWC. The system
+is not capable of addressing all 4GB despite being a 64-bit system due to
+limitations imposed in the EFI. The CMOS battery was replaced, and the processor
+was unseated, cleaned, and thermal material replaced. The fan was also replaced
+to head off any potential issues caused by old age. You can see a picture of the
+internals of the system below.</p>
+
+<p><img src="/images/posts/mac-mini.jpeg" alt="Modified MacMini2,1" /></p>
+
+<p>The system is connected to the router with a Fluke-Certified CAT-7A S/FTP dual
+shielded cable. The interface it is connected to supports a 1Gbps full-duplex
+connection.</p>
+
+<p>The primary data disk is a G-Disk USB-C 4TB external drive. This drive utilizes
+a white label Western Digital Red WD40EFRX. It is connected to the Mac Mini via
+an Anker PowerLine+ USB-C to USB-A nylon cable.</p>
+
+<p>The older Mac Mini’s would refuse to boot if the system could not detect that a
+monitor was connected to the system. Apple claims that this is because the Mac
+Mini was intended to be a true personal computer, which would generally prohibit
+the system’s operation without a display device. Strangely, no such detection is
+present to test for either a keyboard or a mouse.</p>
+
+<p>To bypass this issue, a DVI Dummy Plug is installed in the Mini’s DVI port. This
+plug uses EDID to tell the system that a 1920x1200 capable display is connected.
+This has also been reported to be useful in accelerating VNC Remote
+Administration, however no GUI is present on the system.</p>
+
+<h2 id="operating-system">Operating System</h2>
+
+<p>The operating system used on the server is OpenSUSE Leap 15 x64. You may
+remember that I mentioned above that the EFI used on the system is 32-bits.
+This limitation is bypassed by formatting the internal server drive to utilize
+a legacy MBR partition table. From this, GRUB2 loads in legacy mode, which is
+32-bits. This provides the shim that allows the 32-bit system firmware to load
+a 64-bit operating system. Over 72 hours of stress testing revealed no
+instability with the operating system booted via this method.</p>
+
+<p>OpenSUSE was installed using the Server profile. Originally the
+Transactional-Server profile was used, however the early morning reboots
+could cause issues, and the installation did not seem to play well with LVM.</p>
+
+<h2 id="hardware-stress-testing">Hardware Stress Testing</h2>
+
+<p>The internal solid state drive was tested via an OpenSUSE Live distribution. The
+computer was first suspended and resumed to bypass the system’s EFI’s proclivity
+for freezing the internal drive’s security interface. Once the interface was
+unlocked, <code class="highlighter-rouge">smartctl</code> was used to trigger the drives internal SMART short test,
+conveyance test, and extended test, in that order. All results were nominal.
+The internal drive was then wiped via <code class="highlighter-rouge">hdparm</code> by sending an ATA Enhanced Secure
+Erase Command with a non-null password.</p>
+
+<p>A quick installation of OpenSUSE Leap 15 was then performed.</p>
+
+<p>The hardware was then tested from inside the new installation utilizing the
+Stress-NG test suite for over 24 hours. During this time, four virtual memory
+test workers iterated over 100% of the available memory to force swapping as
+well as check for ram errors. Two CPU test workers were ran on the aggressive
+settings, and an IO worker was deployed to check the SSD interface. All systems
+passed the stress test perfectly, with benchmarks appropriate for a system from
+2007.</p>
+
+<p>The external drive was then connected to the system. A battery of tests were
+performed. First, the drive was tested via <code class="highlighter-rouge">smartctl</code>. As the drive is connected
+via USB, the <code class="highlighter-rouge">-d sat,16</code> option was passed to allow communication directly with
+the USB-SATA bridge. The drive was tested out of the box using the SMART short
+self test, conveyance test, and extended self test. This first round of testing
+took 10 hours to execute. After the inital round of tests, the SMART attributes
+table and its corresponding values was recorded.</p>
+
+<p>Then the <code class="highlighter-rouge">badblocks</code> command was ran to write to and read from every sector on
+the drive. The full command was
+<code class="highlighter-rouge">badblocks -wsv -t random -b 4096 -c 4096 -p 4 -o /root/sdb.log /dev/sdb</code>. This
+performed four read-write-verify passes. Each pass took approximately 50 hours
+to complete.</p>
+
+<p>Once the <code class="highlighter-rouge">badblocks</code> battery was complete, <code class="highlighter-rouge">smartctl</code> was once again used to
+run the same testing sequence of short, conveyance, and extended self tests. The
+attribute table was once again dumped, it’s values recorded, and the values then
+compared to those from the table dumped prior to running <code class="highlighter-rouge">badblocks</code>.</p>
+
+<p>As these tests are actually still in progress, the results are not yet
+definitive.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This first post simply outlines the primary variables in this project. Hardware,
+operating system, and environment should all be assumed to remain static for
+the remaining project entries. Should anything change, I will likely update this
+entry versus notating it in the respective entry where the change was made. It
+will be made clear that this entry has been edited, should that come to pass.</p>
+
+<p>Extensive testing was performed to detect any chance of infant-mortality in the
+hardware. I have previously had negative experiences utilizing hardware right
+out of the box.</p>
+
+
+</div>
+
+<div class="related">
+<h2>Related Posts</h2>
+
+
+
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2018/12/09/ThothBackup-Part-3/">
+          ThothBackup - Part 3 <!--<span class="label label-default">BorgBackup</span>-->  <!--<span class="label label-default">Git</span>-->  <!--<span class="label label-default">Git-Annex</span>-->  <!--<span class="label label-default">Wasabi</span>-->  <!--<span class="label label-default">SyncThing</span>--> 
+          <small>
+            09 Dec 2018
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2018/12/02/ThothBackup-Part-2/">
+          ThothBackup - Part 2 <!--<span class="label label-default">BorgBackup</span>-->  <!--<span class="label label-default">Git</span>-->  <!--<span class="label label-default">Git-Annex</span>-->  <!--<span class="label label-default">Wasabi</span>-->  <!--<span class="label label-default">SyncThing</span>--> 
+          <small>
+            02 Dec 2018
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2018/11/28/ThothBackup-Part-1/">
+          ThothBackup - Part 1 <!--<span class="label label-default">BorgBackup</span>-->  <!--<span class="label label-default">Git</span>-->  <!--<span class="label label-default">Git-Annex</span>-->  <!--<span class="label label-default">Wasabi</span>-->  <!--<span class="label label-default">SyncThing</span>--> 
+          <small>
+            28 Nov 2018
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+        
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      HughesNet Gen4 and IPv6 PMTUD: A Tragedy &middot; Bit of A Byte
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/2015/08/22/HughesNet-And-PMTUD/">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+              ~ $ cat /var/log/hughesnet-gen4-and-ipv6-pmtud-a-tragedy.log</small>
+              
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">HughesNet Gen4 and IPv6 PMTUD: A Tragedy</h1>
+  <span class="post-date">22 Aug 2015</span>
+  <p>So before I went to bed last night I started experiencing some very odd issues
+with my connection. I could connect to Skype, but I couldn’t visit twitter.
+I could talk to Google, but not GitHub. I was able to ping my HT1100 gateway,
+but my Icinga2 monitoring system reported a socket timeout of longer than 10
+seconds on HTTP.</p>
+
+<p>I spent about three hours on it before I finally went to bed. I even went as
+far as to spend five more dollars to purchase a 500MB token in order to see
+if maybe I was being penalized for using too much data in my throttled state,
+as I have been making use of aria2 to manage large downloads that would
+otherwise suffer from a mysterious decryption failure when I was downloading
+via HTTPS. Didn’t help.</p>
+
+<p>This morning I bit the bullet and changed my LAN’s MTU from 1280 to 1500.
+You may be wondering why I refer to this as having to bite the bullet, since
+an MTU of 1500 is standard. Well, come to find out that PMTUD is broken on
+HughesNet. Something about what is done on the HughesNet side causes the
+packets to become too large. Now, IPv6 is supposed to handle this by sending
+ICMPv6 Type 2 “Packet too Large” notices to the end point. While debugging
+PMTUD the other day (about a week ago) I set up my firewall so that <strong>ALL</strong>
+ICMPv6 is allowed, rather than having to itemize the different types. Still,
+no good. I was getting silent failures that I had to use test-ipv6.com to
+resolve, and they still indicated packets were becoming too large for my
+connection. In a fit of irritation, I set my entire LAN to an MTU of 1280.
+Eureka, I have IPv6 functionality.</p>
+
+<p>Obviously after last night, I can’t exactly use that solution anymore, for
+a reason I have yet to understand. So my MTU is set back to 1500, and without
+using HughesNet’s squid proxy (what they call web acceleration), IPv6 fails.
+Oh, I didn’t mention that did I? Yeah, their web acceleration lets IPv6 work.
+However, I run my own squid proxy, locally, which is even faster than theirs.
+It also saves me bandwidth. So I keep web acceleration off.</p>
+
+<ul>
+  <li>Web Acceleration On = PMTUD works, IPv6 BUT I have double caching. Not good.</li>
+  <li>Web Acceleration Off = IPv6 Fails. Not acceptable.</li>
+</ul>
+
+<p>Just to see if I could get something reset in the modem, I even called tech
+support. The solution of “It is a problem with your LAN” was obvious, but still
+frustrating due to the issues described above. However, I am planning to reach
+out to their support today via social media, so I am pushing this article live,
+without links, just so I have something to refer to. I will come back to link
+to the major terms in this a little later. Wish me luck.</p>
+
+</div>
+
+<div class="related">
+<h2>Related Posts</h2>
+
+
+
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

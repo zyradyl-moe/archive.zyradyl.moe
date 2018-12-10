@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/zyradyl
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://zyradyl.github.io
+  * I am zyradyl (https://keybase.io/zyradyl) on keybase.
+  * I have a public key ASD4zWQNu7iHl9vMfiJeL6kkugf8rCLIVSgPri01YWYhIQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120fbf2ca16537246a05d4c7a6e8999ab6858988ceb8466b832775ec3fbf0e482390a",
+      "host": "keybase.io",
+      "kid": "0120f8cd640dbbb88797dbcc7e225e2fa924ba07fcac22c855280fae2d35616621210a",
+      "uid": "3ab29f9b33103e5415a77eed88af5a19",
+      "username": "zyradyl"
+    },
+    "merkle_root": {
+      "ctime": 1543458169,
+      "hash": "b400b9a649fa4ec4f7bb7074177cfdc6e06a6ea0fad96359aebeba3cc501bc4bc499b472b541965df714934fffc2398ddb71105b5a66ca7b6159f05a6f435fe1",
+      "hash_meta": "fc0b0f2897325c7278afe2176113407b59518fd931a8ee5ed0b53a119d50d3cf",
+      "seqno": 4025374
+    },
+    "service": {
+      "entropy": "wxLoVRSIUfNaQ/irkWPn/gHc",
+      "hostname": "zyradyl.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.10.1"
+  },
+  "ctime": 1543458193,
+  "expire_in": 504576000,
+  "prev": "94f5233aa8571c407f6e62c4520218c4ba51f66e6be51c50085f363bf833df69",
+  "seqno": 48,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg+M1kDbu4h5fbzH4iXi+pJLoH/KwiyFUoD64tNWFmISEKp3BheWxvYWTESpcCMMQglPUjOqhXHEB/bmLEUgIYxLpR9m5r5RxQCF82O/gz32nEID6+eoP/s0dTYC2N3C5oPTQuBizpIRN//ZZI4TBnSHqqAgHCo3NpZ8RAqOREZIhvoDbC3RL7Ei+FWzeWoycthcfZ+SBjZt70tL04I9VaAQIWMH3mKdjjHHsaXjhne56xwh6m2C4YsSp1B6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIF3dW2ktTX6LfeKHEa6/F8z3NHKbGHzP0tszhMWf6NMEo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/zyradyl
+
+==================================================================

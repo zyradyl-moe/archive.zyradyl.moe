@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Icinga2 Tutorial Part 4 - Expanding Checks to SNMP &middot; Bit of A Byte
+    
+  </title>
+
+  
+  <!-- canonical link -->
+  <link rel="canonical" href="/2015/09/07/Icinga2-Tutorial-Part-4/">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130197091-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My name is Natalie and I spend most of my time taking apart things I have no business taking apart.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/site/">Site Information</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/zyradyl/zyradyl.github.io">Currently v0.6.0</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+        Ø 2018 - No Rights Reserved.
+      </a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            
+                 <small><a href="http://127.0.0.1">$USER</a>@<a href="/" title="Home">bit-of-a-byte</a>
+              ~ $ cat /var/log/icinga2-tutorial-part-4-expanding-checks-to-snmp.log</small>
+              
+            </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Icinga2 Tutorial Part 4 - Expanding Checks to SNMP</h1>
+  <span class="post-date">07 Sep 2015</span>
+  <ul>
+  <li><a href="/2015/08/10/Icinga2-Tutorial-Part-0/">Icinga2 Tutorial: Part 0 - Network Monitoring for the Masses</a></li>
+  <li><a href="/2015/08/11/Icinga2-Tutorial-Part-1/">Icinga2 Tutorial: Part 1 - Installation and Configuration</a></li>
+  <li><a href="/2015/08/12/Icinga2-Tutorial-Part-2/">Icinga2 Tutorial: Part 2 - Agent-Less Checks</a></li>
+  <li><a href="/2015/08/17/Icinga2-Tutorial-Part-3/">Icinga2 Tutorial: Part 3 - Agent-Based Checks</a></li>
+</ul>
+
+<p><strong>EDIT (2018/12/09):</strong> <em>These guides haven’t been updated since 2015. It is
+possible that there are dead links, or that the configuration syntax has changed
+dramatically. These posts are also some of the most popular on my blog. I plan
+to do a new guide eventually, but for right now please take the following
+entries with a grain of salt.</em></p>
+
+<h2 id="introduction">Introduction</h2>
+<p>Well I have finally persuaded myself to continue writing these posts by
+completely deleting all the configuration I had already set up. It is worth
+noting that I have switched over to Debian Jessie, for no other reason than
+to cause myself more <a href="http://jimlynch.com/linux-articles/the-psychology-of-a-distrohopper/">frustration and suffering</a>. Anyways, let’s get started.</p>
+
+<p>SNMP is considered an <a href="http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/agent-based-checks-addon">Agent-Based Check</a>, and is actually quite
+flexible. You can even go as far as to code in custom return options, to check
+things you normally wouldn’t be able to check over snmp, for example,
+<a href="https://wiki.icinga.org/display/howtos/check_apt+via+SNMP">apt status</a>, and other such things.</p>
+
+<p>It is worth noting that due to using a very small LAN, I will not be
+fiddling around with SNMPv3, I will be going with straight SNMPv1,
+just with a modified community string. We will get started with my core
+router, Djehuti. It is outside the scope of this tutorial to discuss
+how to enable SNMP on your device, but if you use a Ubiquiti device,
+hey that might come soon.</p>
+
+<p>Starting from this post forward, I will be embedding code here instead of
+referring to an external link, as embedding will encourage me to be a bit more
+complete in my explanations. So, with all of that said, let’s get started.</p>
+
+<h2 id="initial-setup">Initial Setup</h2>
+<p>To monitor SNMP we will be using the <a href="http://nagios.manubulon.com/">Manubulon SNMP Plugins</a>. So we first
+need to install them.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor:~$ sudo apt-get install nagios-snmp-plugins
+</code></pre></div></div>
+
+<p>Now we need to open up the main Icinga2 Configuration file and add in the
+proper include to allow us to use these plugins. You may notice while poking
+around this file that there are many things you either don’t need or would like
+to change. I do plan to come back to this file at a later time, but feel free to
+edit this file before that happens. Once you have made the proper changes,
+restart Icinga2 so the new settings take effect.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zyradyl@captor:~$ sudo vim /etc/icinga2/icinga2.conf
+
+    include &lt;manubulon&gt;
+
+zyradyl@captor:~$ sudo service icinga2 restart
+</code></pre></div></div>
+
+<p>With that, we can move on to creating configuration files!</p>
+
+<h2 id="djehuti">Djehuti</h2>
+<p>We will be starting with my core router, which is running SNMPv1. The first
+thing we will want to do is to add some essential variables to our host
+directive so that we don’t have to redefine them with every service.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//
+// Host Declaration Block
+//
+object Host "djehuti.zyradyl.org" {
+    // Define the host IPv4 Address
+    address             = "10.0.0.1"
+    // Define a basic functionality test
+    // Hostalive does a basic ICMP ECHO to the target
+    // specified in the address directive.
+    check_command       = "hostalive"
+    // Define SNMP Variables
+    vars.snmp_address   = "10.0.0.1"
+    vars.snmp_community = "zyradyl"
+    // These are not strictly needed. I add them
+    // so I know at a glance what version of snmp
+    // I am using.
+    vars.snmp_v2        = "false"
+    vars.snmp_v3        = "false"
+}
+</code></pre></div></div>
+
+<p>The new additions are any of the <code class="highlighter-rouge">var.snmp*</code> commands located under the
+<code class="highlighter-rouge">check_command</code> line. With our host variables set up, we can now move on to
+defining a service. The first service defined in the
+<a href="http://docs.icinga.org/icinga2/latest/doc/module/icinga2/toc#!/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#snmp-manubulon-plugin-check-commands">Icinga2 Manubulon Documentation</a> is the <code class="highlighter-rouge">snmp-load</code> check. Seems like a
+good starting place to me!</p>
+
+<h3 id="snmp-load">SNMP-Load</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//    
+// Service Declaration Block
+// Service:     snmp_load
+// Description: Uses SNMP commands to check the load averages
+//              on the device.
+//
+object Service "snmp-load" {
+    host_name           = "djehuti.zyradyl.org"
+    // Set the type of load check to use.
+    vars.snmp_load_type = "netsl"
+    // Set the Load Average warning threshold.
+    vars.snmp_warn      = "5,3,2"
+    // Set the Load Average critical threshold.
+    vars.snmp_crit      = "6,5,3"
+    check_command       = "snmp-load"
+}
+</code></pre></div></div>
+
+<p>I feel I should take a minute to explain the warning and critical variables,
+because the icinga2 documentation doesn’t do a very good job. When checking
+load averages on *nix systems, there are three parameters:</p>
+
+<ul>
+  <li>Average Load over one minute</li>
+  <li>Average Load over five Minutes</li>
+  <li>Average Load over fifteen minutes</li>
+</ul>
+
+<p>Since my router is a dual core device, I have set it up so that if the system
+is at full load for 15 minutes, I get a warning. If it has one process over
+full load for five minutes, I get a warning. If it is three processes over full
+load in one minute, I want a warning. Same thing applies to critical. If you
+are trying to figure out what to set your levels at, I tend to use the following
+formulas:</p>
+
+<ul>
+  <li><strong>Warning:</strong>
+    <ul>
+      <li>1min: 2*(Number of Cores)+1</li>
+      <li>5min: (Number of Cores)+1</li>
+      <li>15min: (Number of Cores)</li>
+    </ul>
+  </li>
+  <li><strong>Critical:</strong>
+    <ul>
+      <li>1min: 3*(Number of Cores)</li>
+      <li>5min: 2*(Number of Cores)+1</li>
+      <li>15min: (Number of Cores)+1</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Once you have your file saved, restart Icinga2, and check the web interface.
+Your new check will likely have an <em>Unknown</em> Status in purple, just click on
+the check, and manually run it by clicking “Check Now” in the right most panel.</p>
+
+<p>With that, we can move on to the next check!</p>
+
+<h3 id="snmp-memory">SNMP-Memory</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//
+// Service Declaration Block
+// Service:     SNMP-Memory
+// Description: Uses SNMP commands to check status of RAM
+//              and swap on the device.
+//
+object Service "snmp-memory" {
+    host_name      = "djehuti.zyradyl.org"
+    // Set the Memory warning for Ram and swap Respectively.
+    // Uses percents.
+    vars.snmp_warn = "50,0"
+    vars.snmp_crit = "80,0"
+    check_command  = "snmp-memory"
+}
+</code></pre></div></div>
+
+<p>The warning and critical values are expressed as percentages of the total
+amount of their applicable setting. The first one applies to RAM and the second
+value corresponds to swap. Restart Icinga2 and log on to the web interface to
+check that the new service works.</p>
+
+<h3 id="snmp-storage">SNMP-Storage</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//
+// Service Declaration Block
+// Service:     SNMP-Storage
+// Description: Uses SNMP commands to check the status of disk
+//              storage space.
+//
+object Service "snmp-storage" {
+    host_name              = "djehuti.zyradyl.org"
+    // Uses percents.
+    vars.snmp_warn         = "50"
+    vars.snmp_crit         = "80"
+    // Specify which partition to monitor
+    vars.snmp_storage_name = "/root.dev"
+    check_command          = "snmp-storage"
+}
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">snmp_storage_name</code> variable is used to specify which device you want to
+check the status of. If you aren’t sure which device you need to check, set
+it to blank, then let it run. It will return a list of partitions that you can
+check. Simply enter the name into that variable and you are good to go.</p>
+
+<p>Just as memory, <code class="highlighter-rouge">snmp-storage</code> uses percent values in the warning and critical
+threshold variables.</p>
+
+<h3 id="snmp-interfaces">SNMP-Interfaces</h3>
+
+<p>I personally like to specify a different service block for each interface
+that I am monitoring, so I am not sure if it is possible to mix interfaces
+together, but I don’t see any reason it wouldn’t be possible. I’m going to
+list the interface configurations below, and if any variables need to be
+explained I will do that below the code.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//
+// Service Declaration Block
+// Service:     SNMP-Interface
+// Description: Uses SNMP commands to check the status of
+//              various network interfaces on device.
+//
+object Service "snmp-int-lan" {
+    host_name                      = "djehuti.zyradyl.org"
+    // Define interface variables.
+    vars.snmp_interface            = "eth0"
+    vars.snmp_interface_label      = "LAN"
+    vars.snmp_interface_perf       = "true"
+    vars.snmp_interface_bits_bytes = "true"
+    vars.snmp_interface_megabytes  = "true"
+    vars.snmp_interface_noregexp   = "true"
+    vars.snmp_warncrit_percent     = "true"
+    // Set warning and crits to 100 to disable.
+    vars.snmp_warn                 = "100,100"
+    vars.snmp_crit                 = "100,100"
+    check_command                  = "snmp-interface"
+}
+
+//
+// Service Declaration Block
+// Service:     SNMP-Interface
+// Description: Uses SNMP commands to check the status of
+//              various network interfaces on device.
+//
+object Service "snmp-int-wan" {
+    host_name                      = "djehuti.zyradyl.org"
+    // Define interface variables.
+    vars.snmp_interface            = "eth1"
+    vars.snmp_interface_label      = "WAN"
+    vars.snmp_interface_perf       = "true"
+    vars.snmp_interface_bits_bytes = "true"
+    vars.snmp_interface_megabytes  = "true"
+    vars.snmp_interface_noregexp   = "true"
+    vars.snmp_warncrit_percent     = "true"
+    // Set warning and crits to 100 to disable.
+    vars.snmp_warn                 = "100,100"
+    vars.snmp_crit                 = "100,100"
+    check_command                  = "snmp-interface"
+}
+
+//
+// Service Declaration Block
+// Service:     SNMP-Interface
+// Description: Uses SNMP commands to check the status of
+//              various network interfaces on device.
+//
+object Service "snmp-int-dmz" {
+    host_name                      = "djehuti.zyradyl.org"
+    // Define interface variables.
+    vars.snmp_interface            = "eth2"
+    vars.snmp_interface_label      = "DMZ"
+    vars.snmp_interface_perf       = "true"
+    vars.snmp_interface_bits_bytes = "true"
+    vars.snmp_interface_megabytes  = "true"
+    vars.snmp_interface_noregexp   = "true"
+    vars.snmp_warncrit_percent     = "true"
+    // Set warning and crits to 100 to disable.
+    vars.snmp_warn                 = "100,100"
+    vars.snmp_crit                 = "100,100"
+    check_command                  = "snmp-interface"
+}
+</code></pre></div></div>
+
+<p>So a few things in here need some explanation. The variable
+<code class="highlighter-rouge">vars.snmp_interface</code> specifies which interface we will be checking.
+<code class="highlighter-rouge">vars.snmp_interface_noregexp</code> is related to this in that it tells icinga2
+to not use regex matching. <code class="highlighter-rouge">vars.snmp_interface_label</code> configures a label
+that will be shown in the console. <code class="highlighter-rouge">vars.snmp_interface_megabytes</code>, and
+<code class="highlighter-rouge">vars.snmp_interface_bits_bytes</code> tells Icinga2 that we want to see bandwidth
+measured in megabits. These variables can be adjusted accordingly. Finally,
+<code class="highlighter-rouge">vars.snmp_interface_perf</code> tells Icinga2 that we want to monitor bandwidth
+usage.</p>
+
+<p>As for warning and critical values, while I like to monitor my bandwidth, I
+don’t actually care how high it goes, at least not at the moment. More relevant
+than that is the fact that my bandwidth is much less than a gigabit, but let’s
+move on from that. <code class="highlighter-rouge">vars.snmp_warncrit_percent</code> says that we are going to
+specify our warning and critical thresholds as a percent of total available
+bandwidth on that port. I then set <code class="highlighter-rouge">vars.snmp_warn</code>, and <code class="highlighter-rouge">vars.snmp_crit</code> to
+100 so that it is effectively disabled.</p>
+
+<p>Once activating these services, you should reset Icinga2. It is worth noting
+that you will first get a pending, and then an unknown status for about five
+minutes, depending on your check time. Icinga compares the newest reading to
+a previous reading that is sufficently old enough, which is usually about five
+minutes, to calculate what has changed. Until you have a row in the database
+that is the proper age, you will get a big <em>Unknown</em> status. Nothing to worry
+about, check back in a half hour.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>There is one more snmp check that is available, and that is the process check.
+While I previously used this setup on my core router, it ended up causing some
+rather wonky effects, so I have elected to not use it. This check would be
+useful to monitor the status of a mission critical process, such as a webserver
+or even a database server. It works by searching the process list for the number
+of times a string appears, and then going from there. I may cover this in the
+future, but I won’t be at the moment.</p>
+
+<p>Thank you for reading, and I hope to have part five up with less of a lag time.
+I am also planning to do Icinga2 integration with slack soon, so stay tuned
+for that!</p>
+
+
+</div>
+
+<div class="related">
+<h2>Related Posts</h2>
+
+
+
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2015/08/17/Icinga2-Tutorial-Part-3/">
+          Icinga2 Tutorial: Part 3 - Agent-Based Checks <!--<span class="label label-default">Icinga2</span>-->  <!--<span class="label label-default">IcingaWeb2</span>--> 
+          <small>
+            17 Aug 2015
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2015/08/12/Icinga2-Tutorial-Part-2/">
+          Icinga2 Tutorial: Part 2 - Agent-Less Checks <!--<span class="label label-default">Icinga2</span>-->  <!--<span class="label label-default">IcingaWeb2</span>--> 
+          <small>
+            12 Aug 2015
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+    
+  
+    
+    
+    
+    <ul class="related-posts">
+    
+    <li>
+      <h3>
+        <a href="/2015/08/11/Icinga2-Tutorial-Part-1/">
+          Icinga2 Tutorial: Part 1 - Installation and Configuration <!--<span class="label label-default">Icinga2</span>-->  <!--<span class="label label-default">IcingaWeb2</span>--> 
+          <small>
+            11 Aug 2015
+          </small>
+        </a>
+      </h3>
+    </li>
+      
+      
+        
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
