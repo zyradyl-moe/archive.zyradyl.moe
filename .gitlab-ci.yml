@@ -5,6 +5,7 @@ variables:
   LC_ALL: C.UTF-8
 
 before_script:
+  - apt-get install cmake
   - bundle install
 
 test:
