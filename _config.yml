@@ -6,7 +6,7 @@ title:               Bit of A Byte
 tagline:             "cat $(find /var/log -name '*.log' -print | head -n 5)"
 description:         'My name is Natalie and I spend most of my time taking apart things I have no business taking apart.'
 url:                 https://zyradyl.gitlab.io
-baseurl:             ''
+baseurl:             '/zyradyl.gitlab.io'
 
 # About/contact
 author:
