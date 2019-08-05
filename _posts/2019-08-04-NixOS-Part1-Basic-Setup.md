@@ -134,13 +134,13 @@ whatever else it decides it needs is up to it.
 ```
 boot = {
   grub = {
-    device                = "nodev"; 	              # This isn't for BIOS.
-    efiInstallAsRemovable = true; 		              # Try to use Standard EFI.
-    efiSupport            = true;  		              # This IS for EFI.
+    device                = "nodev";                # This isn't for BIOS.
+    efiInstallAsRemovable = true;                   # Try to use Standard EFI.
+    efiSupport            = true;                   # This IS for EFI.
     enable                = true;                   # Grub is needed for our weird shit
     enableCryptodisk      = true;                   # Add LUKS support
     extraInitrd           = "/boot/initrd.keys.gz"; # LUKS Key
-    zfsSupport            = true;             		# Add ZFS support
+    zfsSupport            = true;                   # Add ZFS support
   };
 };
 ```
