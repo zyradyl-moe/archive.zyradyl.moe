@@ -7,11 +7,11 @@ title: About
 > **90% of code is crap.”** ~ *Al Viro*
 
 ## Character Statistics ##
-**Name:**       Natalie  
-**Level:**      29  
+**Name:**       Zeph  
+**Level:**      30  
 **Gender:**     Female  
 **Class:**      Dual Class - Healer/Technomage  
-**Occupation:** Mental Health Specialized CPhT/Pharm Student  
+**Occupation:** Hospital/Sterile Compounding CPhT/PharmD Student  
 
 ## Combat Statistics ##
 **STR:** 08  
@@ -23,7 +23,7 @@ title: About
 **SAN:** 08  
 
 ## Blurb ##
-Hi, my name is Natalie and I’m a 29 year old Pharmacy student based out of
+Hi, my name is Zephyr and I’m a 30 year old Pharmacy student based out of
 Missouri. When I’m not reading up on the latest and greatest pharmaceuticals
 I like to take things apart. Anything. A car, a computer, dumping compiled
 code into object code to see how it works. Running network scans on my ISP
