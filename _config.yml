@@ -1,0 +1,45 @@
+# Permalinks
+permalink:           :year/:month/:day/:title/
+
+# Setup
+title:               Bit of A Byte
+tagline:             "cat $(find /var/log -name '*.log' -print | head -n 5)"
+description:         'My name is Zeph and I spend most of my time taking apart things I have no business taking apart.'
+url:                 https://zyradyl.gitlab.io
+baseurl:             ''
+
+# About/contact
+author:
+  name:              Natalie M. Spencer
+  url:               https://twitter.com/zyradyl
+  email:             nmspencer89@gmail.com
+
+# Optional features
+google_analytics_id: UA-130197091-1
+
+# Source vars
+version:             0.6.0
+github:              "https://github.com/zyradyl"
+repo:                "https://github.com/zyradyl/zyradyl.github.io"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+
+# Collections
+collections:
+  - posts
+
+# Pagination Configuration
+paginate: 5
+paginate_path: "/page/:num/"
+
+# Page Listing
+pages_list:
+  About:             /about
+  Archive:           /archive
+  Tags:              /tags
+  Feed:              /atom.xml
+  Site Information:  /site
